@@ -1,0 +1,24 @@
+{
+  "frozen-skill": {
+    "files": {
+      "SKILL.md": 681,
+      "references/environment.md": 424,
+      "references/architecture.md": 977,
+      "references/backend-jobs.md": 482,
+      "references/verification.md": 741,
+      "references/runtime.md": 547
+    },
+    "total": 3852
+  },
+  "invariant-skill": {
+    "files": {
+      "SKILL.md": 681,
+      "references/environment.md": 424,
+      "references/architecture.md": 974,
+      "references/backend-jobs.md": 482,
+      "references/verification.md": 741,
+      "references/runtime.md": 547
+    },
+    "total": 3849
+  }
+}

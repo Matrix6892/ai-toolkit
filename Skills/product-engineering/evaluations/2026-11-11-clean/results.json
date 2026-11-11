@@ -1,0 +1,849 @@
+{
+  "date": "2026-11-11",
+  "base_revision": "d35bf0c2a05e0be7ae0a4003b710844674194dc3",
+  "native_clean_attempts": 23,
+  "rows": [
+    {
+      "id": "regression-analysis-revised-r1",
+      "case": "analysis",
+      "condition": "with",
+      "variant": "revised",
+      "replicate": 3,
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "usage": {
+        "input_tokens": 464411,
+        "cached_input_tokens": 438144,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 31697,
+        "reasoning_output_tokens": 3424,
+        "uncached_input_tokens": 26267
+      },
+      "command_execution_events": 15,
+      "file_change_events": 4,
+      "scope": "fresh CLI context; no personal engineering instructions",
+      "acceptance": {
+        "design": "ungraded; routing candidate rejected on cost evidence, result retained"
+      }
+    },
+    {
+      "id": "scored-analysis-with-r1",
+      "case": "analysis",
+      "condition": "with",
+      "variant": "original",
+      "replicate": 1,
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "usage": {
+        "input_tokens": 441939,
+        "cached_input_tokens": 413184,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 30952,
+        "reasoning_output_tokens": 5578,
+        "uncached_input_tokens": 28755
+      },
+      "command_execution_events": 15,
+      "file_change_events": 5,
+      "scope": "fresh CLI context; no personal engineering instructions",
+      "acceptance": {
+        "design": {
+          "criteria": {
+            "C01": 2,
+            "C02": 2,
+            "C03": 2,
+            "C04": 2,
+            "C05": 2,
+            "C06": 2,
+            "C07": 2,
+            "C08": 2,
+            "C09": 2,
+            "C10": 2,
+            "C11": 2,
+            "C12": 2,
+            "C13": 2
+          },
+          "weighted": 62,
+          "weighted_max": 62,
+          "critical_failures": []
+        }
+      }
+    },
+    {
+      "id": "scored-analysis-with-r2",
+      "case": "analysis",
+      "condition": "with",
+      "variant": "original",
+      "replicate": 2,
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "usage": {
+        "input_tokens": 492149,
+        "cached_input_tokens": 461568,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 27875,
+        "reasoning_output_tokens": 4276,
+        "uncached_input_tokens": 30581
+      },
+      "command_execution_events": 16,
+      "file_change_events": 5,
+      "scope": "fresh CLI context; no personal engineering instructions",
+      "acceptance": {
+        "design": {
+          "criteria": {
+            "C01": 2,
+            "C02": 2,
+            "C03": 2,
+            "C04": 2,
+            "C05": 2,
+            "C06": 2,
+            "C07": 2,
+            "C08": 2,
+            "C09": 2,
+            "C10": 2,
+            "C11": 2,
+            "C12": 2,
+            "C13": 2
+          },
+          "weighted": 62,
+          "weighted_max": 62,
+          "critical_failures": []
+        }
+      }
+    },
+    {
+      "id": "scored-analysis-without-r1",
+      "case": "analysis",
+      "condition": "without",
+      "variant": "without",
+      "replicate": 1,
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "usage": {
+        "input_tokens": 416423,
+        "cached_input_tokens": 381952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 30887,
+        "reasoning_output_tokens": 5263,
+        "uncached_input_tokens": 34471
+      },
+      "command_execution_events": 6,
+      "file_change_events": 5,
+      "scope": "fresh CLI context; no personal engineering instructions",
+      "acceptance": {
+        "design": {
+          "criteria": {
+            "C01": 2,
+            "C02": 2,
+            "C03": 2,
+            "C04": 2,
+            "C05": 2,
+            "C06": 2,
+            "C07": 2,
+            "C08": 2,
+            "C09": 2,
+            "C10": 2,
+            "C11": 2,
+            "C12": 2,
+            "C13": 2
+          },
+          "weighted": 62,
+          "weighted_max": 62,
+          "critical_failures": []
+        }
+      }
+    },
+    {
+      "id": "scored-analysis-without-r2",
+      "case": "analysis",
+      "condition": "without",
+      "variant": "without",
+      "replicate": 2,
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "usage": {
+        "input_tokens": 317638,
+        "cached_input_tokens": 296960,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 27261,
+        "reasoning_output_tokens": 3723,
+        "uncached_input_tokens": 20678
+      },
+      "command_execution_events": 7,
+      "file_change_events": 4,
+      "scope": "fresh CLI context; no personal engineering instructions",
+      "acceptance": {
+        "design": {
+          "criteria": {
+            "C01": 2,
+            "C02": 2,
+            "C03": 2,
+            "C04": 2,
+            "C05": 2,
+            "C06": 2,
+            "C07": 2,
+            "C08": 2,
+            "C09": 2,
+            "C10": 2,
+            "C11": 2,
+            "C12": 2,
+            "C13": 1
+          },
+          "weighted": 60,
+          "weighted_max": 62,
+          "critical_failures": []
+        }
+      }
+    },
+    {
+      "id": "scored-holdout-invariant-regression",
+      "case": "holdout",
+      "condition": "with",
+      "variant": "invariant",
+      "replicate": 3,
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "usage": {
+        "input_tokens": 326237,
+        "cached_input_tokens": 298880,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 14593,
+        "reasoning_output_tokens": 4468,
+        "uncached_input_tokens": 27357
+      },
+      "command_execution_events": 12,
+      "file_change_events": 5,
+      "scope": "fresh CLI context; no personal engineering instructions",
+      "acceptance": {
+        "public": {
+          "passed": true,
+          "test_methods": 27
+        },
+        "hidden": {
+          "passed": true,
+          "test_methods": 15
+        }
+      }
+    },
+    {
+      "id": "scored-holdout-original-r1",
+      "case": "holdout",
+      "condition": "with",
+      "variant": "original",
+      "replicate": 1,
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "usage": {
+        "input_tokens": 429725,
+        "cached_input_tokens": 376192,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 16834,
+        "reasoning_output_tokens": 4259,
+        "uncached_input_tokens": 53533
+      },
+      "command_execution_events": 15,
+      "file_change_events": 5,
+      "scope": "fresh CLI context; no personal engineering instructions",
+      "acceptance": {
+        "public": {
+          "passed": true,
+          "test_methods": 24
+        },
+        "hidden": {
+          "passed": true,
+          "test_methods": 15
+        }
+      }
+    },
+    {
+      "id": "scored-holdout-original-r2",
+      "case": "holdout",
+      "condition": "with",
+      "variant": "original",
+      "replicate": 2,
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "usage": {
+        "input_tokens": 366677,
+        "cached_input_tokens": 338944,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 17660,
+        "reasoning_output_tokens": 4785,
+        "uncached_input_tokens": 27733
+      },
+      "command_execution_events": 12,
+      "file_change_events": 5,
+      "scope": "fresh CLI context; no personal engineering instructions",
+      "acceptance": {
+        "public": {
+          "passed": true,
+          "test_methods": 31
+        },
+        "hidden": {
+          "passed": true,
+          "test_methods": 15
+        }
+      }
+    },
+    {
+      "id": "scored-holdout-revised-r1",
+      "case": "holdout",
+      "condition": "with",
+      "variant": "revised",
+      "replicate": 1,
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "usage": {
+        "input_tokens": 255038,
+        "cached_input_tokens": 208640,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 15734,
+        "reasoning_output_tokens": 3156,
+        "uncached_input_tokens": 46398
+      },
+      "command_execution_events": 10,
+      "file_change_events": 4,
+      "scope": "fresh CLI context; no personal engineering instructions",
+      "acceptance": {
+        "public": {
+          "passed": true,
+          "test_methods": 27
+        },
+        "hidden": {
+          "passed": true,
+          "test_methods": 15
+        }
+      }
+    },
+    {
+      "id": "scored-holdout-revised-r2",
+      "case": "holdout",
+      "condition": "with",
+      "variant": "revised",
+      "replicate": 2,
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "usage": {
+        "input_tokens": 300290,
+        "cached_input_tokens": 243200,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 15357,
+        "reasoning_output_tokens": 4859,
+        "uncached_input_tokens": 57090
+      },
+      "command_execution_events": 12,
+      "file_change_events": 5,
+      "scope": "fresh CLI context; no personal engineering instructions",
+      "acceptance": {
+        "public": {
+          "passed": true,
+          "test_methods": 20
+        },
+        "hidden": {
+          "passed": true,
+          "test_methods": 15
+        }
+      }
+    },
+    {
+      "id": "scored-holdout-without-r1",
+      "case": "holdout",
+      "condition": "without",
+      "variant": "without",
+      "replicate": 1,
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "usage": {
+        "input_tokens": 327135,
+        "cached_input_tokens": 280576,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 17512,
+        "reasoning_output_tokens": 4626,
+        "uncached_input_tokens": 46559
+      },
+      "command_execution_events": 9,
+      "file_change_events": 7,
+      "scope": "fresh CLI context; no personal engineering instructions",
+      "acceptance": {
+        "public": {
+          "passed": true,
+          "test_methods": 23
+        },
+        "hidden": {
+          "passed": true,
+          "test_methods": 15
+        }
+      }
+    },
+    {
+      "id": "scored-holdout-without-r2",
+      "case": "holdout",
+      "condition": "without",
+      "variant": "without",
+      "replicate": 2,
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "usage": {
+        "input_tokens": 145644,
+        "cached_input_tokens": 128512,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 10078,
+        "reasoning_output_tokens": 1759,
+        "uncached_input_tokens": 17132
+      },
+      "command_execution_events": 10,
+      "file_change_events": 0,
+      "scope": "fresh CLI context; no personal engineering instructions",
+      "acceptance": {
+        "public": {
+          "passed": true,
+          "test_methods": 21
+        },
+        "hidden": {
+          "passed": true,
+          "test_methods": 15
+        }
+      }
+    },
+    {
+      "id": "scored-projection-with-r1",
+      "case": "projection",
+      "condition": "with",
+      "variant": "original",
+      "replicate": 1,
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "usage": {
+        "input_tokens": 243406,
+        "cached_input_tokens": 216960,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 11196,
+        "reasoning_output_tokens": 1773,
+        "uncached_input_tokens": 26446
+      },
+      "command_execution_events": 11,
+      "file_change_events": 3,
+      "scope": "fresh CLI context; no personal engineering instructions",
+      "acceptance": {
+        "public": {
+          "passed": true,
+          "test_methods": 23
+        },
+        "hidden": {
+          "passed": true,
+          "test_methods": 16
+        }
+      }
+    },
+    {
+      "id": "scored-projection-with-r2",
+      "case": "projection",
+      "condition": "with",
+      "variant": "original",
+      "replicate": 2,
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "usage": {
+        "input_tokens": 283228,
+        "cached_input_tokens": 235264,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 10024,
+        "reasoning_output_tokens": 1786,
+        "uncached_input_tokens": 47964
+      },
+      "command_execution_events": 12,
+      "file_change_events": 6,
+      "scope": "fresh CLI context; no personal engineering instructions",
+      "acceptance": {
+        "public": {
+          "passed": true,
+          "test_methods": 18
+        },
+        "hidden": {
+          "passed": true,
+          "test_methods": 16
+        }
+      }
+    },
+    {
+      "id": "scored-projection-without-r1",
+      "case": "projection",
+      "condition": "without",
+      "variant": "without",
+      "replicate": 1,
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "usage": {
+        "input_tokens": 203598,
+        "cached_input_tokens": 181760,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 9495,
+        "reasoning_output_tokens": 1754,
+        "uncached_input_tokens": 21838
+      },
+      "command_execution_events": 11,
+      "file_change_events": 4,
+      "scope": "fresh CLI context; no personal engineering instructions",
+      "acceptance": {
+        "public": {
+          "passed": true,
+          "test_methods": 19
+        },
+        "hidden": {
+          "passed": true,
+          "test_methods": 16
+        }
+      }
+    },
+    {
+      "id": "scored-projection-without-r2",
+      "case": "projection",
+      "condition": "without",
+      "variant": "without",
+      "replicate": 2,
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "usage": {
+        "input_tokens": 166396,
+        "cached_input_tokens": 128768,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 10504,
+        "reasoning_output_tokens": 1987,
+        "uncached_input_tokens": 37628
+      },
+      "command_execution_events": 8,
+      "file_change_events": 3,
+      "scope": "fresh CLI context; no personal engineering instructions",
+      "acceptance": {
+        "public": {
+          "passed": true,
+          "test_methods": 21
+        },
+        "hidden": {
+          "passed": true,
+          "test_methods": 16
+        }
+      }
+    },
+    {
+      "id": "scored-recovery-with-r1",
+      "case": "recovery",
+      "condition": "with",
+      "variant": "original",
+      "replicate": 1,
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "usage": {
+        "input_tokens": 265612,
+        "cached_input_tokens": 239360,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 14229,
+        "reasoning_output_tokens": 5713,
+        "uncached_input_tokens": 26252
+      },
+      "command_execution_events": 9,
+      "file_change_events": 4,
+      "scope": "fresh CLI context; no personal engineering instructions",
+      "acceptance": {
+        "public": {
+          "passed": true,
+          "test_methods": 27
+        },
+        "hidden": {
+          "passed": true,
+          "test_methods": 16
+        }
+      }
+    },
+    {
+      "id": "scored-recovery-with-r2",
+      "case": "recovery",
+      "condition": "with",
+      "variant": "original",
+      "replicate": 2,
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "usage": {
+        "input_tokens": 323246,
+        "cached_input_tokens": 298112,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 12175,
+        "reasoning_output_tokens": 2634,
+        "uncached_input_tokens": 25134
+      },
+      "command_execution_events": 11,
+      "file_change_events": 5,
+      "scope": "fresh CLI context; no personal engineering instructions",
+      "acceptance": {
+        "public": {
+          "passed": true,
+          "test_methods": 31
+        },
+        "hidden": {
+          "passed": true,
+          "test_methods": 16
+        }
+      }
+    },
+    {
+      "id": "scored-recovery-without-r1",
+      "case": "recovery",
+      "condition": "without",
+      "variant": "without",
+      "replicate": 1,
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "usage": {
+        "input_tokens": 256601,
+        "cached_input_tokens": 236160,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 14415,
+        "reasoning_output_tokens": 4506,
+        "uncached_input_tokens": 20441
+      },
+      "command_execution_events": 10,
+      "file_change_events": 4,
+      "scope": "fresh CLI context; no personal engineering instructions",
+      "acceptance": {
+        "public": {
+          "passed": true,
+          "test_methods": 36
+        },
+        "hidden": {
+          "passed": true,
+          "test_methods": 16
+        }
+      }
+    },
+    {
+      "id": "scored-recovery-without-r2",
+      "case": "recovery",
+      "condition": "without",
+      "variant": "without",
+      "replicate": 2,
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "usage": {
+        "input_tokens": 174365,
+        "cached_input_tokens": 155520,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 11029,
+        "reasoning_output_tokens": 2433,
+        "uncached_input_tokens": 18845
+      },
+      "command_execution_events": 11,
+      "file_change_events": 4,
+      "scope": "fresh CLI context; no personal engineering instructions",
+      "acceptance": {
+        "public": {
+          "passed": true,
+          "test_methods": 28
+        },
+        "hidden": {
+          "passed": true,
+          "test_methods": 16
+        }
+      }
+    },
+    {
+      "id": "transfer-analysis-invariant-r1",
+      "case": "invariant-transfer",
+      "condition": "with",
+      "variant": "invariant",
+      "replicate": 1,
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "usage": {
+        "input_tokens": 213424,
+        "cached_input_tokens": 193280,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 9916,
+        "reasoning_output_tokens": 1694,
+        "uncached_input_tokens": 20144
+      },
+      "command_execution_events": 8,
+      "file_change_events": 4,
+      "scope": "fresh CLI context; no personal engineering instructions",
+      "acceptance": {
+        "design": {
+          "criteria": {
+            "H1": 2,
+            "H2": 2,
+            "H3": 2,
+            "H4": 2,
+            "H5": 2,
+            "H6": 2
+          },
+          "sum": 12,
+          "max": 12,
+          "critical_failures": []
+        }
+      }
+    },
+    {
+      "id": "transfer-analysis-original-r1",
+      "case": "invariant-transfer",
+      "condition": "with",
+      "variant": "original",
+      "replicate": 1,
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "usage": {
+        "input_tokens": 215619,
+        "cached_input_tokens": 193536,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 9410,
+        "reasoning_output_tokens": 2355,
+        "uncached_input_tokens": 22083
+      },
+      "command_execution_events": 9,
+      "file_change_events": 3,
+      "scope": "fresh CLI context; no personal engineering instructions",
+      "acceptance": {
+        "design": {
+          "criteria": {
+            "H1": 2,
+            "H2": 2,
+            "H3": 2,
+            "H4": 2,
+            "H5": 2,
+            "H6": 2
+          },
+          "sum": 12,
+          "max": 12,
+          "critical_failures": []
+        }
+      }
+    },
+    {
+      "id": "transfer-analysis-without-r1",
+      "case": "invariant-transfer",
+      "condition": "without",
+      "variant": "without",
+      "replicate": 1,
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "usage": {
+        "input_tokens": 168423,
+        "cached_input_tokens": 158848,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 12065,
+        "reasoning_output_tokens": 5136,
+        "uncached_input_tokens": 9575
+      },
+      "command_execution_events": 7,
+      "file_change_events": 2,
+      "scope": "fresh CLI context; no personal engineering instructions",
+      "acceptance": {
+        "design": {
+          "criteria": {
+            "H1": 2,
+            "H2": 2,
+            "H3": 2,
+            "H4": 2,
+            "H5": 2,
+            "H6": 2
+          },
+          "sum": 12,
+          "max": 12,
+          "critical_failures": []
+        }
+      }
+    }
+  ],
+  "excluded_infrastructure_attempts": [
+    {
+      "id": "clean-recovery-with-r1",
+      "reason": "pilot_excluded_runtime_index_exposure"
+    },
+    {
+      "id": "clean-recovery-without-r1",
+      "reason": "pilot_excluded_runtime_index_exposure"
+    },
+    {
+      "id": "recovery-with-r1",
+      "reason": "invalid_infrastructure_nested_sandbox"
+    },
+    {
+      "id": "recovery-with-r2",
+      "reason": "invalid_infrastructure_nested_sandbox"
+    },
+    {
+      "id": "recovery-without-r1",
+      "reason": "invalid_infrastructure_nested_sandbox"
+    }
+  ],
+  "primary_code_totals": {
+    "with": {
+      "attempts": 4,
+      "input_tokens": 1115492,
+      "cached_input_tokens": 989696,
+      "uncached_input_tokens": 125796,
+      "output_tokens": 47624,
+      "reasoning_output_tokens": 11906,
+      "command_execution_events": 43,
+      "file_change_events": 18
+    },
+    "without": {
+      "attempts": 4,
+      "input_tokens": 800960,
+      "cached_input_tokens": 702208,
+      "uncached_input_tokens": 98752,
+      "output_tokens": 45443,
+      "reasoning_output_tokens": 10680,
+      "command_execution_events": 40,
+      "file_change_events": 15
+    }
+  },
+  "publication_groups": {
+    "original": {
+      "attempts": 2,
+      "input_tokens": 796402,
+      "cached_input_tokens": 715136,
+      "uncached_input_tokens": 81266,
+      "output_tokens": 34494,
+      "reasoning_output_tokens": 9044,
+      "command_execution_events": 27,
+      "file_change_events": 10
+    },
+    "revised": {
+      "attempts": 2,
+      "input_tokens": 555328,
+      "cached_input_tokens": 451840,
+      "uncached_input_tokens": 103488,
+      "output_tokens": 31091,
+      "reasoning_output_tokens": 8015,
+      "command_execution_events": 22,
+      "file_change_events": 9
+    },
+    "without": {
+      "attempts": 2,
+      "input_tokens": 472779,
+      "cached_input_tokens": 409088,
+      "uncached_input_tokens": 63691,
+      "output_tokens": 27590,
+      "reasoning_output_tokens": 6385,
+      "command_execution_events": 19,
+      "file_change_events": 7
+    },
+    "invariant": {
+      "attempts": 1,
+      "input_tokens": 326237,
+      "cached_input_tokens": 298880,
+      "uncached_input_tokens": 27357,
+      "output_tokens": 14593,
+      "reasoning_output_tokens": 4468,
+      "command_execution_events": 12,
+      "file_change_events": 5
+    }
+  },
+  "limits": [
+    "Stock Codex instructions remain equally available. Only personal engineering instructions, skills, state and prior histories are excluded.",
+    "CLI invocation model/effort recorded; JSON stream has no separate provider identity report.",
+    "Token use is observed CLI turn totals, not money or full author/reviewer/Root cost. Reasoning tokens are a subset of output, not additive.",
+    "Command/file-change events are observable events, not necessarily one provider inference or tool API round-trip each.",
+    "Small synthetic samples; not a statistical or graduate-equivalence claim.",
+    "Original recovery oracle was corrected for two reference-specific requirements; earlier outcomes retained privately.",
+    "Transfer case was authored after the observed gap: a targeted transfer check, not an unbiased prevalence estimate.",
+    "Routing candidate was rejected despite lower gross input: uncached input increased. Its extra analysis regression was retained ungraded."
+  ]
+}

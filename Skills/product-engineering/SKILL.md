@@ -1,46 +1,41 @@
 ---
 name: product-engineering
-description: Build a new product slice, plan or implement an existing project's architectural improvement, or prepare bounded engineering tasks for another executor. Use for substantive product and architecture work; routine local fixes use the existing project workflow.
+description: Implement agent-driven product changes, system design, rewrites, or language/database replacements with explicit contracts and verified results. Use for substantive engineering; routine local fixes follow the project workflow.
 ---
 
-# Product engineering
+# Product engineering for agents
 
-Turn a product goal into a small useful change with explicit behavior and evidence. This package supports the project's existing architecture; it does not prescribe a framework, directory layout, number of layers or model.
+Deliver the authorized product behavior with an implementation another agent can locate, change and verify. A full rewrite or database/language replacement is valid scope; the existing implementation supplies evidence, not a veto.
 
-## When and what to load
+## Load by decision
 
-- New product or architectural change: read [architecture](references/architecture.md), starting from the intended user scenario.
-- Stateful jobs, concurrency, APIs, external effects or recovery: read the relevant sections of [runtime](references/runtime.md).
-- Multi-step implementation, meaningful verification or authorized delegation: read [verification](references/verification.md).
-- Stack, dependencies, commands or reproducibility: read [environment](references/environment.md).
-- Durable agent-backed backend job: additionally read [backend jobs](references/backend-jobs.md); apply only relevant guarantees.
-- Source provenance, exclusions or review status: read [sources](references/sources.md).
+- Requirements, system boundaries, technical choices or redesign: read [system analysis and architecture](references/architecture.md).
+- State, concurrency, external effects or data recovery: read [runtime](references/runtime.md).
+- Verification, multi-step execution or authorized delegation: read [verification](references/verification.md).
+- Toolchains, dependencies or reproducible execution: read [environment](references/environment.md).
+- Work that survives a request or process: additionally read [backend jobs](references/backend-jobs.md).
+- Maintenance of this package: read [sources and validation](references/sources.md).
 
-References are conditional, not a required reading list. Reuse current evidence. For a small local correction, keep the current project structure and perform a direct relevant check.
+Load relevant sections, reuse current evidence, and expand context when a dependency or contradiction requires it. A known local fix needs direct work and a relevant check.
 
-## Inputs and expected result
+## Contract and execution
 
-Inputs: user goal and authorized scope, repository and its instructions if it exists, one important user scenario, known constraints, and available code/tests. Name an assumption only when it affects the result. Ask for a missing decision that changes correctness while progressing independent work.
+Inputs: authorized goal, repository instructions, observable acceptance cases, available sources/tools and actual constraints. Ask only for a missing decision that changes correctness or authorization; continue independent work.
 
-Result: an implemented and appropriately checked useful slice, or a grounded specification and transition plan when the user requested planning only. The receiving person or agent can identify the owner of state, the behavior promised to callers, relevant errors, and the next action. Existence of documents is not evidence of product usefulness.
+A contract states inputs, outputs, errors and caller obligations. Record it in existing types, tests or documentation beside its owner.
 
-Mechanism: connect goal → user scenario → observable behavior → owning module/contract → change → meaningful check. Use actual project commands and examples. A contract is what an operation promises, including outputs, errors and caller obligations; it can be a function signature and a test rather than a new document.
+1. **Establish the result.** Separate required behavior, intended changes, assumptions and known defects. Follow the system-analysis questions when the solution is unclear.
+2. **Locate the evidence.** Read the owning module, actual callers and relevant checks. Confirm tool and source access before relying on them.
+3. **Implement the requested scope.** Use local checks to catch mistakes early, including during a full rewrite. Settle shared contracts before dependent work. A planning request produces a plan; implementation continues through verification.
+4. **Verify behavior.** Compare the actual artifact with acceptance cases from a reliable source. Check affected consumers and meaningful failure cases on the relevant stack. Correct regressions and distinguish intentional behavior changes.
+5. **Leave a resumable result.** Preserve commands, artifact/revision identity, essential reasons and unresolved limits. Report what is implemented, verified and available. Release task-owned resources; after interruption inspect the same work before launching more.
 
-## Working sequence
+## Economy and delegation
 
-1. **Orient.** For substantive work state the goal, effect, scope and proposed check briefly. Inspect project instructions, the touched module, its relevant tests and actual consumers; expand by discovered dependencies. Preserve product choices and current authorization.
-2. **Choose a slice.** In a new product, implement a first useful scenario end to end before accumulating layers. In an existing project, identify a concrete difficulty or bad outcome with a code location and triggering case. Separate confirmed defects, hypotheses and optional design choices.
-3. **Make behavior explicit.** For a changed boundary, record inputs/outputs, owner of writes, errors and a distinguishing example in existing project types, tests or documentation. Use a transition table only when order, retries, cancellation or recovery change correctness.
-4. **Deliver within scope.** Keep implementation replaceable behind the contract and follow useful existing conventions. A plan-only request ends with checked planning artifacts; an implementation request continues to the permitted implementation and verification. Installation of tools, creation of services, deployment and delegation follow the current user's scope and environment rules.
-5. **Check the next consumer.** Derive expected behavior from requirements or a reliable reference, independently of the implementation. Run checks for the affected guarantee plus one relevant consumer interaction. Reuse current checks; broaden them for new risk, changed conditions or failures. Correct regressions caused by the change.
-6. **Leave usable evidence.** Keep essential reasons, executable commands and unresolved limitations in the project. Report separately what was implemented, checked, available in the intended environment and accepted. Tie a useful next step to the remaining product goal.
+Optimize context retrieval, model/tool calls, execution and correction per accepted result. Use agent/tool access and observed execution as constraints; do not infer human-staffing, stack-familiarity or manual-rewrite limits. Keep one authoritative statement per rule; handoffs carry decisions, unresolved gaps and links to contracts and evidence instead of restating the design. Add detail where it changes an action or verification.
 
-## Delegation when authorized
-
-Prepare a bounded task with the goal, permitted files, consumer/provider contract, concrete examples and expected outcomes, relevant reference excerpts and runnable checks. The executor must actually have the sources and instructions; a link on the coordinator's machine is insufficient.
-
-For an ambiguous or consequential boundary, ask the executor to explain the intended behavior and examples before dependent implementation. A routine local task needs no ceremonial understanding stage. The lead agent owns integration and independent evaluation; the executor's confidence, tests or explanation alone are not acceptance. Select models and delegation tools from the available environment; this skill neither grants delegation nor fixes a model/effort.
+When delegation is authorized, provide a bounded goal, accessible raw inputs, permitted writes, shared contracts, expected outcomes and runnable checks. Check access first; return artifact identity, evidence and unknowns. Assign one writer per shared change and independently verify integration. This skill grants no delegation, installation, deployment or production permissions.
 
 ## Validation status
 
-This is a portable synthesis of owner engineering guidance and source-backed backend examples. Static package validation and the independent consultation are recorded in the source note. Effect on real product work remains unmeasured until a concrete project uses it.
+Format, retrieval and behavioral evidence have separate limits recorded in the source note. A readable instruction or successful example does not establish general model reliability.

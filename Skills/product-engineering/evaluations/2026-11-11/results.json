@@ -1,0 +1,48 @@
+{
+  "date": "2026-11-11",
+  "base": "e77a215aca25dbeb6bbf3f22a5e730e9a15ae723",
+  "terra": {
+    "model": "gpt-6.1-terra",
+    "effort": "max",
+    "condition": "with skill",
+    "design": {
+      "boundaries": "pass",
+      "constraints": "pass",
+      "offline": "pass",
+      "change_initial": "partial: inferred human-team capability gate",
+      "change_after_targeted_skill_repair": "pass"
+    },
+    "root_operation": {
+      "passed": 12,
+      "failed": 0
+    },
+    "root_migration": {
+      "passed": 10,
+      "failed": 0
+    }
+  },
+  "sol": {
+    "model": "gpt-6.1-sol",
+    "effort": "high",
+    "with": {
+      "design_pass": 4,
+      "root_operation_pass": 12,
+      "root_migration_pass": 10
+    },
+    "without": {
+      "design_pass": 4,
+      "root_operation_pass": 12,
+      "root_migration_pass": 10
+    },
+    "blind_design_result": "all four pairs tied on material guarantees; 78 criteria assessed across eight answers"
+  },
+  "limits": [
+    "One run per case/condition, no statistical or general human-equivalence claim.",
+    "Both conditions had the same strong host instructions and access to engineering guidance; without means without this package, not without guidance.",
+    "Terra tested during development; only change was rerun after final targeted rule repair. Sol tested the frozen final operational files.",
+    "No provider billing, reasoning-token or complete tool/input telemetry. Saved final-answer length is not total task cost.",
+    "Migration guarantee concerns source data and main file. SQLite may create shared WAL/SHM sidecars; deleting them automatically would be unsafe.",
+    "Design checks validate proposals, not a deployed system. Independent Rust/Python checks execute actual artifacts.",
+    "With-migration root test was repeated once to preserve its lost console evidence, after confirming no previous process remained."
+  ]
+}

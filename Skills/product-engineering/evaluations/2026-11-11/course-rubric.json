@@ -1,0 +1,37 @@
+{
+  "basis": "worked examples in course113; alternatives judged by guarantees, not exact topology",
+  "criteria": {
+    "boundaries": [
+      "independent domain rules not unified by identical code",
+      "deployment separate from domain ownership",
+      "future change and data ownership modeled",
+      "no manual labor/team capacity gate",
+      "acceptance catches cross-domain effects"
+    ],
+    "constraints": [
+      "different concerns and data semantics not globalized",
+      "external procurement/logistics honored",
+      "mutable state separated from immutable financial guarantees",
+      "replaceable pipeline behavior or equivalent justified",
+      "scaling applied to shop/matching only as grounded",
+      "no invented quality thresholds",
+      "storage/communications chosen by requirements",
+      "Rust rewrite accepted"
+    ],
+    "change": [
+      "read/write boundaries may split one domain",
+      "report load isolated without synchronous hot-path coupling",
+      "five-minute lag justified, not magic consistency claim",
+      "immutability and existing data preserved",
+      "code/copy/data transfer compared by guarantees",
+      "concurrent changes during copy accounted for",
+      "compile is insufficient; observable checks defined",
+      "missing pause/sizing facts remain unknown"
+    ]
+  },
+  "sources": {
+    "boundaries": "b7658495afaf40bcba388473319c586c",
+    "constraints": "4197ce7f9748404fb673895004b43c95 + f742cf79b2a44d22a462b1af84cbd4bb",
+    "change": "bdcde38473734a1caa5e3b59621c3581"
+  }
+}

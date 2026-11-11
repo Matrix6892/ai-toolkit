@@ -1,0 +1,56 @@
+{
+  "tokenizer": "o200k_base",
+  "static_skill": {
+    "SKILL.md": {
+      "before": 950,
+      "after": 681
+    },
+    "references/architecture.md": {
+      "before": 750,
+      "after": 977
+    },
+    "references/runtime.md": {
+      "before": 646,
+      "after": 547
+    },
+    "references/verification.md": {
+      "before": 829,
+      "after": 741
+    },
+    "references/environment.md": {
+      "before": 419,
+      "after": 424
+    },
+    "references/backend-jobs.md": {
+      "before": 740,
+      "after": 482
+    }
+  },
+  "static_total": {
+    "before": 4334,
+    "after": 3852
+  },
+  "design_output_tokens": {
+    "boundaries": {
+      "with": 2368,
+      "without": 2194
+    },
+    "constraints": {
+      "with": 5672,
+      "without": 6335
+    },
+    "change": {
+      "with": 3640,
+      "without": 4587
+    },
+    "offline": {
+      "with": 2629,
+      "without": 3149
+    }
+  },
+  "design_output_total": {
+    "with": 14309,
+    "without": 16265
+  },
+  "limit": "Static instructional text and saved final design answers only; no reasoning, tool, repeated input, billing or runtime telemetry."
+}

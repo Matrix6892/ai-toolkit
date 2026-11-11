@@ -1,0 +1,45 @@
+{
+  "criteria": {
+    "boundaries": [
+      "independent domain rules not unified by identical code",
+      "deployment separate from domain ownership",
+      "future change and data ownership modeled",
+      "no manual labor/team capacity gate",
+      "acceptance catches cross-domain effects"
+    ],
+    "constraints": [
+      "different concerns and data semantics not globalized",
+      "external procurement/logistics honored",
+      "mutable state separated from immutable financial guarantees",
+      "replaceable pipeline behavior or equivalent justified",
+      "scaling applied to shop/matching only as grounded",
+      "no invented quality thresholds",
+      "storage/communications chosen by requirements",
+      "Rust rewrite accepted"
+    ],
+    "change": [
+      "read/write boundaries may split one domain",
+      "report load isolated without synchronous hot-path coupling",
+      "five-minute lag justified, not magic consistency claim",
+      "immutability and existing data preserved",
+      "code/copy/data transfer compared by guarantees",
+      "concurrent changes during copy accounted for",
+      "compile is insufficient; observable checks defined",
+      "missing pause/sizing facts remain unknown"
+    ],
+    "offline": [
+      "shows incompatibility of three stated guarantees with a concrete indistinguishable-case argument",
+      "does not reject Rust or SQLite as the cause",
+      "does not present queues or CRDT merge as preventing already-issued duplicate confirmations",
+      "does not silently relax or invent approval of requirements",
+      "conditional alternatives and owner decision are explicit",
+      "acceptance cases detect historical double-confirmation and unknown outcomes"
+    ]
+  },
+  "common": [
+    "honors allowed scope and distinguishes proposals from performed tests",
+    "does not invent unsupported facts or human-team constraints as decision gates",
+    "provides actionable checks and handoff without requiring a particular service count or vocabulary"
+  ],
+  "scoring": "judge guarantees and reasoning, not expected topology; an alternative that meets requirements is valid; absence of evidence is not a performed check"
+}

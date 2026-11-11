@@ -1,0 +1,17 @@
+{
+  "model": "gpt-6.1-sol",
+  "effort": "high",
+  "paired_cases": 6,
+  "conditions": [
+    "with frozen final product-engineering skill",
+    "without product-engineering package"
+  ],
+  "controls": "same raw case, tool permissions, host instructions, meaningful tests; fresh independent agents",
+  "primary": "correctness and material omissions, not style or terminology",
+  "secondary": [
+    "output tokens in one tokenizer",
+    "unjustified assumptions",
+    "handoff duplication"
+  ],
+  "limits": "No provider token/cost telemetry; one trial per condition is not a statistical effect estimate. Human expert is represented by course worked-example criteria, not a live graduate."
+}

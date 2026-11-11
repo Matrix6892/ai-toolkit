@@ -1,0 +1,23 @@
+Реализуй самостоятельный Rust-модуль operation.rs без внешних зависимостей и сетевых вызовов. Нужен переход состояния одной внешней операции; реальное хранение и провайдер вне этой задачи. Сигнатуры и варианты публичны и обязательны для потребителя:
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum State { Ready, Pending { key: String }, Unknown { key: String }, Succeeded { key: String, receipt: String }, Failed { key: String, reason: String } }
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum Event { Request { key: String }, Timeout { key: String }, Confirmed { key: String, receipt: String }, Rejected { key: String, reason: String } }
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum Effect { None, Send { key: String }, Poll { key: String } }
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum Error { InvalidKey, Conflict, UnexpectedEvent }
+pub fn step(state: State, event: Event) -> Result<(State, Effect), Error>;
+
+Контракт:
+- Пустой key в любом событии — InvalidKey. Эта модель обслуживает одну логическую операцию.
+- Request в Ready создаёт Pending и единственный Send. Любое другое событие в Ready — UnexpectedEvent.
+- Во всех остальных состояниях чужой key — Conflict.
+- Повтор Request с тем же ключом в Pending возвращает прежнее состояние и None. В Unknown он возвращает прежнее состояние и Poll прежнего ключа. В терминальном состоянии он возвращает сохранённое состояние и None.
+- Timeout в Pending переводит в Unknown и выдаёт Poll. Timeout в Unknown оставляет его и выдаёт Poll. После терминального результата Timeout — устаревшее событие: состояние сохраняется, Effect::None.
+- Confirmed в Pending или Unknown сохраняет Succeeded с receipt и None; Rejected сохраняет Failed с reason и None.
+- Повтор совпадающего Confirmed в Succeeded и совпадающего Rejected в Failed сохраняет состояние, None. Противоречащий терминальному результату ответ (включая другой receipt или reason) — UnexpectedEvent и не заменяет сохранённый результат.
+- Функция не выполняет эффекты; возвращает их вызывающему коду. Не обещай exactly-once реальному провайдеру на основании этой модели.
+
+Напиши собственные содержательные тесты и выполни быстрый локальный rustc --test, toolchain установлен. Тяжёлый cargo workspace и сторонние пакеты не нужны. Результат: operation.rs и краткий report.md с фактическими проверками и пределами гарантии.

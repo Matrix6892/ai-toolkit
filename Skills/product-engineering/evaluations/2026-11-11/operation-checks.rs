@@ -1,0 +1,18 @@
+#[path = "candidate.rs"] mod candidate;
+use candidate::{step, State as S, Event as E, Effect as F, Error as X};
+fn request(k:&str)->E{E::Request{key:k.into()}}
+fn timeout(k:&str)->E{E::Timeout{key:k.into()}}
+fn confirmed(k:&str,r:&str)->E{E::Confirmed{key:k.into(),receipt:r.into()}}
+fn rejected(k:&str,r:&str)->E{E::Rejected{key:k.into(),reason:r.into()}}
+#[test]fn root_starts_once(){let(s,e)=step(S::Ready,request("k")).unwrap();assert_eq!(s,S::Pending{key:"k".into()});assert_eq!(e,F::Send{key:"k".into()});assert_eq!(step(s.clone(),request("k")),Ok((s,F::None)));}
+#[test]fn root_unknown_never_sends_again(){let(s,_)=step(S::Ready,request("k")).unwrap();let(s,e)=step(s,timeout("k")).unwrap();assert_eq!(s,S::Unknown{key:"k".into()});assert_eq!(e,F::Poll{key:"k".into()});for ev in [request("k"),timeout("k")]{assert_eq!(step(s.clone(),ev),Ok((s.clone(),F::Poll{key:"k".into()})));}}
+#[test]fn root_late_success(){let(s,e)=step(S::Unknown{key:"k".into()},confirmed("k","receipt")).unwrap();assert_eq!(s,S::Succeeded{key:"k".into(),receipt:"receipt".into()});assert_eq!(e,F::None);assert_eq!(step(s.clone(),confirmed("k","receipt")),Ok((s,F::None)));}
+#[test]fn root_terminal_is_stable(){for s in [S::Succeeded{key:"k".into(),receipt:"r".into()},S::Failed{key:"k".into(),reason:"no".into()}]{for ev in [request("k"),timeout("k")]{assert_eq!(step(s.clone(),ev),Ok((s.clone(),F::None)));}}}
+#[test]fn root_contradictions_are_errors(){let s=S::Succeeded{key:"k".into(),receipt:"r".into()};assert_eq!(step(s.clone(),confirmed("k","different")),Err(X::UnexpectedEvent));assert_eq!(step(s,rejected("k","no")),Err(X::UnexpectedEvent));let f=S::Failed{key:"k".into(),reason:"no".into()};assert_eq!(step(f.clone(),confirmed("k","r")),Err(X::UnexpectedEvent));assert_eq!(step(f,rejected("k","different")),Err(X::UnexpectedEvent));}
+#[test]fn root_rejection_from_active(){for s in [S::Pending{key:"k".into()},S::Unknown{key:"k".into()}]{assert_eq!(step(s,rejected("k","no")),Ok((S::Failed{key:"k".into(),reason:"no".into()},F::None)));}}
+#[test]fn root_duplicate_rejection(){let s=S::Failed{key:"k".into(),reason:"no".into()};assert_eq!(step(s.clone(),rejected("k","no")),Ok((s,F::None)));}
+#[test]fn root_foreign_keys_conflict(){for s in [S::Pending{key:"k".into()},S::Unknown{key:"k".into()},S::Succeeded{key:"k".into(),receipt:"r".into()},S::Failed{key:"k".into(),reason:"no".into()}]{for ev in [request("other"),timeout("other"),confirmed("other","r"),rejected("other","no")]{assert_eq!(step(s.clone(),ev),Err(X::Conflict));}}}
+#[test]fn root_empty_keys_invalid(){for s in [S::Ready,S::Pending{key:"k".into()},S::Unknown{key:"k".into()},S::Succeeded{key:"k".into(),receipt:"r".into()},S::Failed{key:"k".into(),reason:"no".into()}]{for ev in [request(""),timeout(""),confirmed("","r"),rejected("","no")]{assert_eq!(step(s.clone(),ev),Err(X::InvalidKey));}}}
+#[test]fn root_ready_rejects_nonrequest(){for ev in [timeout("k"),confirmed("k","r"),rejected("k","no")]{assert_eq!(step(S::Ready,ev),Err(X::UnexpectedEvent));}}
+#[test]fn root_pending_and_unknown_confirm(){for s in [S::Pending{key:"k".into()},S::Unknown{key:"k".into()}]{assert_eq!(step(s,confirmed("k","r")),Ok((S::Succeeded{key:"k".into(),receipt:"r".into()},F::None)));}}
+#[test]fn root_retry_sequence_one_send(){let mut s=S::Ready;let mut sends=0;for ev in [request("k"),request("k"),timeout("k"),request("k"),timeout("k"),confirmed("k","r"),request("k"),confirmed("k","r"),timeout("k")]{let(next,e)=step(s,ev).unwrap();if matches!(e,F::Send{..}){sends+=1;}s=next;}assert_eq!(sends,1);assert_eq!(s,S::Succeeded{key:"k".into(),receipt:"r".into()});}

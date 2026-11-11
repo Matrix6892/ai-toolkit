@@ -1,0 +1,257 @@
+{
+  "concurrency": 3,
+  "runs": [
+    {
+      "chain": "D01",
+      "case": "case-b",
+      "condition": "with",
+      "replicate": 1,
+      "skill": "frozen-skill",
+      "id": "D01-p1",
+      "phase": 1,
+      "task": "case-b/task1.txt"
+    },
+    {
+      "chain": "D02",
+      "case": "case-b",
+      "condition": "without",
+      "replicate": 1,
+      "skill": "frozen-skill",
+      "id": "D02-p1",
+      "phase": 1,
+      "task": "case-b/task1.txt"
+    },
+    {
+      "chain": "D03",
+      "case": "case-c",
+      "condition": "without",
+      "replicate": 1,
+      "skill": "frozen-skill",
+      "id": "D03-p1",
+      "phase": 1,
+      "task": "case-c/phase1/task1.txt"
+    },
+    {
+      "chain": "D04",
+      "case": "case-c",
+      "condition": "with",
+      "replicate": 1,
+      "skill": "frozen-skill",
+      "id": "D04-p1",
+      "phase": 1,
+      "task": "case-c/phase1/task1.txt"
+    },
+    {
+      "chain": "D05",
+      "case": "case-a",
+      "condition": "with",
+      "replicate": 1,
+      "skill": "frozen-skill",
+      "id": "D05-p1",
+      "phase": 1,
+      "task": "case-a/phase1/task1.txt"
+    },
+    {
+      "chain": "D06",
+      "case": "case-a",
+      "condition": "without",
+      "replicate": 1,
+      "skill": "frozen-skill",
+      "id": "D06-p1",
+      "phase": 1,
+      "task": "case-a/phase1/task1.txt"
+    },
+    {
+      "chain": "D07",
+      "case": "case-c",
+      "condition": "without",
+      "replicate": 2,
+      "skill": "frozen-skill",
+      "id": "D07-p1",
+      "phase": 1,
+      "task": "case-c/phase1/task1.txt"
+    },
+    {
+      "chain": "D08",
+      "case": "case-c",
+      "condition": "with",
+      "replicate": 2,
+      "skill": "frozen-skill",
+      "id": "D08-p1",
+      "phase": 1,
+      "task": "case-c/phase1/task1.txt"
+    },
+    {
+      "chain": "D09",
+      "case": "case-b",
+      "condition": "with",
+      "replicate": 2,
+      "skill": "frozen-skill",
+      "id": "D09-p1",
+      "phase": 1,
+      "task": "case-b/task1.txt"
+    },
+    {
+      "chain": "D10",
+      "case": "case-b",
+      "condition": "without",
+      "replicate": 2,
+      "skill": "frozen-skill",
+      "id": "D10-p1",
+      "phase": 1,
+      "task": "case-b/task1.txt"
+    },
+    {
+      "chain": "D11",
+      "case": "case-a",
+      "condition": "without",
+      "replicate": 2,
+      "skill": "frozen-skill",
+      "id": "D11-p1",
+      "phase": 1,
+      "task": "case-a/phase1/task1.txt"
+    },
+    {
+      "chain": "D12",
+      "case": "case-a",
+      "condition": "with",
+      "replicate": 2,
+      "skill": "frozen-skill",
+      "id": "D12-p1",
+      "phase": 1,
+      "task": "case-a/phase1/task1.txt"
+    },
+    {
+      "chain": "D01",
+      "case": "case-b",
+      "condition": "with",
+      "replicate": 1,
+      "skill": "frozen-skill",
+      "id": "D01-p2",
+      "phase": 2,
+      "parent": "D01-p1",
+      "task": "case-b/task2.txt"
+    },
+    {
+      "chain": "D02",
+      "case": "case-b",
+      "condition": "without",
+      "replicate": 1,
+      "skill": "frozen-skill",
+      "id": "D02-p2",
+      "phase": 2,
+      "parent": "D02-p1",
+      "task": "case-b/task2.txt"
+    },
+    {
+      "chain": "D03",
+      "case": "case-c",
+      "condition": "without",
+      "replicate": 1,
+      "skill": "frozen-skill",
+      "id": "D03-p2",
+      "phase": 2,
+      "parent": "D03-p1",
+      "task": "case-c/phase2/task2.txt"
+    },
+    {
+      "chain": "D04",
+      "case": "case-c",
+      "condition": "with",
+      "replicate": 1,
+      "skill": "frozen-skill",
+      "id": "D04-p2",
+      "phase": 2,
+      "parent": "D04-p1",
+      "task": "case-c/phase2/task2.txt"
+    },
+    {
+      "chain": "D05",
+      "case": "case-a",
+      "condition": "with",
+      "replicate": 1,
+      "skill": "frozen-skill",
+      "id": "D05-p2",
+      "phase": 2,
+      "parent": "D05-p1",
+      "task": "case-a/phase2/task2.txt"
+    },
+    {
+      "chain": "D06",
+      "case": "case-a",
+      "condition": "without",
+      "replicate": 1,
+      "skill": "frozen-skill",
+      "id": "D06-p2",
+      "phase": 2,
+      "parent": "D06-p1",
+      "task": "case-a/phase2/task2.txt"
+    },
+    {
+      "chain": "D07",
+      "case": "case-c",
+      "condition": "without",
+      "replicate": 2,
+      "skill": "frozen-skill",
+      "id": "D07-p2",
+      "phase": 2,
+      "parent": "D07-p1",
+      "task": "case-c/phase2/task2.txt"
+    },
+    {
+      "chain": "D08",
+      "case": "case-c",
+      "condition": "with",
+      "replicate": 2,
+      "skill": "frozen-skill",
+      "id": "D08-p2",
+      "phase": 2,
+      "parent": "D08-p1",
+      "task": "case-c/phase2/task2.txt"
+    },
+    {
+      "chain": "D09",
+      "case": "case-b",
+      "condition": "with",
+      "replicate": 2,
+      "skill": "frozen-skill",
+      "id": "D09-p2",
+      "phase": 2,
+      "parent": "D09-p1",
+      "task": "case-b/task2.txt"
+    },
+    {
+      "chain": "D10",
+      "case": "case-b",
+      "condition": "without",
+      "replicate": 2,
+      "skill": "frozen-skill",
+      "id": "D10-p2",
+      "phase": 2,
+      "parent": "D10-p1",
+      "task": "case-b/task2.txt"
+    },
+    {
+      "chain": "D11",
+      "case": "case-a",
+      "condition": "without",
+      "replicate": 2,
+      "skill": "frozen-skill",
+      "id": "D11-p2",
+      "phase": 2,
+      "parent": "D11-p1",
+      "task": "case-a/phase2/task2.txt"
+    },
+    {
+      "chain": "D12",
+      "case": "case-a",
+      "condition": "with",
+      "replicate": 2,
+      "skill": "frozen-skill",
+      "id": "D12-p2",
+      "phase": 2,
+      "parent": "D12-p1",
+      "task": "case-a/phase2/task2.txt"
+    }
+  ]
+}

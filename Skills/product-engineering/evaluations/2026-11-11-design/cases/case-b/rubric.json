@@ -1,0 +1,471 @@
+{
+  "name": "Fieldlight iterative system design",
+  "version": 1,
+  "scale": "Each criterion is 0, 1 or 2. Evaluate semantic adequacy, not terms, length, drawing style, service count or conformity to an author solution. Score 0 for absence or consequential contradiction; score 1 for materially useful but incomplete reasoning; score 2 for the stated complete behavior. Apply only facts available in that phase. Conditional choices and prioritized unknowns are valid in phase one. No code, implementation test or production proof is required. Do not double-count one omission across unrelated criteria. Record evidence from the candidate for every score.",
+  "phase1_max": 20,
+  "phase2_max": 20,
+  "transition_max": 8,
+  "criteria": [
+    {
+      "phase": "phase1",
+      "id": "P1-01",
+      "title": "Meanings and identity",
+      "sources": [
+        "phase1/brief.md:3",
+        "phase1/incidents.md:2",
+        "phase1/incidents.md:4",
+        "phase1/open-notes.md:2"
+      ],
+      "score": {
+        "0": "Absent, contradicted, or materially unsafe as described under bad_outcome.",
+        "1": "Recognizes multiple meanings or multiple submissions but leaves their relationship ambiguous.",
+        "2": "Separates shared project identity, track submission and distinct eligibility/selection/publication meanings; explains the applicant-facing ambiguity."
+      },
+      "acceptable_alternatives": [
+        "Different names or a structured record with independently owned fields are fine; no class diagram is required."
+      ],
+      "bad_outcome": "One accepted flag for P62 makes eligibility in one track appear to be public selection in both."
+    },
+    {
+      "phase": "phase1",
+      "id": "P1-02",
+      "title": "Decision ownership and competing interests",
+      "sources": [
+        "phase1/people.md:2",
+        "phase1/people.md:3",
+        "phase1/people.md:5",
+        "phase1/people.md:7",
+        "phase1/open-notes.md:2"
+      ],
+      "score": {
+        "0": "Absent, contradicted, or materially unsafe as described under bad_outcome.",
+        "1": "Lists roles and concerns without explaining who may change consequential facts.",
+        "2": "Maps relevant applicant, reviewer, chair and communications interests to proposed responsibilities, marking unresolved reversal authority as a question or assumption."
+      },
+      "acceptable_alternatives": [
+        "A responsibility table, prose or worked journey can establish ownership; a proposed owner pending confirmation earns full credit."
+      ],
+      "bad_outcome": "An editor fixing a credit can also change jury selection without a deliberate authority decision."
+    },
+    {
+      "phase": "phase1",
+      "id": "P1-03",
+      "title": "Business changes versus technical work",
+      "sources": [
+        "phase1/brief.md:4",
+        "phase1/incidents.md:4",
+        "phase1/incidents.md:6",
+        "phase1/people.md:5"
+      ],
+      "score": {
+        "0": "Absent, contradicted, or materially unsafe as described under bad_outcome.",
+        "1": "Gives a plausible journey but conflates a saved row or notification with an authoritative decision.",
+        "2": "Describes a coherent submission/review/decision/publication journey with meaningful changes and separates them from saving records, refreshing a dashboard or sending a message."
+      },
+      "acceptable_alternatives": [
+        "No event terminology or state-machine drawing is needed; explicit transition conditions and effects in prose suffice."
+      ],
+      "bad_outcome": "Saving a draft page is interpreted as announcing the result, or an email becomes the only record of a jury decision."
+    },
+    {
+      "phase": "phase1",
+      "id": "P1-04",
+      "title": "Review integrity and deliberation",
+      "sources": [
+        "phase1/people.md:3",
+        "phase1/people.md:4",
+        "phase1/incidents.md:3",
+        "phase1/incidents.md:6",
+        "phase1/open-notes.md:4"
+      ],
+      "score": {
+        "0": "Absent, contradicted, or materially unsafe as described under bad_outcome.",
+        "1": "Notes confidentiality or conflicts but leaves score-to-selection authority unclear.",
+        "2": "Treats conflict handling, review visibility and human jury judgment as consequential rules; asks or conditions replacement/aggregation policy instead of silently fixing it."
+      },
+      "acceptable_alternatives": [
+        "Quarantine, exclusion with history or a pending-conflict state are acceptable provisional policies; no particular score formula is required."
+      ],
+      "bad_outcome": "A conflicted review continues influencing the shortlist or an average silently replaces jury deliberation."
+    },
+    {
+      "phase": "phase1",
+      "id": "P1-05",
+      "title": "Changing material and reconstructability",
+      "sources": [
+        "phase1/people.md:2",
+        "phase1/incidents.md:5",
+        "phase1/incidents.md:7",
+        "phase1/open-notes.md:3"
+      ],
+      "score": {
+        "0": "Absent, contradicted, or materially unsafe as described under bad_outcome.",
+        "1": "Suggests history or locking but does not relate it to what a particular review considered.",
+        "2": "Explains how to preserve or reconstruct material considered by reviewers while allowing a separately governed current description; asks what changes are harmless and what evidence is necessary."
+      },
+      "acceptable_alternatives": [
+        "Provisional submission freeze plus amendments, immutable revisions or full snapshots are valid; phase one may defer the final policy."
+      ],
+      "bad_outcome": "A changed statement silently replaces the evidence underpinning an existing review."
+    },
+    {
+      "phase": "phase1",
+      "id": "P1-06",
+      "title": "High-value unknowns and conditional decisions",
+      "sources": [
+        "phase1/open-notes.md:2",
+        "phase1/open-notes.md:3",
+        "phase1/open-notes.md:4",
+        "phase1/open-notes.md:5",
+        "phase1/brief.md:6"
+      ],
+      "score": {
+        "0": "Absent, contradicted, or materially unsafe as described under bad_outcome.",
+        "1": "Asks relevant questions but gives no priorities or consequences.",
+        "2": "Prioritizes unresolved rules by their effect on design and offers a reversible assumption or next discovery step; includes publication finality/track timing and at least one review/edit authority issue."
+      },
+      "acceptable_alternatives": [
+        "A concise decision tree or bounded assumptions may replace an interview list; not knowing future release rules is correct."
+      ],
+      "bad_outcome": "The team builds around permanent publication finality or unrestricted live edits without recognizing that the choice is unresolved."
+    },
+    {
+      "phase": "phase1",
+      "id": "P1-07",
+      "title": "Coherent boundaries and durable information",
+      "sources": [
+        "phase1/brief.md:5",
+        "phase1/incidents.md:2",
+        "phase1/incidents.md:5",
+        "phase1/incidents.md:6"
+      ],
+      "score": {
+        "0": "Absent, contradicted, or materially unsafe as described under bad_outcome.",
+        "1": "Names an architecture and database without explaining how alternatives fit the observed problem.",
+        "2": "Compares at least two suitable ways to organize responsibility and durable records, recommends a direction and links the choice to consistency, reconstructability or change; explicitly considers keeping or replacing existing storage."
+      },
+      "acceptable_alternatives": [
+        "A modular application and relational revisions, separated applications with owned stores, document revisions, or a log plus projections can all work if consistency and ownership are explained; rewriting Rust is allowed."
+      ],
+      "bad_outcome": "Split owners overwrite shared facts or an unsuitable persistence choice loses the decision reason and reviewed material."
+    },
+    {
+      "phase": "phase1",
+      "id": "P1-08",
+      "title": "Interactions and publication uncertainty",
+      "sources": [
+        "phase1/people.md:5",
+        "phase1/people.md:7",
+        "phase1/open-notes.md:5",
+        "phase1/open-notes.md:6"
+      ],
+      "score": {
+        "0": "Absent, contradicted, or materially unsafe as described under bad_outcome.",
+        "1": "Says systems integrate but leaves the handoff and stale-data implications unexplained.",
+        "2": "Explains how working decisions reach communications/public views and compares suitable interaction options with freshness/failure tradeoffs, leaving finality conditional."
+      },
+      "acceptable_alternatives": [
+        "A shared application, synchronous handoff, explicit export with validation, or asynchronous updates are acceptable; no network API or queue is mandatory."
+      ],
+      "bad_outcome": "A dashboard update exposes an unannounced draft, or communications mistakes stale eligibility for a selected result."
+    },
+    {
+      "phase": "phase1",
+      "id": "P1-09",
+      "title": "Operationalized quality",
+      "sources": [
+        "phase1/people.md:4",
+        "phase1/people.md:7",
+        "phase1/incidents.md:3",
+        "phase1/incidents.md:5",
+        "phase1/incidents.md:7"
+      ],
+      "score": {
+        "0": "Absent, contradicted, or materially unsafe as described under bad_outcome.",
+        "1": "Gives generic quality goals or arbitrary performance targets without relating them to a scenario.",
+        "2": "Turns at least two vague qualities into concrete scenarios with observable pass/fail evidence, including information integrity or access and distinguishing public traffic from review workload."
+      },
+      "acceptable_alternatives": [
+        "Stakeholder-confirmed targets, provisional targets marked for validation, or qualitative invariants with worked examples are valid; no benchmark or production build is required."
+      ],
+      "bad_outcome": "A fast page is declared fair even though excluded reviews count or reviewers can see opinions prematurely."
+    },
+    {
+      "phase": "phase1",
+      "id": "P1-10",
+      "title": "Useful bounded next step",
+      "sources": [
+        "phase1/brief.md:6",
+        "phase1/open-notes.md:6",
+        "phase1/incidents.md:4"
+      ],
+      "score": {
+        "0": "Absent, contradicted, or materially unsafe as described under bad_outcome.",
+        "1": "Suggests a prototype or phased rollout without a usable scope or success evidence.",
+        "2": "Proposes a feasible first slice or design experiment, states its manual boundary and evidence of reduced reconciliation or fewer misinterpretations, and identifies decisions needed before committing."
+      },
+      "acceptable_alternatives": [
+        "A one-track walkthrough, paper prototype with real cases, or narrowly scoped implementation plan can work; candidate need not implement it."
+      ],
+      "bad_outcome": "The six-week effort produces broad infrastructure while coordinators still cannot distinguish eligibility from selection."
+    },
+    {
+      "phase": "phase2",
+      "id": "P2-01",
+      "title": "Confirmed domain responsibilities",
+      "sources": [
+        "phase2/decisions.md:2",
+        "phase2/decisions.md:5"
+      ],
+      "score": {
+        "0": "Absent, contradicted, or materially unsafe as described under bad_outcome.",
+        "1": "Repeats distinct labels without using ownership to constrain changes.",
+        "2": "Uses confirmed distinct eligibility, jury selection and publication facts; preserves chair selection authority separately from communications wording and authorization."
+      },
+      "acceptable_alternatives": [
+        "One module or several are fine; separate fields and guarded operations can express the boundary."
+      ],
+      "bad_outcome": "Communications publishes an eligible but unselected submission or edits jury selection while fixing wording."
+    },
+    {
+      "phase": "phase2",
+      "id": "P2-02",
+      "title": "Review controls after clarification",
+      "sources": [
+        "phase2/decisions.md:3"
+      ],
+      "score": {
+        "0": "Absent, contradicted, or materially unsafe as described under bad_outcome.",
+        "1": "Covers most controls but leaves one consequential behavior unspecified.",
+        "2": "Supports reviewer-owned contents, reasoned exclusions, immediate removal of conflicted reviews from aggregates, recorded replacement decisions and chair-controlled discussion visibility."
+      },
+      "acceptable_alternatives": [
+        "Logical exclusion, recomputation on read or coordinated aggregate invalidation can satisfy immediate exclusion; no fixed replacement count is required."
+      ],
+      "bad_outcome": "An excluded review still affects a displayed aggregate or a chair rewrites the reviewer opinion to resolve a conflict."
+    },
+    {
+      "phase": "phase2",
+      "id": "P2-03",
+      "title": "Revision eligibility for consideration",
+      "sources": [
+        "phase2/decisions.md:4"
+      ],
+      "score": {
+        "0": "Absent, contradicted, or materially unsafe as described under bad_outcome.",
+        "1": "Retains versions but does not show how acknowledgement gates consideration.",
+        "2": "Preserves submitted and reviewed revisions, allows descriptive edits and makes assessment-affecting revisions await chair acknowledgement; keeps the harmless-field list explicitly unresolved."
+      },
+      "acceptable_alternatives": [
+        "Snapshot copies, revision references or an append-only amendment trail are valid; candidates may propose a provisional harmless-field list as an assumption."
+      ],
+      "bad_outcome": "Reviewers assess an unacknowledged changed statement or cannot identify the revision they assessed."
+    },
+    {
+      "phase": "phase2",
+      "id": "P2-04",
+      "title": "Published release isolation",
+      "sources": [
+        "phase2/release-change.md:2",
+        "phase2/release-change.md:3"
+      ],
+      "score": {
+        "0": "Absent, contradicted, or materially unsafe as described under bad_outcome.",
+        "1": "Mentions snapshots or versioning without showing what the public reads during reopening.",
+        "2": "Defines durable released content independent of mutable working records, so reopening and draft credit edits cannot change an announced result."
+      },
+      "acceptable_alternatives": [
+        "Immutable release rows/documents, a versioned publication projection or content-addressed materialization all work; a single database is sufficient."
+      ],
+      "bad_outcome": "Reopening jury selection removes an announced result from the public site before a replacement is authorized."
+    },
+    {
+      "phase": "phase2",
+      "id": "P2-05",
+      "title": "Approvals bind exact content",
+      "sources": [
+        "phase2/release-change.md:5",
+        "phase2/decisions.md:5"
+      ],
+      "score": {
+        "0": "Absent, contradicted, or materially unsafe as described under bad_outcome.",
+        "1": "Lists approvers but leaves a mutable approved flag reusable after edits.",
+        "2": "Binds chair selection approval and maker credit approval to the relevant revisions/content and places release authorization with communications; editing invalidates the affected approval before release."
+      },
+      "acceptable_alternatives": [
+        "Revision IDs, a content digest, frozen approval bundles or an equivalently precise relation are acceptable; unrelated approvals need not all be invalidated."
+      ],
+      "bad_outcome": "A maker approves one credit but a later unapproved credit is published under the old approval."
+    },
+    {
+      "phase": "phase2",
+      "id": "P2-06",
+      "title": "Independent track publication",
+      "sources": [
+        "phase2/release-change.md:5",
+        "phase1/incidents.md:2"
+      ],
+      "score": {
+        "0": "Absent, contradicted, or materially unsafe as described under bad_outcome.",
+        "1": "Allows separate release dates but leaves page assembly or shared-credit consequences unclear.",
+        "2": "Models per-track release provenance and assembles shared project pages without pulling in other tracks’ drafts or unintentionally replacing their results."
+      },
+      "acceptable_alternatives": [
+        "Per-track pointers, a page manifest naming releases or explicit independently versioned result sections work; differing public credits may need an explicit display policy."
+      ],
+      "bad_outcome": "Publishing a Sound correction accidentally publishes Moving Image selection under discussion."
+    },
+    {
+      "phase": "phase2",
+      "id": "P2-07",
+      "title": "Correction and history semantics",
+      "sources": [
+        "phase2/release-change.md:3",
+        "phase2/release-change.md:4"
+      ],
+      "score": {
+        "0": "Absent, contradicted, or materially unsafe as described under bad_outcome.",
+        "1": "Keeps history but omits the visible explanation/link or separate approval.",
+        "2": "Makes correction a separately approved replacement with explanation, navigable supersession and readable prior content; distinguishes reopening from correcting publication."
+      },
+      "acceptable_alternatives": [
+        "Linked release versions or an immutable publication history with a current pointer are valid; no event-sourcing terminology is required."
+      ],
+      "bad_outcome": "Visitors see a rewritten result with no explanation and cannot inspect what was originally announced."
+    },
+    {
+      "phase": "phase2",
+      "id": "P2-08",
+      "title": "Public/private information boundary",
+      "sources": [
+        "phase2/release-change.md:4",
+        "phase2/decisions.md:3"
+      ],
+      "score": {
+        "0": "Absent, contradicted, or materially unsafe as described under bad_outcome.",
+        "1": "Says access controls protect reviews but does not cover historical/public release contents.",
+        "2": "Defines an allowlisted or equivalently explicit public material boundary covering current and historical releases, separating private evidence from public explanation."
+      },
+      "acceptable_alternatives": [
+        "Dedicated public data copies, explicit render contracts or rigorously filtered projections can all satisfy this without separate infrastructure."
+      ],
+      "bad_outcome": "A correction explanation or historical snapshot exposes a conflict declaration or private assessment revision."
+    },
+    {
+      "phase": "phase2",
+      "id": "P2-09",
+      "title": "Consistency and failure behavior",
+      "sources": [
+        "phase2/release-change.md:2",
+        "phase2/release-change.md:5"
+      ],
+      "score": {
+        "0": "Absent, contradicted, or materially unsafe as described under bad_outcome.",
+        "1": "Mentions atomicity or retries without connecting them to a concrete stale-approval or mixed-release case.",
+        "2": "Explains a coherent release cutover and at least one edit/approval or simultaneous-track interleaving, preserving the last valid release if preparation/publication fails."
+      },
+      "acceptable_alternatives": [
+        "A database transaction, compare-and-swap version checks, staged publication plus atomic manifest switch, or an equivalent guarded workflow is valid; no distributed protocol is mandated."
+      ],
+      "bad_outcome": "An edit races publication and unapproved content becomes public, or half a replacement page appears after failure."
+    },
+    {
+      "phase": "phase2",
+      "id": "P2-10",
+      "title": "Revised first slice and checks",
+      "sources": [
+        "phase2/decisions.md:5",
+        "phase2/release-change.md:6"
+      ],
+      "score": {
+        "0": "Absent, contradicted, or materially unsafe as described under bad_outcome.",
+        "1": "Adds a release feature to a roadmap without a concrete validation case.",
+        "2": "Updates the bounded next step to exercise one track end to end plus release/reopen/correction safety; proposes observable scenarios for approval invalidation and cross-track isolation before full build."
+      },
+      "acceptable_alternatives": [
+        "A design walkthrough or executable prototype plan is sufficient; no implementation or production deployment is needed."
+      ],
+      "bad_outcome": "The first slice validates review forms but leaves the new publication safety requirement entirely untested."
+    },
+    {
+      "phase": "transition",
+      "id": "T-01",
+      "title": "Own earlier reasoning is revisited",
+      "sources": [
+        "task1.txt:1",
+        "task2.txt:1",
+        "phase2/release-change.md:6"
+      ],
+      "score": {
+        "0": "Absent, contradicted, or materially unsafe as described under bad_outcome.",
+        "1": "Acknowledges the update generally but gives little traceable connection to its prior sketch.",
+        "2": "Identifies concrete earlier assumptions/choices from its own artifacts and explains which new evidence changes or confirms each consequential one."
+      },
+      "acceptable_alternatives": [
+        "If phase one already anticipated releases, demonstrate that its safeguards meet the new rules and specify the newly fixed policy; gratuitous redesign earns no extra credit."
+      ],
+      "bad_outcome": "A disconnected second essay leaves the team unsure which earlier decisions still apply."
+    },
+    {
+      "phase": "transition",
+      "id": "T-02",
+      "title": "Proportionate architectural revision",
+      "sources": [
+        "phase1/open-notes.md:5",
+        "phase2/release-change.md:2",
+        "phase2/release-change.md:5"
+      ],
+      "score": {
+        "0": "Absent, contradicted, or materially unsafe as described under bad_outcome.",
+        "1": "Adds release vocabulary but does not reassess its earlier live-data or integration assumptions.",
+        "2": "Reassesses the working/public data boundary and interactions/storage choice against suitable alternatives; changes only what is needed or substantiates an already compatible design."
+      },
+      "acceptable_alternatives": [
+        "Keeping the same deployment/database with a new publication model is fully valid; changing them is also valid when justified by concrete tradeoffs."
+      ],
+      "bad_outcome": "The design retains a live join to working records while claiming immutable announced results."
+    },
+    {
+      "phase": "transition",
+      "id": "T-03",
+      "title": "Resolved versus remaining uncertainty",
+      "sources": [
+        "phase1/open-notes.md:3",
+        "phase1/open-notes.md:4",
+        "phase1/open-notes.md:5",
+        "phase2/decisions.md:3",
+        "phase2/decisions.md:4",
+        "phase2/release-change.md:5"
+      ],
+      "score": {
+        "0": "Absent, contradicted, or materially unsafe as described under bad_outcome.",
+        "1": "Carries forward some obsolete questions or assumes remaining field policies are settled.",
+        "2": "Closes questions answered by the fixed packet, retains genuinely unresolved ones with consequences/owners, and does not require new answers before applying confirmed constraints."
+      },
+      "acceptable_alternatives": [
+        "A decision log, prose or updated assumptions list is enough; packet answers need not match the candidate’s phase-one questions."
+      ],
+      "bad_outcome": "The team waits to rediscover settled publication rules or implements an invented harmless-field policy as agreed fact."
+    },
+    {
+      "phase": "transition",
+      "id": "T-04",
+      "title": "Preserves original useful goals",
+      "sources": [
+        "phase1/brief.md:4",
+        "phase1/people.md:6",
+        "phase2/decisions.md:5",
+        "phase2/release-change.md:6"
+      ],
+      "score": {
+        "0": "Absent, contradicted, or materially unsafe as described under bad_outcome.",
+        "1": "Focuses on releases but weakly connects them to the original coordinator/applicant journey.",
+        "2": "Explains how the revised direction still reduces reconciliation and applicant ambiguity while incorporating safe publication, and adjusts its success evidence accordingly."
+      },
+      "acceptable_alternatives": [
+        "A compact end-to-end example can supply the connection; no particular document length or diagram is required."
+      ],
+      "bad_outcome": "The revision becomes a generic publishing system and loses the review/selection meaning that caused the original mistakes."
+    }
+  ]
+}

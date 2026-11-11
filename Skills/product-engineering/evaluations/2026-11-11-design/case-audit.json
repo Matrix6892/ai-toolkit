@@ -1,0 +1,499 @@
+{
+  "schema_version": 1,
+  "audit": "independent pre-run course-analysis-and-design audit",
+  "overall": "pass",
+  "scope": {
+    "read": "Only case-a, case-b, case-c and WORKER_CLEANUP.md; no frozen-skill, previous tasks or model answers.",
+    "actions": "Read-only inspection of inputs; one audit deliverable. No models, agents or web launched.",
+    "meaning": "Static audit of solvability and scoring fairness; does not establish empirical model discrimination."
+  },
+  "source_validation": {
+    "case-a": {
+      "references": 54,
+      "invalid": 0
+    },
+    "case-b": {
+      "references": 75,
+      "invalid": 0
+    },
+    "case-c": {
+      "references": 62,
+      "invalid": 0
+    },
+    "method": "Parsed rubric JSON, resolved every phase1/phase2 file:line against this case, checked line exists and is nonempty. Semantic support independently inspected below."
+  },
+  "cases": [
+    {
+      "case": "case-a",
+      "status": "pass",
+      "blocking_concerns": [],
+      "phase1_uncertainty": {
+        "status": "pass",
+        "evidence": [
+          "case-a/phase1/03-editor-sound.txt:4",
+          "case-a/phase1/03-editor-sound.txt:5",
+          "case-a/phase1/02-producer-notes.txt:2"
+        ],
+        "finding": "Не определены перенос принятия, полномочия и договорная область переиспользования; текст и положение не обеспечивают идентичность. Сырьё задаёт рабочую проблему, а не готовую схему/контракт."
+      },
+      "coverage": [
+        {
+          "dimension": "цель, интересы и решающие вопросы",
+          "criteria": [
+            "A1",
+            "A2"
+          ],
+          "rubric_lines": [
+            14,
+            27,
+            32,
+            45
+          ],
+          "source": [
+            "case-a/phase1/01-director.txt:3",
+            "case-a/phase1/01-director.txt:5",
+            "case-a/phase1/03-editor-sound.txt:4"
+          ],
+          "finding": "Экономия лишней записи связана с достоверностью готовности; вопросы должны менять решения."
+        },
+        {
+          "dimension": "процессы и данные",
+          "criteria": [
+            "A3",
+            "A4",
+            "A7",
+            "A8"
+          ],
+          "rubric_lines": [
+            63,
+            81,
+            135,
+            151
+          ],
+          "source": [
+            "case-a/phase1/02-producer-notes.txt:2",
+            "case-a/phase1/02-producer-notes.txt:4",
+            "case-a/phase1/02-producer-notes.txt:6"
+          ],
+          "finding": "Проверяются поздняя правка, неоднозначная идентичность, кандидат против принятого применения и состав фактической передачи."
+        },
+        {
+          "dimension": "ответственность, границы, качества частей",
+          "criteria": [
+            "A5",
+            "A6"
+          ],
+          "rubric_lines": [
+            98,
+            116
+          ],
+          "source": [
+            "case-a/phase1/02-producer-notes.txt:3",
+            "case-a/phase1/03-editor-sound.txt:3"
+          ],
+          "finding": "Кто вправе принять текст/звук и почему их готовность различается. Качества описаны предметными гарантиями, а не обязательной численной производительностью без исходных данных."
+        },
+        {
+          "dimension": "выбор и проверка",
+          "criteria": [
+            "A9",
+            "B9",
+            "R4"
+          ],
+          "rubric_lines": [
+            169,
+            324,
+            397
+          ],
+          "source": [
+            "case-a/phase1/01-director.txt:3",
+            "case-a/phase2/02-new-order.txt:3",
+            "case-a/phase2/02-new-order.txt:5"
+          ],
+          "finding": "Нужны последствия альтернатив и ожидаемые исходы материальных сценариев; технология сама по себе ничего не доказывает."
+        }
+      ],
+      "phase2_material_change": {
+        "status": "pass",
+        "evidence": [
+          "case-a/phase2/02-new-order.txt:2",
+          "case-a/phase2/02-new-order.txt:3",
+          "case-a/phase2/02-new-order.txt:4",
+          "case-a/phase2/02-new-order.txt:5"
+        ],
+        "criteria": [
+          "B1",
+          "B2",
+          "B3",
+          "B4",
+          "B7",
+          "R3"
+        ],
+        "rubric_lines": [
+          188,
+          205,
+          222,
+          238,
+          289,
+          379
+        ],
+        "finding": "Расширяется область материала: несколько употреблений в монтаже/фильмах, языки и договорные основания на канал/дату. Это меняет правила принятия и вычисления готовности, а не только хранение прошлой сдачи."
+      },
+      "phase_fairness": {
+        "status": "pass",
+        "evidence": [
+          "case-a/hidden/rubric.json:7",
+          "case-a/hidden/rubric.json:8",
+          "case-a/hidden/rubric.json:39",
+          "case-a/hidden/rubric.json:98",
+          "case-a/hidden/rubric.json:337",
+          "case-a/hidden/author-notes.md:17"
+        ],
+        "finding": "Условное ограничение одним фильмом и неизвестные права допустимы. От phase1 не требуется знание конкретной области прав/даты phase2; R1 допускает сохранение достаточной основы."
+      },
+      "false_rejection_counterexample": {
+        "type": "protective example; not a demonstrated rubric defect",
+        "candidate": "Phase1: отдельные локальные реплики каждого монтажа, подтверждаемые соответствия, ручное принятие; общий архив лишь будущая опция, пока не ясны права. Phase2: сохранить приложение и базу, добавить контекст применения и проверяемые основания на канал/дату; неизвестные записи остаются кандидатами.",
+        "must_accept": "Нельзя снижать оценку за отсутствие общего архива/детальной договорной модели до phase2 или за отсутствие смены БД после неё.",
+        "protected_by": [
+          "A2 alternatives at case-a/hidden/rubric.json:39",
+          "R1 alternatives at case-a/hidden/rubric.json:337",
+          "R3 alternatives at case-a/hidden/rubric.json:373"
+        ]
+      },
+      "consistency": "Сырьё и шкалы согласованы: совпадение не есть соответствие/принятие; срок относится к плановому использованию, дальнейший фактический показ вне ответственности студии. Права — вымышленные требования проекта, не правовое заключение."
+    },
+    {
+      "case": "case-b",
+      "status": "pass",
+      "blocking_concerns": [],
+      "phase1_uncertainty": {
+        "status": "pass",
+        "evidence": [
+          "case-b/phase1/open-notes.md:2",
+          "case-b/phase1/open-notes.md:3",
+          "case-b/phase1/open-notes.md:4",
+          "case-b/phase1/open-notes.md:5"
+        ],
+        "finding": "Не согласованы значения accepted, обратимость решений, правки, правила обзора и окончательность публикации. Инциденты дают основания различать факты, но не навязывают точную будущую политику."
+      },
+      "coverage": [
+        {
+          "dimension": "цель, интересы, вопросы",
+          "criteria": [
+            "P1-01",
+            "P1-02",
+            "P1-06",
+            "P1-10"
+          ],
+          "rubric_lines": [
+            22,
+            43,
+            125,
+            205
+          ],
+          "source": [
+            "case-b/phase1/brief.md:4",
+            "case-b/phase1/people.md:6",
+            "case-b/phase1/open-notes.md:5"
+          ],
+          "finding": "Снижение сверки вкладок и путаницы заявителя; вопросы привязаны к последствиям, первому полезному участку и наблюдению эффекта."
+        },
+        {
+          "dimension": "процесс, данные и ответственность",
+          "criteria": [
+            "P1-03",
+            "P1-04",
+            "P1-05"
+          ],
+          "rubric_lines": [
+            63,
+            84,
+            104
+          ],
+          "source": [
+            "case-b/phase1/incidents.md:3",
+            "case-b/phase1/incidents.md:4",
+            "case-b/phase1/incidents.md:5",
+            "case-b/phase1/incidents.md:6"
+          ],
+          "finding": "Жюри не равно среднему баллу; отделены правка, просмотренное содержание и текущая публичная формулировка. Не требуется обязательный автоматический порог."
+        },
+        {
+          "dimension": "границы, качества, варианты и проверка",
+          "criteria": [
+            "P1-07",
+            "P1-08",
+            "P1-09",
+            "P1-10"
+          ],
+          "rubric_lines": [
+            145,
+            165,
+            186,
+            205
+          ],
+          "source": [
+            "case-b/phase1/brief.md:5",
+            "case-b/phase1/people.md:4",
+            "case-b/phase1/incidents.md:7",
+            "case-b/phase1/open-notes.md:6"
+          ],
+          "finding": "Сравниваются ответственность/хранение и взаимодействия через свежесть, отказ и восстановимость. Качества должны стать наблюдаемыми сценариями; публичный трафик не смешивается с нагрузкой рецензентов."
+        }
+      ],
+      "phase2_material_change": {
+        "status": "pass",
+        "evidence": [
+          "case-b/phase2/release-change.md:2",
+          "case-b/phase2/release-change.md:3",
+          "case-b/phase2/release-change.md:4",
+          "case-b/phase2/release-change.md:5"
+        ],
+        "criteria": [
+          "P2-04",
+          "P2-05",
+          "P2-06",
+          "P2-07",
+          "P2-08",
+          "P2-09"
+        ],
+        "rubric_lines": [
+          275,
+          293,
+          311,
+          329,
+          347,
+          365
+        ],
+        "finding": "Утверждённое объявление отделяется от пересматриваемой работы; нужны привязка одобрения к содержанию, независимость треков, публичная замена с предшественником и защита приватных данных. Просто сохранить копию HTML недостаточно."
+      },
+      "phase_fairness": {
+        "status": "pass",
+        "evidence": [
+          "case-b/hidden/rubric.json:4",
+          "case-b/hidden/author-notes.md:9",
+          "case-b/hidden/author-notes.md:12",
+          "case-b/hidden/author-notes.md:23",
+          "case-b/hidden/author-notes.md:25"
+        ],
+        "finding": "Допустимо спросить об окончательности и условно проектировать обычный текущий публичный вид до phase2. P1-05 прямо допускает отложенную окончательную политику правок. T-01/T-02 допускают достаточную исходную основу и ту же топологию; неопределённость общих credits между треками остаётся честно открытой."
+      },
+      "false_rejection_counterexample": {
+        "type": "protective example; not a demonstrated rubric defect",
+        "candidate": "Phase1: одно приложение, реляционные записи и версии просмотренного материала; публичный вид текущий при условии, что финальность не нужна, иначе отдельный выпуск. Phase2: оставить приложение/БД, выбрать ветку выпусков, привязать три типа полномочий к содержанию, хранить прежние выпуски и собирать треки по их выпуску.",
+        "must_accept": "Отсутствие неизменяемых публичных выпусков в phase1 не ошибка при условности выбора и правильном вопросе; сохранение приложения и БД во второй фазе полноценно.",
+        "protected_by": [
+          "case-b/hidden/rubric.json:4",
+          "P1-06 at case-b/hidden/rubric.json:125",
+          "T-02 at case-b/hidden/rubric.json:421",
+          "case-b/hidden/author-notes.md:23"
+        ]
+      },
+      "consistency": "Дополнительные правила phase2 обеспечены видимыми фактами. Список безвредных полей и отдельные правила обратимости не изобретены как обязательный hidden-answer. Число сервисов, рисунки и архитектурная лексика не оцениваются."
+    },
+    {
+      "case": "case-c",
+      "status": "pass",
+      "blocking_concerns": [],
+      "phase1_uncertainty": {
+        "status": "pass",
+        "evidence": [
+          "case-c/phase1/02-voices.txt:2",
+          "case-c/phase1/03-desk.txt:3",
+          "case-c/phase1/04-quality.txt:4"
+        ],
+        "finding": "Не определены полнота выгрузки, семантика стабильного кода/упаковки, длина без единицы, владельцы спорных правок и смысл обновления. Получение файла заведомо не равно пригодности, но точные правила неизвестны."
+      },
+      "coverage": [
+        {
+          "dimension": "цель и интересы/вопросы",
+          "criteria": [
+            "P1-01",
+            "P1-02",
+            "P1-05"
+          ],
+          "rubric_lines": [
+            13,
+            31,
+            87
+          ],
+          "source": [
+            "case-c/phase1/01-letter.txt:3",
+            "case-c/phase1/02-voices.txt:3",
+            "case-c/phase1/04-quality.txt:4"
+          ],
+          "finding": "Сокращение повторных выяснений и времени до пригодного результата; владельцы предложены условно с понятным способом исправить причину."
+        },
+        {
+          "dimension": "процессы, данные, границы",
+          "criteria": [
+            "P1-03",
+            "P1-04",
+            "P1-05",
+            "P1-08",
+            "P1-09"
+          ],
+          "rubric_lines": [
+            50,
+            68,
+            87,
+            141,
+            160
+          ],
+          "source": [
+            "case-c/phase1/03-desk.txt:4",
+            "case-c/phase1/03-desk.txt:5",
+            "case-c/phase1/02-voices.txt:5"
+          ],
+          "finding": "Различаются исходные факты, интерпретация и покупательское представление; принятие смысла отделено от чтения файла, приватность и происхождение существенны. Эти логические различия не требуют отдельного физического общего каталога/сервиса."
+        },
+        {
+          "dimension": "качества частей, альтернативы и проверка",
+          "criteria": [
+            "P1-06",
+            "P1-07",
+            "P1-09"
+          ],
+          "rubric_lines": [
+            106,
+            124,
+            160
+          ],
+          "source": [
+            "case-c/phase1/04-quality.txt:2",
+            "case-c/phase1/04-quality.txt:3",
+            "case-c/phase1/03-desk.txt:3"
+          ],
+          "finding": "Качество различается по получателю и этапу; обработка/хранение/обмен сравниваются по последствиям, пример A-17 проверяет согласованность обещаний и данных."
+        }
+      ],
+      "phase2_material_change": {
+        "status": "pass",
+        "evidence": [
+          "case-c/phase2/02-new-use.txt:2",
+          "case-c/phase2/02-new-use.txt:3",
+          "case-c/phase2/02-new-use.txt:4"
+        ],
+        "criteria": [
+          "P2-02",
+          "P2-03",
+          "P2-04",
+          "P2-05",
+          "P2-06",
+          "P2-09"
+        ],
+        "rubric_lines": [
+          197,
+          215,
+          231,
+          248,
+          266,
+          319
+        ],
+        "finding": "Нужно не только сохранить подборку: отдельно восстановить старое заключение, переоценить те же исходные факты новыми правилами и обновить текущие представления после изменения правила без повторного импорта. Режим относится к назначению, оба режима допустимы одному покупателю."
+      },
+      "phase_fairness": {
+        "status": "pass",
+        "evidence": [
+          "case-c/hidden/rubric.json:4",
+          "case-c/hidden/rubric.json:94",
+          "case-c/hidden/rubric.json:113",
+          "case-c/hidden/rubric.json:345",
+          "case-c/hidden/rubric.json:363",
+          "case-c/hidden/author-notes.md:11",
+          "case-c/hidden/author-notes.md:19"
+        ],
+        "finding": "Phase1 допускает вопросы/предположения о полномочиях и нормативе; не требует предсказать 15 минут, 18 месяцев и историческую подборку. Сохранение уже подходящих версий допустимо. Недоступность получателя не имеет придуманного строгого срока: можно оговорить измерение штатной нагрузки/сбоя."
+      },
+      "false_rejection_counterexample": {
+        "type": "protective example; not a demonstrated rubric defect",
+        "candidate": "Phase1: один процесс с фоновой обработкой, текущими пригодными строками и происхождением, история и спорные полномочия условны; никакой полной исторической подборки ещё нет. Phase2: оставить процессы/БД, добавить версии входов/правил и утверждённые результаты, новую оценку и обновление зависимых текущих результатов.",
+        "must_accept": "Нельзя требовать исторического полного контекста в phase1 или смены технологии в phase2. Также допустимы отдельные потоки вместо одного, если обеспечены свежесть, изоляция и восстановление.",
+        "protected_by": [
+          "case-c/hidden/rubric.json:4",
+          "case-c/hidden/author-notes.md:11",
+          "R-01 at case-c/hidden/rubric.json:345",
+          "R-02 at case-c/hidden/rubric.json:363"
+        ]
+      },
+      "consistency": "Полугодовое восстановление и 18 месяцев истории совместимы, но не означают неограниченное хранение. Критерий P2-03 проверяет связь сроков, не навязывает неявный вечный архив. Юридическая подпись/внешняя доказательность явно вне задачи."
+    }
+  ],
+  "cross_case_diversity": {
+    "status": "pass",
+    "nonblocking_observation": "B и C заметно пересекаются по различию текущего изменяемого состояния и утверждённого результата; эти два кейса не следует описывать как полностью независимые проверки этого навыка. Однако заданная проверка разнообразия пройдена: правильный ответ одним приёмом сохранения снимка невозможен.",
+    "distinguishing_chains": [
+      {
+        "case": "case-a",
+        "chain": "Лишняя запись и старый перевод → идентичность и повторное применение → раздельные решения редактора/звука/продюсера → готовность конкретного применения с областью разрешения.",
+        "beyond_snapshot": [
+          "B1",
+          "B2",
+          "B3",
+          "B4",
+          "B5",
+          "B6",
+          "B7"
+        ]
+      },
+      {
+        "case": "case-b",
+        "chain": "Ручная сверка и accepted с разными смыслами → полномочия жюри и собственность рецензий → независимые согласованные выпуски треков → одобрение конкретного содержания, публичная коррекция и приватность.",
+        "beyond_snapshot": [
+          "P1-01",
+          "P1-04",
+          "P2-02",
+          "P2-05",
+          "P2-06",
+          "P2-08",
+          "P2-09"
+        ]
+      },
+      {
+        "case": "case-c",
+        "chain": "Повторные вопросы и трёхдневная задержка → неоднозначный вход и разные представления → подтверждение смысла/владение правилами → текущая свежесть плюс восстановление и отдельная переоценка прежних фактов.",
+        "beyond_snapshot": [
+          "P1-02",
+          "P1-06",
+          "P2-01",
+          "P2-02",
+          "P2-04",
+          "P2-05",
+          "P2-07"
+        ]
+      }
+    ],
+    "grader_guard": "Не давать полный балл за один неизменяемый пакет при отсутствии перечисленных разных правил и проверок; не требовать искусственной смены архитектуры для усиления различий."
+  },
+  "hidden_solution_check": {
+    "status": "pass",
+    "finding": "Рубрики содержат открытые альтернативы, оценивают наблюдаемые последствия и явно снимают обязательность терминов, рисунков, стека и топологии. Авторские заметки поясняют неопределённость, но не поставляют отсутствующие обязательные факты вместо фазового сырья. Ни одного установленного ложного отказа, требующего правки перед запуском, не найдено."
+  },
+  "resources_and_closeout": {
+    "output_owner": "Root",
+    "retained_path": "LOCAL_TASK_EVIDENCE/oracle-design-audit.json",
+    "reason": "Requested audit evidence for acceptance",
+    "release_condition": "Root accepts and preserves required evidence before deleting task tree. Worker does not remove shared task tree.",
+    "expected_growth_bytes_max": 40000,
+    "measured_before": {
+      "filesystem_available_kib": 18474748,
+      "vm_page_size_bytes": 16384,
+      "free_pages": 11583,
+      "inactive_pages": 387402,
+      "speculative_pages": 1216,
+      "purgeable_pages": 55
+    },
+    "resource_interpretation": "Light inspection and JSON output; no builds, downloads, servers or persistent child processes. Free-memory pages are a snapshot, not a claim of total available RAM.",
+    "removed_paths": [],
+    "allocated_bytes_removed": 0,
+    "temporary_files_created": 0,
+    "remaining_processes": 0,
+    "cleanup_rule_read": "Owner resource-closeout rule (local only)",
+    "measured_after": {
+      "filesystem_available_kib": 18449372,
+      "filesystem_free_delta_kib": -25376,
+      "attribution": "Concurrent filesystem changes; delta is not attributable to this 26KB deliverable. Removed allocated bytes remain zero."
+    }
+  }
+}

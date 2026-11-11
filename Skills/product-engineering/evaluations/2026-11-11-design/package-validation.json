@@ -1,0 +1,25 @@
+{
+  "operational_token_counts_o200k_base": {
+    "SKILL.md": 681,
+    "references/architecture.md": 974,
+    "references/runtime.md": 547,
+    "references/verification.md": 741,
+    "references/environment.md": 424,
+    "references/backend-jobs.md": 482
+  },
+  "total_operational_tokens": 3849,
+  "matches_tested_snapshot": {
+    "SKILL.md": true,
+    "references/architecture.md": true,
+    "references/runtime.md": true,
+    "references/verification.md": true,
+    "references/environment.md": true,
+    "references/backend-jobs.md": true,
+    "agents/openai.yaml": true
+  },
+  "format": [
+    true,
+    "Skill is valid!"
+  ],
+  "implicit_invocation": true
+}

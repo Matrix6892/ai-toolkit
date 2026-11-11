@@ -1,0 +1,1 @@
+Read phase2 and revisit your own saved phase-one sketch and assumptions. Give the team a revised direction, explain what changed and why, and preserve earlier choices that still make sense. Make the important decisions and remaining uncertainty concrete enough that we can decide what to try first and tell whether it works. Design only; do not implement code or infrastructure.

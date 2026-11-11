@@ -1,0 +1,42 @@
+{
+  "purpose": "Test course system-analysis and architecture method under uncertain requirements, not implementation correctness.",
+  "preflight": "skill-scope-audit.md before evaluation; existing canonical package unchanged",
+  "model": "gpt-6.1-sol",
+  "effort": "high",
+  "cases": 3,
+  "replicates_per_condition": 2,
+  "conditions": [
+    "frozen current skill",
+    "without skill"
+  ],
+  "stages": 2,
+  "total_model_stage_runs": 24,
+  "phase_boundary": "Each phase is a fresh clean CLI session. Phase2 receives own recorded phase1 artifact, original material and the same fixed update. This tests revision/handoff reasoning, not hidden-state memory or adaptive questioning.",
+  "no_ready_contract": "Phase1 contains business evidence and uncertainty, no implementation API or accepted architecture.",
+  "primary": [
+    "decision-relevant clarification and bounded assumptions",
+    "business process and information needs",
+    "consistent data identity and write ownership",
+    "reasoned boundaries and coupling",
+    "quality scenarios localized to parts",
+    "alternatives linked to requirements and guarantees",
+    "evidence of justified revision or justified retention after update"
+  ],
+  "grading": "Source-bound behavioral rubrics frozen before outputs; independent label-blind graders. Phase1 grader sees no update. Phase2 grader compares own prior draft and new outcome, accepts retaining suitable design. Concrete material error needed for deduction; no terminology/topology/length preference.",
+  "secondary": [
+    "all CLI observed input, cached/uncached and output tokens per two-stage chain",
+    "actual guide retrieval",
+    "observable command and file-change events",
+    "artifact size and unsupported claims"
+  ],
+  "changes": "Only after baseline and audits. A confirmed material failure may justify replacing a small instruction; frozen new holdout and regression required for adopted behavioral edit. No addition for wording differences or scores alone. If no supported improvement, retain operational text.",
+  "context_budget": "do not exceed existing 3849 operational tokens without a specific demonstrated need; first prune/replace. No whole-course import or new generic checklists.",
+  "limits": [
+    "Small synthetic sample; no statistical/general superiority or human-graduate equivalence claim.",
+    "Questions are assessed, but identical phase2 packet goes to everyone; this is not a study of adaptive elicitation value.",
+    "Stage2 uses written own context in a fresh instance, not the same persistent inference state.",
+    "B/C share some preservation-of-approved-result concerns; overall case variety remains limited.",
+    "Reviewers/authors are models; independent auditing and exact-evidence review reduce, not eliminate judgement error."
+  ],
+  "custody": "Root preserves original artifacts, scores, corrections and known usage. Exclude system/developer prompt snapshots and shared-state duplicates from retained/public evidence; cleanup exact private task tree after acceptance and no-reader verification."
+}

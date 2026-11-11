@@ -1,0 +1,86 @@
+[
+  {
+    "chain": "D01",
+    "case": "case-b",
+    "condition": "with",
+    "replicate": 1,
+    "skill": "frozen-skill"
+  },
+  {
+    "chain": "D02",
+    "case": "case-b",
+    "condition": "without",
+    "replicate": 1,
+    "skill": "frozen-skill"
+  },
+  {
+    "chain": "D03",
+    "case": "case-c",
+    "condition": "without",
+    "replicate": 1,
+    "skill": "frozen-skill"
+  },
+  {
+    "chain": "D04",
+    "case": "case-c",
+    "condition": "with",
+    "replicate": 1,
+    "skill": "frozen-skill"
+  },
+  {
+    "chain": "D05",
+    "case": "case-a",
+    "condition": "with",
+    "replicate": 1,
+    "skill": "frozen-skill"
+  },
+  {
+    "chain": "D06",
+    "case": "case-a",
+    "condition": "without",
+    "replicate": 1,
+    "skill": "frozen-skill"
+  },
+  {
+    "chain": "D07",
+    "case": "case-c",
+    "condition": "without",
+    "replicate": 2,
+    "skill": "frozen-skill"
+  },
+  {
+    "chain": "D08",
+    "case": "case-c",
+    "condition": "with",
+    "replicate": 2,
+    "skill": "frozen-skill"
+  },
+  {
+    "chain": "D09",
+    "case": "case-b",
+    "condition": "with",
+    "replicate": 2,
+    "skill": "frozen-skill"
+  },
+  {
+    "chain": "D10",
+    "case": "case-b",
+    "condition": "without",
+    "replicate": 2,
+    "skill": "frozen-skill"
+  },
+  {
+    "chain": "D11",
+    "case": "case-a",
+    "condition": "without",
+    "replicate": 2,
+    "skill": "frozen-skill"
+  },
+  {
+    "chain": "D12",
+    "case": "case-a",
+    "condition": "with",
+    "replicate": 2,
+    "skill": "frozen-skill"
+  }
+]

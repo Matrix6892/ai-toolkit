@@ -1,0 +1,9 @@
+{
+  "SKILL.md": "84b0df983a3b6d966f961cf0289873504cc81729835bfb350b96676c2a3486ec",
+  "references/architecture.md": "8e9ab8ca39be10de9715758da0a92818ecd9720d357b68b6b301dac927b4b139",
+  "references/runtime.md": "de178ad9bfdf94bddd7ef642d2116dcaeab40afbebd68a1696049c1286ed5c01",
+  "references/verification.md": "7bd71d5f6e0f7fb7351014de2a1aecc72b30efc23cf79e002601f78396474dce",
+  "references/environment.md": "98ccf9002d1e9f16a55ecf1fa038433a4cffaf67bfa85de8a4a403a7584ae71f",
+  "references/backend-jobs.md": "21b5b6ae7fbaedbf687504d048ca830f3e4f7384bfcec09a9614c0320dc57e9b",
+  "agents/openai.yaml": "8619a54e8c098122a7f3881394f84ca89b684366e848233a29ad18b6ec363935"
+}

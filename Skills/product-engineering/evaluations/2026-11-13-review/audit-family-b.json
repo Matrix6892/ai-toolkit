@@ -1,0 +1,53 @@
+{
+  "scope": "Independent read of p/q documents, oracle, witness and author report. No candidate, skills, unrelated results, model calls, network or subagents.",
+  "capacity": {
+    "disk_available_before_bytes": 9586196480,
+    "system_memory_free_percent": 40,
+    "expected_total_output_bytes_less_than": 100000
+  },
+  "closeout": {
+    "inputs_modified": false,
+    "removed_paths": [],
+    "removed_allocated_bytes": 0,
+    "own_processes_remaining": 0,
+    "disposable_intermediates_created": false,
+    "retained_owner": "Root",
+    "retained_reason": "Independent audit JSON pending acceptance and verified durable copy.",
+    "release_condition": "Root removes shared task tree after acceptance/copy.",
+    "retained_path": "LOCAL_TASK_EVIDENCE/audit-family-b.json"
+  },
+  "family": "b",
+  "status": "pass",
+  "blockers": [],
+  "defect_verified": {
+    "id": "B-1",
+    "reason": "Planning precedes successful project extension while bundle remains LIVE; extension changes only project revision/deadline, but p execution compares only bundle fields. Thus it commits ERASED at time 100 after the applicable deadline became 200. This violates 01 lines 13-14 without any failure or delayed-notification assumption.",
+    "sources": [
+      "packet-p/01-service-brief.md:13-14",
+      "packet-p/03-policy-amendments.md:6-11",
+      "packet-p/04-erasure-protocol.md:6-15"
+    ]
+  },
+  "valid_variant_analysis": "q takes current project and bundle locks through commit and compares both revisions. If extension commits first, revision mismatch rejects; if erasure commits first, bundle is not LIVE at extension commit. Individual deadline changes increase bundle revision; moves change project and row revision and carry source obligation into own deadline. Nondecreasing authoritative time and unchanged eligibility dependencies preserve planned eligibility. New registration never makes an existing eligible ticket valid for another bundle. Receipts are atomic and replayed idempotently. No proven independent side violation found.",
+  "unknowns_not_errors": "Unprovided DB implementation, capacity forecasts, disaster recovery and unspecified latency targets are not charged as defects. Deadlines and locks are interpreted as explicitly guaranteed.",
+  "witness_run": {
+    "command": "python3 -B family-b/hidden/witness.py",
+    "exit_code": 0,
+    "packet_p_schedules": 60,
+    "packet_p_violating_schedules": 3,
+    "packet_q_schedules": 60,
+    "packet_q_violating_schedules": 0,
+    "minimal_trace": [
+      "prepare",
+      "amend deadline 200",
+      "execute ERASED at time 100"
+    ],
+    "protected_trace": [
+      "prepare",
+      "amend deadline 200",
+      "execute eligibility rejected"
+    ],
+    "scope": "Bounded model corroborates the minimal counterexample and revision/locking proof; not production implementation verification."
+  },
+  "source_check": "All 13 oracle path/line quotations exactly match current packet source. Witness also verified all recorded source hashes."
+}

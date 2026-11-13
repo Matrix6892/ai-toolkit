@@ -1,0 +1,133 @@
+{
+  "synthetic": true,
+  "mapping": {
+    "packet-p": "contains_one_material_defect",
+    "packet-q": "correct_under_documented_contract"
+  },
+  "defects": [
+    {
+      "id": "B-1",
+      "severity": "high",
+      "claim": "An accepted project retention extension does not invalidate a previously planned destruction ticket, so a still-LIVE bundle can be irreversibly erased during its new required retention period.",
+      "sources": [
+        {
+          "path": "packet-p/01-service-brief.md",
+          "line": 13,
+          "quote": "A successful contract extension applies to every bundle LIVE at its commit point."
+        },
+        {
+          "path": "packet-p/01-service-brief.md",
+          "line": 14,
+          "quote": "After accepting an extension, no such bundle may transition to ERASED before its new effective deadline."
+        },
+        {
+          "path": "packet-p/03-policy-amendments.md",
+          "line": 9,
+          "quote": "It increases retainUntil and policyRevision in the same project-row transaction."
+        },
+        {
+          "path": "packet-p/03-policy-amendments.md",
+          "line": 11,
+          "quote": "The transaction updates no bundle rows."
+        },
+        {
+          "path": "packet-p/04-erasure-protocol.md",
+          "line": 6,
+          "quote": "Ticket fields: ticketId, tenantId, bundleId, keyId, projectId, rowRevision, expiresAt."
+        },
+        {
+          "path": "packet-p/04-erasure-protocol.md",
+          "line": 10,
+          "quote": "Execution opens a transaction and locks the named bundle row."
+        },
+        {
+          "path": "packet-p/04-erasure-protocol.md",
+          "line": 11,
+          "quote": "It compares LIVE state, keyId, projectId and rowRevision with the ticket."
+        },
+        {
+          "path": "packet-p/04-erasure-protocol.md",
+          "line": 15,
+          "quote": "The original planning check is the deadline eligibility check for this ticket."
+        }
+      ],
+      "scenario": [
+        "At catalog time 100, LIVE bundle has own deadline 80 and project deadline 90; planner signs a five-minute ticket.",
+        "Policy commits project deadline 200 and policyRevision 2 and returns success. Bundle row remains unchanged and LIVE.",
+        "Execution within ticket lifetime locks the bundle, finds all ticket fields unchanged, commits ERASED and destruction receipt at time 100."
+      ],
+      "correcting_principle": "Every writer of a retention obligation must share an atomic serialization boundary with the irreversible erasure decision. Bind candidate eligibility to both bundle and project revisions and compare both while holding their locks until erasure commit; a fresh unlocked read or faster event delivery is insufficient."
+    }
+  ],
+  "correct_packet_guarantee": {
+    "sources": [
+      {
+        "path": "packet-q/04-erasure-protocol.md",
+        "line": 10,
+        "quote": "Execution opens one transaction and locks the ticket's project row, then bundle row."
+      },
+      {
+        "path": "packet-q/04-erasure-protocol.md",
+        "line": 12,
+        "quote": "It also compares the locked project's policyRevision with the ticket's policyRevision."
+      },
+      {
+        "path": "packet-q/02-catalog-and-ownership.md",
+        "line": 20,
+        "quote": "Locks named in an operation stay held through its commit."
+      },
+      {
+        "path": "packet-q/03-policy-amendments.md",
+        "line": 6,
+        "quote": "The Policy process locks the project row and reads its current revision."
+      },
+      {
+        "path": "packet-q/02-catalog-and-ownership.md",
+        "line": 16,
+        "quote": "It also raises ownRetainUntil to the maximum of its prior value and the source deadline."
+      }
+    ],
+    "argument": "Project amendment and erasure cannot both commit in an order inconsistent with eligibility: amendment first changes revision and rejects the ticket; erasure first removes the bundle from the LIVE amendment set. Individual deadline changes and moves change the bundle revision. Reassignment carries the prior project obligation into the individual deadline. Unchanged matching revisions plus nondecreasing catalog time preserve the original eligibility result.",
+    "scope": "Contract correctness is under specified operations and lock behavior, not a claim about unprovided implementation or arbitrary compromised database clients."
+  },
+  "false_alarms": [
+    {
+      "claim": "Physical key deletion follows a delayed queue, so commit may lose destruction work.",
+      "why_false": "ERASED and receipt commit together; durable receipt polling retries idempotent key destruction."
+    },
+    {
+      "claim": "Any ticket is stale, hence both packets are wrong.",
+      "why_false": "Staleness is allowed; packet-q revalidates all eligibility dependencies under locks, with monotonically increasing revisions and nondecreasing time."
+    },
+    {
+      "claim": "Reassignment can evade a previous project retention obligation.",
+      "why_false": "Reassignment raises ownRetainUntil using the source deadline and increments rowRevision while locking both projects and bundle."
+    },
+    {
+      "claim": "Extending an ERASED bundle must restore its key.",
+      "why_false": "The product explicitly excludes already ERASED bundles from amendments and forbids restoration."
+    },
+    {
+      "claim": "An extension races with planning snapshots even in packet-q.",
+      "why_false": "A snapshot before the extension is rejected at execution; a snapshot after the extension sees the new deadline."
+    }
+  ],
+  "ambiguities": [
+    "No latency or throughput SLO is supplied; lock contention is a question, not a confirmed material defect.",
+    "Implementation of snapshot consistency, authentication and database lock primitives is not supplied; the packet expressly grants these behaviors.",
+    "Disaster recovery across a complete loss of the catalog is outside the stated model; no additional invariant should be invented."
+  ],
+  "witness_scope": "Exhaustive 60 legal relative commit orders for one planner, executor, project amendment, individual extension and reassignment at catalog time 100. This is bounded evidence plus the documented lock argument, not exhaustive testing of all production schedules.",
+  "source_sha256": {
+    "packet-p/01-service-brief.md": "bce339a3e48e59416080ebbc4786785802f904ee06d2bcadb40febc643bfb6e8",
+    "packet-p/02-catalog-and-ownership.md": "2166c01c1c921763738c8366a5e1f0d19e2b3fd9ad53a81350c5974af21c8663",
+    "packet-p/03-policy-amendments.md": "50dfb18219244030bba82732a9ecbff5b1901e553c0da5f7ca84072d357492c6",
+    "packet-p/04-erasure-protocol.md": "c11f91a20d08b7f08bfb4d97d5fd87af2e1b8fab2714841c47799f0110fcfc27",
+    "packet-p/05-recovery-and-operations.md": "e8f3351653cd7d68552470095e75774bc4400ae69e2da3251867ff809e7bf4e8",
+    "packet-q/01-service-brief.md": "bce339a3e48e59416080ebbc4786785802f904ee06d2bcadb40febc643bfb6e8",
+    "packet-q/02-catalog-and-ownership.md": "2166c01c1c921763738c8366a5e1f0d19e2b3fd9ad53a81350c5974af21c8663",
+    "packet-q/03-policy-amendments.md": "50dfb18219244030bba82732a9ecbff5b1901e553c0da5f7ca84072d357492c6",
+    "packet-q/04-erasure-protocol.md": "c914af42976118f6c2c58daed11930e91559b58111a323937e291784529d6153",
+    "packet-q/05-recovery-and-operations.md": "e8f3351653cd7d68552470095e75774bc4400ae69e2da3251867ff809e7bf4e8"
+  }
+}

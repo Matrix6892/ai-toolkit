@@ -1,0 +1,221 @@
+{
+  "concurrency": 3,
+  "runs": [
+    {
+      "id": "R01",
+      "family": "family-a",
+      "packet": "packet-p",
+      "condition": "without",
+      "replicate": 1,
+      "study_phase": "primary",
+      "skill_path": "candidate/architecture-review"
+    },
+    {
+      "id": "R02",
+      "family": "family-a",
+      "packet": "packet-p",
+      "condition": "with",
+      "replicate": 1,
+      "study_phase": "primary",
+      "skill_path": "candidate/architecture-review"
+    },
+    {
+      "id": "R03",
+      "family": "family-a",
+      "packet": "packet-p",
+      "condition": "with",
+      "replicate": 2,
+      "study_phase": "primary",
+      "skill_path": "candidate/architecture-review"
+    },
+    {
+      "id": "R04",
+      "family": "family-a",
+      "packet": "packet-p",
+      "condition": "without",
+      "replicate": 2,
+      "study_phase": "primary",
+      "skill_path": "candidate/architecture-review"
+    },
+    {
+      "id": "R05",
+      "family": "family-a",
+      "packet": "packet-q",
+      "condition": "with",
+      "replicate": 1,
+      "study_phase": "primary",
+      "skill_path": "candidate/architecture-review"
+    },
+    {
+      "id": "R06",
+      "family": "family-a",
+      "packet": "packet-q",
+      "condition": "without",
+      "replicate": 1,
+      "study_phase": "primary",
+      "skill_path": "candidate/architecture-review"
+    },
+    {
+      "id": "R07",
+      "family": "family-a",
+      "packet": "packet-q",
+      "condition": "without",
+      "replicate": 2,
+      "study_phase": "primary",
+      "skill_path": "candidate/architecture-review"
+    },
+    {
+      "id": "R08",
+      "family": "family-a",
+      "packet": "packet-q",
+      "condition": "with",
+      "replicate": 2,
+      "study_phase": "primary",
+      "skill_path": "candidate/architecture-review"
+    },
+    {
+      "id": "R09",
+      "family": "family-b",
+      "packet": "packet-p",
+      "condition": "without",
+      "replicate": 1,
+      "study_phase": "primary",
+      "skill_path": "candidate/architecture-review"
+    },
+    {
+      "id": "R10",
+      "family": "family-b",
+      "packet": "packet-p",
+      "condition": "with",
+      "replicate": 1,
+      "study_phase": "primary",
+      "skill_path": "candidate/architecture-review"
+    },
+    {
+      "id": "R11",
+      "family": "family-b",
+      "packet": "packet-p",
+      "condition": "with",
+      "replicate": 2,
+      "study_phase": "primary",
+      "skill_path": "candidate/architecture-review"
+    },
+    {
+      "id": "R12",
+      "family": "family-b",
+      "packet": "packet-p",
+      "condition": "without",
+      "replicate": 2,
+      "study_phase": "primary",
+      "skill_path": "candidate/architecture-review"
+    },
+    {
+      "id": "R13",
+      "family": "family-b",
+      "packet": "packet-q",
+      "condition": "with",
+      "replicate": 1,
+      "study_phase": "primary",
+      "skill_path": "candidate/architecture-review"
+    },
+    {
+      "id": "R14",
+      "family": "family-b",
+      "packet": "packet-q",
+      "condition": "without",
+      "replicate": 1,
+      "study_phase": "primary",
+      "skill_path": "candidate/architecture-review"
+    },
+    {
+      "id": "R15",
+      "family": "family-b",
+      "packet": "packet-q",
+      "condition": "without",
+      "replicate": 2,
+      "study_phase": "primary",
+      "skill_path": "candidate/architecture-review"
+    },
+    {
+      "id": "R16",
+      "family": "family-b",
+      "packet": "packet-q",
+      "condition": "with",
+      "replicate": 2,
+      "study_phase": "primary",
+      "skill_path": "candidate/architecture-review"
+    },
+    {
+      "id": "R17",
+      "family": "family-c",
+      "packet": "packet-p",
+      "condition": "without",
+      "replicate": 1,
+      "study_phase": "primary",
+      "skill_path": "candidate/architecture-review"
+    },
+    {
+      "id": "R18",
+      "family": "family-c",
+      "packet": "packet-p",
+      "condition": "with",
+      "replicate": 1,
+      "study_phase": "primary",
+      "skill_path": "candidate/architecture-review"
+    },
+    {
+      "id": "R19",
+      "family": "family-c",
+      "packet": "packet-p",
+      "condition": "with",
+      "replicate": 2,
+      "study_phase": "primary",
+      "skill_path": "candidate/architecture-review"
+    },
+    {
+      "id": "R20",
+      "family": "family-c",
+      "packet": "packet-p",
+      "condition": "without",
+      "replicate": 2,
+      "study_phase": "primary",
+      "skill_path": "candidate/architecture-review"
+    },
+    {
+      "id": "R21",
+      "family": "family-c",
+      "packet": "packet-q",
+      "condition": "with",
+      "replicate": 1,
+      "study_phase": "primary",
+      "skill_path": "candidate/architecture-review"
+    },
+    {
+      "id": "R22",
+      "family": "family-c",
+      "packet": "packet-q",
+      "condition": "without",
+      "replicate": 1,
+      "study_phase": "primary",
+      "skill_path": "candidate/architecture-review"
+    },
+    {
+      "id": "R23",
+      "family": "family-c",
+      "packet": "packet-q",
+      "condition": "without",
+      "replicate": 2,
+      "study_phase": "primary",
+      "skill_path": "candidate/architecture-review"
+    },
+    {
+      "id": "R24",
+      "family": "family-c",
+      "packet": "packet-q",
+      "condition": "with",
+      "replicate": 2,
+      "study_phase": "primary",
+      "skill_path": "candidate/architecture-review"
+    }
+  ]
+}

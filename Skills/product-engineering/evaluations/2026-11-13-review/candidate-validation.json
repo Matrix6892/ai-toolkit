@@ -1,0 +1,12 @@
+{
+  "format": [
+    true,
+    "Skill is valid!"
+  ],
+  "tokens_o200k_base": 205,
+  "implicit_invocation": true,
+  "sha256": {
+    "SKILL.md": "9cb40e076ce360449d37e86ccd31b03aed8cfbd66c045e4f75979ea6a662bd5e",
+    "agents/openai.yaml": "8619a54e8c098122a7f3881394f84ca89b684366e848233a29ad18b6ec363935"
+  }
+}

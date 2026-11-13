@@ -1,0 +1,149 @@
+{
+  "concurrency": 3,
+  "runs": [
+    {
+      "id": "E01",
+      "family": "authentic-etcd",
+      "packet": "packet-review-before",
+      "condition": "without",
+      "replicate": 1,
+      "study_phase": "authentic",
+      "skill_path": "candidate/architecture-review"
+    },
+    {
+      "id": "E02",
+      "family": "authentic-etcd",
+      "packet": "packet-review-before",
+      "condition": "with",
+      "replicate": 1,
+      "study_phase": "authentic",
+      "skill_path": "candidate/architecture-review"
+    },
+    {
+      "id": "E03",
+      "family": "authentic-etcd",
+      "packet": "packet-review-before",
+      "condition": "with",
+      "replicate": 2,
+      "study_phase": "authentic",
+      "skill_path": "candidate/architecture-review"
+    },
+    {
+      "id": "E04",
+      "family": "authentic-etcd",
+      "packet": "packet-review-before",
+      "condition": "without",
+      "replicate": 2,
+      "study_phase": "authentic",
+      "skill_path": "candidate/architecture-review"
+    },
+    {
+      "id": "E05",
+      "family": "authentic-etcd",
+      "packet": "packet-review-after",
+      "condition": "with",
+      "replicate": 1,
+      "study_phase": "authentic",
+      "skill_path": "candidate/architecture-review"
+    },
+    {
+      "id": "E06",
+      "family": "authentic-etcd",
+      "packet": "packet-review-after",
+      "condition": "without",
+      "replicate": 1,
+      "study_phase": "authentic",
+      "skill_path": "candidate/architecture-review"
+    },
+    {
+      "id": "E07",
+      "family": "authentic-etcd",
+      "packet": "packet-review-after",
+      "condition": "without",
+      "replicate": 2,
+      "study_phase": "authentic",
+      "skill_path": "candidate/architecture-review"
+    },
+    {
+      "id": "E08",
+      "family": "authentic-etcd",
+      "packet": "packet-review-after",
+      "condition": "with",
+      "replicate": 2,
+      "study_phase": "authentic",
+      "skill_path": "candidate/architecture-review"
+    },
+    {
+      "id": "E09",
+      "family": "authentic-celery",
+      "packet": "packet-review-before",
+      "condition": "without",
+      "replicate": 1,
+      "study_phase": "authentic",
+      "skill_path": "candidate/architecture-review"
+    },
+    {
+      "id": "E10",
+      "family": "authentic-celery",
+      "packet": "packet-review-before",
+      "condition": "with",
+      "replicate": 1,
+      "study_phase": "authentic",
+      "skill_path": "candidate/architecture-review"
+    },
+    {
+      "id": "E11",
+      "family": "authentic-celery",
+      "packet": "packet-review-before",
+      "condition": "with",
+      "replicate": 2,
+      "study_phase": "authentic",
+      "skill_path": "candidate/architecture-review"
+    },
+    {
+      "id": "E12",
+      "family": "authentic-celery",
+      "packet": "packet-review-before",
+      "condition": "without",
+      "replicate": 2,
+      "study_phase": "authentic",
+      "skill_path": "candidate/architecture-review"
+    },
+    {
+      "id": "E13",
+      "family": "authentic-celery",
+      "packet": "packet-review-after",
+      "condition": "with",
+      "replicate": 1,
+      "study_phase": "authentic",
+      "skill_path": "candidate/architecture-review"
+    },
+    {
+      "id": "E14",
+      "family": "authentic-celery",
+      "packet": "packet-review-after",
+      "condition": "without",
+      "replicate": 1,
+      "study_phase": "authentic",
+      "skill_path": "candidate/architecture-review"
+    },
+    {
+      "id": "E15",
+      "family": "authentic-celery",
+      "packet": "packet-review-after",
+      "condition": "without",
+      "replicate": 2,
+      "study_phase": "authentic",
+      "skill_path": "candidate/architecture-review"
+    },
+    {
+      "id": "E16",
+      "family": "authentic-celery",
+      "packet": "packet-review-after",
+      "condition": "with",
+      "replicate": 2,
+      "study_phase": "authentic",
+      "skill_path": "candidate/architecture-review"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "hidden/oracle.json": "63671642df02e38427e4cafb06e020df130bb7440a35998812a78b0cec36acc3",
+  "hidden/witness-result.json": "1735d8f5d284f0448dc7c144bb041ed08cc15550ddd4b3f74d3dd68fb9449e84",
+  "hidden/witness.py": "3b1d2f025d7ab93d81ade52690ea1989651adb8e1d74f99ed0cebc43af263c53",
+  "packet-p/01-programme.md": "04aed43abbe5a37ce3adbae117aa3f2de96b138274d16410b6a207867012bb75",
+  "packet-p/02-participants.txt": "64a31487a3a31fe33541827ccda6750b63efeedde58e679b14c6d939b0c2fa4e",
+  "packet-p/03-data-design.md": "d62da08bce3042d6d5fb4e3960b6f29794c9a1bf32551e86a4cf41c38ca757d4",
+  "packet-p/04-payment-contract.md": "02c38c75f0d343fe99c92de9cf9f346aeec93331f7dbb1483bd2fa441b54e196",
+  "packet-p/05-operations.md": "0448db07c53f993180f3f5cb005378d817e47c691fa619979333cbac52d4e771",
+  "packet-q/01-programme.md": "04aed43abbe5a37ce3adbae117aa3f2de96b138274d16410b6a207867012bb75",
+  "packet-q/02-participants.txt": "64a31487a3a31fe33541827ccda6750b63efeedde58e679b14c6d939b0c2fa4e",
+  "packet-q/03-data-design.md": "77961656ecb12f3bd594ca8e57feae3ac9113729a088d072ea1a5cef72d520fd",
+  "packet-q/04-payment-contract.md": "c8fe171b337870acce76ae501cbca9528e8d5576391240e3b984156b29038d53",
+  "packet-q/05-operations.md": "0448db07c53f993180f3f5cb005378d817e47c691fa619979333cbac52d4e771"
+}

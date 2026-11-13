@@ -1,0 +1,817 @@
+{
+  "rows": [
+    {
+      "id": "E03",
+      "family": "authentic-etcd",
+      "packet": "packet-review-before",
+      "condition": "with",
+      "replicate": 2,
+      "known_expected": 1,
+      "known_full": 1,
+      "known_partial": 0,
+      "known_miss": 0,
+      "resolved_bug_re_reported": false,
+      "reported_false_positives": 0,
+      "invalid_fixes": 0,
+      "source_supported_additional_groups": [
+        "FRAGMENT-PENDING",
+        "PREVKV-PUBLISH",
+        "WATCH-ID-GENERATION"
+      ]
+    },
+    {
+      "id": "E04",
+      "family": "authentic-etcd",
+      "packet": "packet-review-before",
+      "condition": "without",
+      "replicate": 2,
+      "known_expected": 1,
+      "known_full": 1,
+      "known_partial": 0,
+      "known_miss": 0,
+      "resolved_bug_re_reported": false,
+      "reported_false_positives": 0,
+      "invalid_fixes": 0,
+      "source_supported_additional_groups": [
+        "FRAGMENT-PENDING",
+        "RESUME-CREATED-OFFBYONE"
+      ]
+    },
+    {
+      "id": "E08",
+      "family": "authentic-etcd",
+      "packet": "packet-review-after",
+      "condition": "with",
+      "replicate": 2,
+      "known_expected": 0,
+      "known_full": 0,
+      "known_partial": 0,
+      "known_miss": 0,
+      "resolved_bug_re_reported": false,
+      "reported_false_positives": 0,
+      "invalid_fixes": 0,
+      "source_supported_additional_groups": [
+        "EXPLICIT-PROGRESS-DROPPED",
+        "FRAGMENT-PENDING",
+        "PREVKV-PUBLISH",
+        "RESUME-FUTURE-REGRESSION",
+        "WATCH-ID-GENERATION"
+      ]
+    },
+    {
+      "id": "E05",
+      "family": "authentic-etcd",
+      "packet": "packet-review-after",
+      "condition": "with",
+      "replicate": 1,
+      "known_expected": 0,
+      "known_full": 0,
+      "known_partial": 0,
+      "known_miss": 0,
+      "resolved_bug_re_reported": false,
+      "reported_false_positives": 0,
+      "invalid_fixes": 0,
+      "source_supported_additional_groups": [
+        "EXPLICIT-PROGRESS-DROPPED",
+        "FRAGMENT-PENDING",
+        "PREVKV-PUBLISH",
+        "RESUME-CREATED-OFFBYONE",
+        "RESUME-FUTURE-REGRESSION"
+      ]
+    },
+    {
+      "id": "E06",
+      "family": "authentic-etcd",
+      "packet": "packet-review-after",
+      "condition": "without",
+      "replicate": 1,
+      "known_expected": 0,
+      "known_full": 0,
+      "known_partial": 0,
+      "known_miss": 0,
+      "resolved_bug_re_reported": false,
+      "reported_false_positives": 0,
+      "invalid_fixes": 0,
+      "source_supported_additional_groups": [
+        "EXPLICIT-PROGRESS-DROPPED",
+        "FRAGMENT-PENDING",
+        "PREVKV-PUBLISH",
+        "RESUME-CREATED-OFFBYONE"
+      ]
+    },
+    {
+      "id": "E01",
+      "family": "authentic-etcd",
+      "packet": "packet-review-before",
+      "condition": "without",
+      "replicate": 1,
+      "known_expected": 1,
+      "known_full": 1,
+      "known_partial": 0,
+      "known_miss": 0,
+      "resolved_bug_re_reported": false,
+      "reported_false_positives": 0,
+      "invalid_fixes": 0,
+      "source_supported_additional_groups": [
+        "FRAGMENT-PENDING",
+        "RESUME-CREATED-OFFBYONE",
+        "WATCH-ID-GENERATION"
+      ]
+    },
+    {
+      "id": "E07",
+      "family": "authentic-etcd",
+      "packet": "packet-review-after",
+      "condition": "without",
+      "replicate": 2,
+      "known_expected": 0,
+      "known_full": 0,
+      "known_partial": 0,
+      "known_miss": 0,
+      "resolved_bug_re_reported": false,
+      "reported_false_positives": 0,
+      "invalid_fixes": 0,
+      "source_supported_additional_groups": [
+        "EXPLICIT-PROGRESS-DROPPED",
+        "FRAGMENT-PENDING",
+        "RESUME-CREATED-OFFBYONE",
+        "RESUME-FUTURE-REGRESSION",
+        "WATCH-ID-GENERATION"
+      ]
+    },
+    {
+      "id": "E02",
+      "family": "authentic-etcd",
+      "packet": "packet-review-before",
+      "condition": "with",
+      "replicate": 1,
+      "known_expected": 1,
+      "known_full": 1,
+      "known_partial": 0,
+      "known_miss": 0,
+      "resolved_bug_re_reported": false,
+      "reported_false_positives": 0,
+      "invalid_fixes": 0,
+      "source_supported_additional_groups": [
+        "PREVKV-PUBLISH",
+        "WATCH-ID-GENERATION"
+      ]
+    },
+    {
+      "id": "E10",
+      "family": "authentic-celery",
+      "packet": "packet-review-before",
+      "condition": "with",
+      "replicate": 1,
+      "known_expected": 1,
+      "known_full": 0,
+      "known_partial": 0,
+      "known_miss": 1,
+      "resolved_bug_re_reported": false,
+      "reported_false_positives": 1,
+      "invalid_fixes": 1,
+      "source_supported_additional_groups": [
+        "CHAIN-CALLBACK-ID",
+        "MAP-OPTIONS-LOSS"
+      ]
+    },
+    {
+      "id": "E11",
+      "family": "authentic-celery",
+      "packet": "packet-review-before",
+      "condition": "with",
+      "replicate": 2,
+      "known_expected": 1,
+      "known_full": 0,
+      "known_partial": 0,
+      "known_miss": 1,
+      "resolved_bug_re_reported": false,
+      "reported_false_positives": 0,
+      "invalid_fixes": 0,
+      "source_supported_additional_groups": [
+        "CHAIN-CALLBACK-ID",
+        "MAP-OPTIONS-LOSS",
+        "NESTED-CHORD-FAILURE-CONTEXT"
+      ]
+    },
+    {
+      "id": "E09",
+      "family": "authentic-celery",
+      "packet": "packet-review-before",
+      "condition": "without",
+      "replicate": 1,
+      "known_expected": 1,
+      "known_full": 0,
+      "known_partial": 0,
+      "known_miss": 1,
+      "resolved_bug_re_reported": false,
+      "reported_false_positives": 0,
+      "invalid_fixes": 0,
+      "source_supported_additional_groups": [
+        "CALL-IGNORE-RESULT-OVERRIDE",
+        "CHAIN-CALLBACK-ID",
+        "CHORD-STAMP-BODY",
+        "MAP-OPTIONS-LOSS",
+        "NESTED-CHORD-FAILURE-CONTEXT"
+      ]
+    },
+    {
+      "id": "E14",
+      "family": "authentic-celery",
+      "packet": "packet-review-after",
+      "condition": "without",
+      "replicate": 1,
+      "known_expected": 0,
+      "known_full": 0,
+      "known_partial": 0,
+      "known_miss": 0,
+      "resolved_bug_re_reported": false,
+      "reported_false_positives": 0,
+      "invalid_fixes": 0,
+      "source_supported_additional_groups": [
+        "CHAIN-CALLBACK-ID",
+        "CHORD-STAMP-BODY",
+        "MAP-OPTIONS-LOSS",
+        "NESTED-CHORD-FAILURE-CONTEXT",
+        "STAMP-REPLACE-POLICY"
+      ]
+    },
+    {
+      "id": "E13",
+      "family": "authentic-celery",
+      "packet": "packet-review-after",
+      "condition": "with",
+      "replicate": 1,
+      "known_expected": 0,
+      "known_full": 0,
+      "known_partial": 0,
+      "known_miss": 0,
+      "resolved_bug_re_reported": false,
+      "reported_false_positives": 0,
+      "invalid_fixes": 0,
+      "source_supported_additional_groups": [
+        "CHAIN-CALLBACK-ID",
+        "MAP-OPTIONS-LOSS",
+        "NESTED-CHORD-FAILURE-CONTEXT",
+        "STAMP-RESULT-METADATA-COLLISION"
+      ]
+    },
+    {
+      "id": "E15",
+      "family": "authentic-celery",
+      "packet": "packet-review-after",
+      "condition": "without",
+      "replicate": 2,
+      "known_expected": 0,
+      "known_full": 0,
+      "known_partial": 0,
+      "known_miss": 0,
+      "resolved_bug_re_reported": false,
+      "reported_false_positives": 0,
+      "invalid_fixes": 0,
+      "source_supported_additional_groups": [
+        "CALL-IGNORE-RESULT-OVERRIDE",
+        "CHAIN-CALLBACK-ID",
+        "CHORD-STAMP-BODY",
+        "CHUNKS-DISPATCH-CONTRACT",
+        "MAP-OPTIONS-LOSS",
+        "STAMP-REPLACE-POLICY"
+      ]
+    },
+    {
+      "id": "E12",
+      "family": "authentic-celery",
+      "packet": "packet-review-before",
+      "condition": "without",
+      "replicate": 2,
+      "known_expected": 1,
+      "known_full": 0,
+      "known_partial": 0,
+      "known_miss": 1,
+      "resolved_bug_re_reported": false,
+      "reported_false_positives": 0,
+      "invalid_fixes": 0,
+      "source_supported_additional_groups": [
+        "CHAIN-IMMUTABLE-ROUNDTRIP",
+        "CHORD-STAMP-BODY",
+        "MAP-OPTIONS-LOSS",
+        "NESTED-CHORD-FAILURE-CONTEXT",
+        "STAMP-REPLACE-POLICY"
+      ]
+    },
+    {
+      "id": "E16",
+      "family": "authentic-celery",
+      "packet": "packet-review-after",
+      "condition": "with",
+      "replicate": 2,
+      "known_expected": 0,
+      "known_full": 0,
+      "known_partial": 0,
+      "known_miss": 0,
+      "resolved_bug_re_reported": false,
+      "reported_false_positives": 0,
+      "invalid_fixes": 0,
+      "source_supported_additional_groups": [
+        "CHORD-STAMP-BODY",
+        "MAP-OPTIONS-LOSS",
+        "NESTED-CHORD-FAILURE-CONTEXT",
+        "TERMINAL-GROUP-FAILURE-COUNT"
+      ]
+    }
+  ],
+  "totals": {
+    "with": {
+      "graded_runs": 8,
+      "known_expected": 4,
+      "known_full": 2,
+      "known_partial": 0,
+      "known_miss": 2,
+      "resolved_bug_re_reported": 0,
+      "reported_false_positives": 1,
+      "invalid_fixes": 1
+    },
+    "without": {
+      "graded_runs": 8,
+      "known_expected": 4,
+      "known_full": 2,
+      "known_partial": 0,
+      "known_miss": 2,
+      "resolved_bug_re_reported": 0,
+      "reported_false_positives": 0,
+      "invalid_fixes": 0
+    }
+  },
+  "additional_group_matrix": {
+    "authentic-etcd": {
+      "FRAGMENT-PENDING": {
+        "packet-review-before/with": [
+          {
+            "job": "E03",
+            "replicate": 2,
+            "classification": "true_defect"
+          },
+          {
+            "job": "E02",
+            "replicate": 1,
+            "classification": "valid_unknown"
+          }
+        ],
+        "packet-review-before/without": [
+          {
+            "job": "E04",
+            "replicate": 2,
+            "classification": "true_defect"
+          },
+          {
+            "job": "E01",
+            "replicate": 1,
+            "classification": "true_defect"
+          }
+        ],
+        "packet-review-after/with": [
+          {
+            "job": "E08",
+            "replicate": 2,
+            "classification": "true_defect"
+          },
+          {
+            "job": "E05",
+            "replicate": 1,
+            "classification": "true_defect"
+          }
+        ],
+        "packet-review-after/without": [
+          {
+            "job": "E06",
+            "replicate": 1,
+            "classification": "true_defect"
+          },
+          {
+            "job": "E07",
+            "replicate": 2,
+            "classification": "true_defect"
+          }
+        ]
+      },
+      "PREVKV-PUBLISH": {
+        "packet-review-before/with": [
+          {
+            "job": "E03",
+            "replicate": 2,
+            "classification": "true_defect"
+          },
+          {
+            "job": "E02",
+            "replicate": 1,
+            "classification": "true_defect"
+          }
+        ],
+        "packet-review-after/with": [
+          {
+            "job": "E08",
+            "replicate": 2,
+            "classification": "true_defect"
+          },
+          {
+            "job": "E05",
+            "replicate": 1,
+            "classification": "true_defect"
+          }
+        ],
+        "packet-review-after/without": [
+          {
+            "job": "E06",
+            "replicate": 1,
+            "classification": "true_defect"
+          }
+        ]
+      },
+      "WATCH-ID-GENERATION": {
+        "packet-review-before/with": [
+          {
+            "job": "E03",
+            "replicate": 2,
+            "classification": "true_defect"
+          },
+          {
+            "job": "E02",
+            "replicate": 1,
+            "classification": "true_defect"
+          }
+        ],
+        "packet-review-after/with": [
+          {
+            "job": "E08",
+            "replicate": 2,
+            "classification": "true_defect"
+          }
+        ],
+        "packet-review-before/without": [
+          {
+            "job": "E01",
+            "replicate": 1,
+            "classification": "true_defect"
+          }
+        ],
+        "packet-review-after/without": [
+          {
+            "job": "E07",
+            "replicate": 2,
+            "classification": "true_defect"
+          }
+        ]
+      },
+      "RESUME-CREATED-OFFBYONE": {
+        "packet-review-before/without": [
+          {
+            "job": "E04",
+            "replicate": 2,
+            "classification": "true_defect"
+          },
+          {
+            "job": "E01",
+            "replicate": 1,
+            "classification": "true_defect"
+          }
+        ],
+        "packet-review-after/with": [
+          {
+            "job": "E05",
+            "replicate": 1,
+            "classification": "true_defect"
+          }
+        ],
+        "packet-review-after/without": [
+          {
+            "job": "E06",
+            "replicate": 1,
+            "classification": "true_defect"
+          },
+          {
+            "job": "E07",
+            "replicate": 2,
+            "classification": "true_defect"
+          }
+        ]
+      },
+      "EXPLICIT-PROGRESS-DROPPED": {
+        "packet-review-after/with": [
+          {
+            "job": "E08",
+            "replicate": 2,
+            "classification": "true_defect"
+          },
+          {
+            "job": "E05",
+            "replicate": 1,
+            "classification": "true_defect"
+          }
+        ],
+        "packet-review-after/without": [
+          {
+            "job": "E06",
+            "replicate": 1,
+            "classification": "true_defect"
+          },
+          {
+            "job": "E07",
+            "replicate": 2,
+            "classification": "true_defect"
+          }
+        ]
+      },
+      "RESUME-FUTURE-REGRESSION": {
+        "packet-review-after/with": [
+          {
+            "job": "E08",
+            "replicate": 2,
+            "classification": "true_defect"
+          },
+          {
+            "job": "E05",
+            "replicate": 1,
+            "classification": "true_defect"
+          }
+        ],
+        "packet-review-after/without": [
+          {
+            "job": "E07",
+            "replicate": 2,
+            "classification": "true_defect"
+          }
+        ]
+      }
+    },
+    "authentic-celery": {
+      "CHAIN-CALLBACK-ID": {
+        "packet-review-before/with": [
+          {
+            "job": "E10",
+            "replicate": 1,
+            "classification": "true_defect"
+          },
+          {
+            "job": "E11",
+            "replicate": 2,
+            "classification": "true_defect"
+          }
+        ],
+        "packet-review-before/without": [
+          {
+            "job": "E09",
+            "replicate": 1,
+            "classification": "true_defect"
+          }
+        ],
+        "packet-review-after/without": [
+          {
+            "job": "E14",
+            "replicate": 1,
+            "classification": "true_defect"
+          },
+          {
+            "job": "E15",
+            "replicate": 2,
+            "classification": "true_defect"
+          }
+        ],
+        "packet-review-after/with": [
+          {
+            "job": "E13",
+            "replicate": 1,
+            "classification": "true_defect"
+          }
+        ]
+      },
+      "MAP-OPTIONS-LOSS": {
+        "packet-review-before/with": [
+          {
+            "job": "E10",
+            "replicate": 1,
+            "classification": "true_defect"
+          },
+          {
+            "job": "E11",
+            "replicate": 2,
+            "classification": "true_defect"
+          }
+        ],
+        "packet-review-before/without": [
+          {
+            "job": "E09",
+            "replicate": 1,
+            "classification": "true_defect"
+          },
+          {
+            "job": "E12",
+            "replicate": 2,
+            "classification": "true_defect"
+          }
+        ],
+        "packet-review-after/without": [
+          {
+            "job": "E14",
+            "replicate": 1,
+            "classification": "true_defect"
+          },
+          {
+            "job": "E15",
+            "replicate": 2,
+            "classification": "true_defect"
+          }
+        ],
+        "packet-review-after/with": [
+          {
+            "job": "E13",
+            "replicate": 1,
+            "classification": "true_defect"
+          },
+          {
+            "job": "E16",
+            "replicate": 2,
+            "classification": "true_defect"
+          }
+        ]
+      },
+      "ERRBACK-IMMUTABLE-OPTION": {
+        "packet-review-before/with": [
+          {
+            "job": "E10",
+            "replicate": 1,
+            "classification": "false_positive"
+          }
+        ]
+      },
+      "NESTED-CHORD-FAILURE-CONTEXT": {
+        "packet-review-before/with": [
+          {
+            "job": "E11",
+            "replicate": 2,
+            "classification": "true_defect"
+          }
+        ],
+        "packet-review-before/without": [
+          {
+            "job": "E09",
+            "replicate": 1,
+            "classification": "true_defect"
+          },
+          {
+            "job": "E12",
+            "replicate": 2,
+            "classification": "true_defect"
+          }
+        ],
+        "packet-review-after/without": [
+          {
+            "job": "E14",
+            "replicate": 1,
+            "classification": "true_defect"
+          }
+        ],
+        "packet-review-after/with": [
+          {
+            "job": "E13",
+            "replicate": 1,
+            "classification": "true_defect"
+          },
+          {
+            "job": "E16",
+            "replicate": 2,
+            "classification": "true_defect"
+          }
+        ]
+      },
+      "CALL-IGNORE-RESULT-OVERRIDE": {
+        "packet-review-before/without": [
+          {
+            "job": "E09",
+            "replicate": 1,
+            "classification": "true_defect"
+          }
+        ],
+        "packet-review-after/without": [
+          {
+            "job": "E15",
+            "replicate": 2,
+            "classification": "true_defect"
+          }
+        ]
+      },
+      "CHORD-STAMP-BODY": {
+        "packet-review-before/without": [
+          {
+            "job": "E09",
+            "replicate": 1,
+            "classification": "true_defect"
+          },
+          {
+            "job": "E12",
+            "replicate": 2,
+            "classification": "true_defect"
+          }
+        ],
+        "packet-review-after/without": [
+          {
+            "job": "E14",
+            "replicate": 1,
+            "classification": "true_defect"
+          },
+          {
+            "job": "E15",
+            "replicate": 2,
+            "classification": "true_defect"
+          }
+        ],
+        "packet-review-after/with": [
+          {
+            "job": "E16",
+            "replicate": 2,
+            "classification": "true_defect"
+          }
+        ]
+      },
+      "STAMP-REPLACE-POLICY": {
+        "packet-review-after/without": [
+          {
+            "job": "E14",
+            "replicate": 1,
+            "classification": "true_defect"
+          },
+          {
+            "job": "E15",
+            "replicate": 2,
+            "classification": "true_defect"
+          }
+        ],
+        "packet-review-before/without": [
+          {
+            "job": "E12",
+            "replicate": 2,
+            "classification": "true_defect"
+          }
+        ]
+      },
+      "STAMP-RESULT-METADATA-COLLISION": {
+        "packet-review-after/with": [
+          {
+            "job": "E13",
+            "replicate": 1,
+            "classification": "true_defect"
+          }
+        ]
+      },
+      "CHUNKS-DISPATCH-CONTRACT": {
+        "packet-review-after/without": [
+          {
+            "job": "E15",
+            "replicate": 2,
+            "classification": "true_defect"
+          }
+        ]
+      },
+      "GROUP-FREEZE-ORDER": {
+        "packet-review-before/without": [
+          {
+            "job": "E12",
+            "replicate": 2,
+            "classification": "unverified"
+          }
+        ]
+      },
+      "CHAIN-IMMUTABLE-ROUNDTRIP": {
+        "packet-review-before/without": [
+          {
+            "job": "E12",
+            "replicate": 2,
+            "classification": "true_defect"
+          }
+        ]
+      },
+      "TERMINAL-GROUP-FAILURE-COUNT": {
+        "packet-review-after/with": [
+          {
+            "job": "E16",
+            "replicate": 2,
+            "classification": "true_defect"
+          }
+        ]
+      }
+    }
+  },
+  "review_sha256": {
+    "authentic-etcd": "d3c91accb4844f4439f385941ba0ed144aefe5c672d8f67314612c42095a4439",
+    "authentic-celery": "5e7c8a4b5585a63ceabc5d4fa037c8af56db277d1c0d7850284637a62e6c643c"
+  },
+  "exact_quotes_checked": 497,
+  "validation_errors": [],
+  "pending": [],
+  "limits": [
+    "Known upstream defects are separated from newly claimed defects.",
+    "After versions are not globally correct controls.",
+    "Additional group occurrences are not independent bugs; compare exact source causes, versions and repetitions.",
+    "Source judge support is not a fresh local distributed-system test; differential claims need independent adjudication.",
+    "Unverified footnotes or valid questions are not automatically false positive claims."
+  ]
+}

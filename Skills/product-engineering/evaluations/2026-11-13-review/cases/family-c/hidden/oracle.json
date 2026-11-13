@@ -1,0 +1,115 @@
+{
+  "case_family": "C",
+  "synthetic": true,
+  "mapping": {
+    "packet-p": "good",
+    "packet-q": "bad"
+  },
+  "defects": [
+    {
+      "id": "C1",
+      "severity": "high",
+      "packet": "packet-q",
+      "title": "Highest persisted number does not establish a complete cutoff",
+      "explanation": "An ordered broker can submit callbacks in order while parallel workers commit them out of order. Taking the maximum durable event number proves the existence of one row, not the presence of all earlier review changes. The exporter can publish a ledger that omits an unresolved blocking finding and allows an incorrect printing decision.",
+      "sources": [
+        {
+          "path": "packet-q/01-product.md",
+          "line": 7,
+          "text": "The ledger must show the effective state of every finding at its captured cutoff, accounting for all review changes committed through that cutoff."
+        },
+        {
+          "path": "packet-q/01-product.md",
+          "line": 10,
+          "text": "An unresolved blocking finding must appear in the ledger and mark its preview blocked."
+        },
+        {
+          "path": "packet-q/02-source-services.md",
+          "line": 10,
+          "text": "Delivery order describes callbacks submitted to the consumer, not when their work finishes."
+        },
+        {
+          "path": "packet-q/02-source-services.md",
+          "line": 11,
+          "text": "A worker pool may process callbacks concurrently, including different guides in one museum."
+        },
+        {
+          "path": "packet-q/04-position-and-admission.md",
+          "line": 4,
+          "text": "Position is max(R), or zero when no version rows have been committed."
+        },
+        {
+          "path": "packet-q/04-position-and-admission.md",
+          "line": 13,
+          "text": "An export job with cutoff B waits until durable position is at least B."
+        },
+        {
+          "path": "packet-q/05-reader-and-operations.md",
+          "line": 14,
+          "text": "The exporter has no source-log read permission; the projection is its data interface."
+        }
+      ],
+      "counterexample": [
+        "Source accepts event 1: guide A, finding F1, blocking/open against preview-A.",
+        "Source accepts event 2: guide B, finding F2, note/open against preview-B.",
+        "Export captures cutoff B=2. Broker delivers callbacks 1 then 2 to separate workers.",
+        "Worker 1 remains in preview validation; worker 2 commits row 2 and position 2.",
+        "Exporter sees position 2 and only row 2 in a repeatable-read snapshot; it publishes no blocked previews.",
+        "All component guarantees hold; source truth at cutoff 2 includes F1 and requires preview-A blocked."
+      ],
+      "fixing_principle": "Admission must prove a complete durable prefix through the cutoff. Track the first gap under a serialized transaction, or otherwise provide a source-consistent complete cut; do not use a maximum completed item as that proof."
+    }
+  ],
+  "good_rationale": {
+    "packet": "packet-p",
+    "explanation": "The contiguous position proves all source events through B are present. Immutable version rows and filtering at B preserve historical effective state even if later closing events are already committed. A locked control row and fresh statement snapshot make prefix advancement safe with parallel callbacks. Activity-strip maximum remains useful because that scenario explicitly permits skipping intermediate states. Export waiting and a small serialization cost are accepted product tradeoffs.",
+    "sources": [
+      {
+        "path": "packet-p/04-position-and-admission.md",
+        "line": 4,
+        "text": "Position is the greatest n for which every number from 1 through n belongs to R."
+      },
+      {
+        "path": "packet-p/04-position-and-admission.md",
+        "line": 9,
+        "text": "For this calculation the scan uses a fresh statement snapshot after acquiring the lock."
+      },
+      {
+        "path": "packet-p/04-position-and-admission.md",
+        "line": 13,
+        "text": "An export job with cutoff B waits until durable position is at least B."
+      },
+      {
+        "path": "packet-p/05-reader-and-operations.md",
+        "line": 4,
+        "text": "For each finding it takes the largest eligible event number as the effective state."
+      }
+    ]
+  },
+  "false_alarms": [
+    "Latest-only database history loss: both proposals explicitly retain immutable event versions and apply the captured cutoff.",
+    "Preview overwrite or garbage collection race: digest-named objects refuse overwrite and referenced objects remain pinned.",
+    "Activity-strip skipped findings: the strip explicitly has weaker requirements and is not authoritative export input.",
+    "At-least-once duplicate events: event-number uniqueness and payload verification make delivery idempotent.",
+    "Concurrent highest event changes same finding: effective state uses event number rather than callback completion order.",
+    "Unbounded export latency violates an SLA: the product explicitly promises no completion deadline; stalls are surfaced as pending.",
+    "Good-prefix update can falsely admit missing data: row insertion and control update are atomic; the locked scan never crosses a row absent from its snapshot.",
+    "A closed finding does not retain its earlier open row in the ledger: the product explicitly requires an effective-state snapshot, not a change-history export; the database still retains all source versions."
+  ],
+  "unknowns": [
+    "No complete privacy, disaster-recovery or cost budget is supplied; questions on these subjects cannot become proven defects.",
+    "Peak throughput is stated; future museum sizes and transaction latency measurements would inform scaling work, not disprove the present contract."
+  ],
+  "witness": {
+    "path": "hidden/witness.py",
+    "model_scope": "Durable transactions are modeled as serialized commit steps; object fetch succeeds and previews are immutable as guaranteed. The counterexample needs only two different guides and allowed out-of-order callback completion. No failure, data loss or undocumented timeout is assumed."
+  },
+  "audit_revision": {
+    "audit": "../audit-family-c.json",
+    "blocker": "C-AUDIT-1",
+    "cause": "The original product phrase every review change contradicted the intended effective-state ledger and its reader.",
+    "resolution": "Explicitly define a snapshot of effective finding states, not history. Both product documents are updated identically. Reader and prefix-vs-maximum seeded defect are unchanged.",
+    "regression_evidence": "Witness now reports dispositions and checks cutoffs 1, 2 and 3 for all six callback completion orders. In the open-then-close scenario cutoff 2 retains the open blocker and cutoff 3 contains one closed finding state with no blocker.",
+    "original_archive": "../family-c-before-audit/"
+  }
+}

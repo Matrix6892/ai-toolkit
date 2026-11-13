@@ -1,0 +1,19 @@
+{
+  "reason": "User challenged model-authored case bias after synthetic pilot; separate human/upstream sourced phase, not pooled as independent proof from synthetic cases.",
+  "candidate": "Identical frozen 205-token architecture-review; no edits after pilot outcomes.",
+  "model": "gpt-6.1-sol",
+  "effort": "high",
+  "projects": ["authentic-etcd", "authentic-celery"],
+  "packets": ["packet-review-before", "packet-review-after"],
+  "conditions": ["with", "without"],
+  "replicates": 2,
+  "total_runs": 16,
+  "source_rules": "Whole original production modules and public contracts from one precise commit per packet. Identical path sets before/after. Exclude entire paths with revealing added regression tests from both inputs; preserve original archives and human accepted regression tests outside model access. No model-written business conditions or injected defects.",
+  "eligibility": "Independent pre-run source audit must confirm byte identity, coherent context and sufficient pre-fix public guarantee for a causal finding. Resolve blockers before running; never penalize a model for absent prerequisites.",
+  "request": "Same neutral architectural review of subsystem source/contracts and bounded report in both conditions. Only with adds explicit skill invocation and own file copy. Static review, no required builds or dependency installation. Fresh CLI per packet; no paired version, Git history, issue/fix, hidden tests, personal instructions or other results.",
+  "primary_metrics": ["Known human-confirmed bug causally detected in before", "Re-reporting the resolved known bug in after", "Other material false findings and harmful fixes", "Actual CLI uncached/cached input and output"],
+  "oracle": "Human upstream issue, accepted fix and regression tests; model normalizes labels and grades exact claims, it does not invent the reference fault. Do not infer global correctness of after version or generic exactly-once broker delivery.",
+  "grading": "Separate label-blind graders per project, every substantive finding considered. full/partial/miss for the known bug; partial is a relevant lead rather than a miss. Every apparent treatment gain, newly claimed defect and false-positive difference independently adjudicated from source. Extra findings require their own permitted execution/protection check.",
+  "adoption": "Retain the single composed-contract counterexample technique only if it gives independently confirmed material detections absent without it in repeated authentic reviews, while resolved-bug controls and other reviewed findings show no material regression. Report narrow scope and small sample. No semantic expansion or extra checklist to win observed cases. If no additional utility, keep candidate as an experiment outside active skill discovery.",
+  "limits": ["Historical public projects may be in model training; no claim of unseen content", "Context selection is retrospective and can ease localization even with whole modules", "Subsystem contract review does not cover the full course or greenfield architecture selection", "Static source/human regression evidence is not a fresh local execution of the distributed system", "Judges still model-based; exact source/test evidence reduces, not eliminates, shared judgement bias", "Small selected sample cannot prove statistical or general superiority"]
+}

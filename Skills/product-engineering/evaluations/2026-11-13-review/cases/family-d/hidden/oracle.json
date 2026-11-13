@@ -1,0 +1,169 @@
+{
+  "family": "D",
+  "synthetic": true,
+  "mapping": {
+    "packet-p": "contains substantive defects",
+    "packet-q": "correct within documented pilot contract"
+  },
+  "scenario": "Research seed dispatch, with independently sealed jars sharing one accession and late laboratory evidence.",
+  "defects": [
+    {
+      "id": "D1",
+      "severity": "high",
+      "title": "Accession clearance authorizes an untested sibling jar",
+      "contract_sources": [
+        {
+          "path": "packet-p/01-operations.md",
+          "start_line": 28,
+          "end_line": 28,
+          "quote": "A negative result for another jar does not authorize this jar."
+        },
+        {
+          "path": "packet-p/02-registry.md",
+          "start_line": 7,
+          "end_line": 8,
+          "quote": "An accession row holds species, collection location and harvest date.\nA jar row holds jar_id, accession_id, generation, shelf and lifecycle."
+        }
+      ],
+      "implementation_sources": [
+        {
+          "path": "packet-p/03-assay-exchange.md",
+          "start_line": 26,
+          "end_line": 27,
+          "quote": "The gateway maintains accession_clearance keyed by accession_id.\nA NEGATIVE result sets that accession clearance to RELEASED."
+        },
+        {
+          "path": "packet-p/04-dispatch.md",
+          "start_line": 34,
+          "end_line": 35,
+          "quote": "After reserving the jar, look up its current accession_id in local clearance.\nA RELEASED row allows the ticket transaction to commit."
+        }
+      ],
+      "counterexample": [
+        "NB-71 has J-A generation 1 and J-B generation 1, both initially held.",
+        "Receive NEGATIVE for S-A sampled from J-A generation 1; deliver its clearance snapshot.",
+        "Reserve J-B and create a ticket using NB-71 RELEASED. No matching evidence for J-B exists."
+      ],
+      "cause": "The aggregate used for scientific navigation has been made the owner of physical eligibility; a sample loses its jar scope at the gateway boundary.",
+      "repair_principle": "Preserve physical jar and sampled generation in eligibility evidence, and require the selected jar to match. Jar-only isolation fixes sibling authorization but does not fix D2.",
+      "witness": "First unauthorized trace in hidden/witness.py"
+    },
+    {
+      "id": "D2",
+      "severity": "high",
+      "title": "A new seal generation can be dispatched using stale or late old-generation clearance",
+      "contract_sources": [
+        {
+          "path": "packet-p/01-operations.md",
+          "start_line": 29,
+          "end_line": 29,
+          "quote": "A negative result for an older seal generation does not authorize the current one."
+        },
+        {
+          "path": "packet-p/02-registry.md",
+          "start_line": 31,
+          "end_line": 32,
+          "quote": "The opening transaction increments generation and records the operator.\nIt writes a JarResealed event with the new generation in the same commit."
+        }
+      ],
+      "implementation_sources": [
+        {
+          "path": "packet-p/03-assay-exchange.md",
+          "start_line": 46,
+          "end_line": 48,
+          "quote": "Reset and receipt updates are processed in local arrival order.\nThe row lock serializes simultaneous handlers for the same accession.\nThere is no comparison of a result's sampled generation with current generation."
+        },
+        {
+          "path": "packet-p/04-dispatch.md",
+          "start_line": 30,
+          "end_line": 31,
+          "quote": "The local row is the authority used for biological eligibility.\nNo synchronous gateway call is made during a pick."
+        },
+        {
+          "path": "packet-p/04-dispatch.md",
+          "start_line": 45,
+          "end_line": 46,
+          "quote": "The gateway outbox can be delayed independently of registry work.\nA valid registry lease does not wait for gateway queue delivery."
+        }
+      ],
+      "counterexample": [
+        "Receive and deliver S-A NEGATIVE for J-A generation 1.",
+        "Reseal J-A to generation 2, committing the registry event. Delay the gateway reset or its delivery.",
+        "A fresh lease freezes generation 2, but the old local RELEASED row permits a generation 2 ticket."
+      ],
+      "additional_counterexample": [
+        "Reseal J-A to generation 2; process and deliver its reset so it is HELD.",
+        "Receive the delayed S-A generation 1 negative; ordinary receipt processing sets RELEASED at a newer revision.",
+        "Deliver it; generation 2 can now receive a ticket even after all queues drain."
+      ],
+      "cause": "Registry owns current physical generation, but dispatch authorization belongs to an asynchronously updated accession projection with no generation fence. Revisions order gateway writes, not sampled biological state.",
+      "repair_principle": "Require evidence for the current jar generation while holding the registry work lease. Coordinate matching prevents stale results from gaining scope; the lease prevents a generation change between lookup and draw. Merely processing event resets faster or adding a global row lock is insufficient.",
+      "witness": "Second and third unauthorized traces in hidden/witness.py"
+    }
+  ],
+  "correct_packet_guarantee": {
+    "sources": [
+      {
+        "path": "packet-q/03-assay-exchange.md",
+        "start_line": 26,
+        "end_line": 26,
+        "quote": "The gateway maintains sample_clearance keyed by (jar_id, sampled_generation)."
+      },
+      {
+        "path": "packet-q/03-assay-exchange.md",
+        "start_line": 31,
+        "end_line": 31,
+        "quote": "No lookup falls back from an unknown generation to an older one."
+      },
+      {
+        "path": "packet-q/04-dispatch.md",
+        "start_line": 34,
+        "end_line": 35,
+        "quote": "Hold the work lease across primary registry read, evidence lookup and ticket commit.\nCommit only when matching negative evidence exists for the frozen coordinates."
+      },
+      {
+        "path": "packet-q/04-dispatch.md",
+        "start_line": 37,
+        "end_line": 39,
+        "quote": "The configured pilot has no final-result revocation or evidence expiry.\nThus a received matching negative stays valid during that reserved interval.\nThe lease excludes resealing between evidence lookup and the authorized draw."
+      },
+      {
+        "path": "packet-q/02-registry.md",
+        "start_line": 52,
+        "end_line": 52,
+        "quote": "The pilot permits at most one registered assay sample per jar generation."
+      }
+    ],
+    "argument": "Negative evidence is immutable and scoped to exact coordinates. Dispatch freezes current coordinates with the shared physical-work lease and reads matching evidence synchronously. Delayed receipt cannot change its scope; delayed inventory events cannot create evidence. No revocation/expiry exists in this bounded pilot, so no distributed transaction with Gateway is needed during the lease."
+  },
+  "false_alarms": [
+    "An accession grouping in the dashboard is harmless in q because it is not an authorization input.",
+    "At-least-once result delivery is handled by immutable result_id and atomic receipt/projection/outbox writes.",
+    "A delayed old-generation result is safe in q; it remains historical evidence for its sampled coordinates.",
+    "No global queue ordering is required in q, and a distributed transaction spanning Registry and Gateway is not required under immutable evidence plus the shared lease.",
+    "The physical scan-before-opening assumption is explicit, not an undocumented technical guarantee. Scanner failures are routed to a supervisor.",
+    "Permit checks and seed quantity accounting are explicitly separate workflows; missing details do not prove a defect in this eligibility decision."
+  ],
+  "unknown_policies": [
+    "Assay expiry after spring pilot.",
+    "How multiple assay kinds combine.",
+    "Manual exceptions.",
+    "Destination-specific certificates for future overseas recipients."
+  ],
+  "model_limits": [
+    "Finite model covers one immutable negative sample, two physical jars and a single reseal.",
+    "No claim to prove all production behavior; scenario is synthetic.",
+    "Lease atomicity, scan-before-opening and scientific assay validity are supplied assumptions in the review documents.",
+    "Unspecified policies are not filled in by the witness."
+  ],
+  "source_sha256": {
+    "packet-p/01-operations.md": "722f86a3a91ba02c4247a2838348507bb909312dbd36847c4a2149311fcd3862",
+    "packet-p/02-registry.md": "f931fcead371c41b4275ef582af0c3a1dbcefcd7075ab957a42d6cefe001b482",
+    "packet-p/03-assay-exchange.md": "69e43c9cf6023819a3fbaa562b28b61ee5cd7d738c928a6de2830b416a903581",
+    "packet-p/04-dispatch.md": "8902308388c0bc95051202933754704da33115a909e896300301f6fac3a07069",
+    "packet-q/01-operations.md": "722f86a3a91ba02c4247a2838348507bb909312dbd36847c4a2149311fcd3862",
+    "packet-q/02-registry.md": "f931fcead371c41b4275ef582af0c3a1dbcefcd7075ab957a42d6cefe001b482",
+    "packet-q/03-assay-exchange.md": "032473f2b3b866d6f24749ac12f4ba7b8b62cf4fc61000b1d52f75ea136c81c5",
+    "packet-q/04-dispatch.md": "31cbd5b6d04ee43c5e973cf41bec9752bdd13c92826b6cacdaed5ed7f9bea84b"
+  }
+}

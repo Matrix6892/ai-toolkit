@@ -1,0 +1,19 @@
+{
+  "decision": "not_adopted_as_active_skill",
+  "candidate_operational_tokens_o200k_base": 205,
+  "candidate_unchanged_through_all_48_reviews": true,
+  "synthetic_pilot": "No incremental known detections, 10/10 per condition with zero reported false positives. Do not generalize model-authored case ceiling.",
+  "authentic_known_bugs": "Both conditions detect etcd in 2/2 before and miss the known Celery continuation bug in 2/2 before; no resolved known bug re-reported.",
+  "authentic_precision": "One false positive and invalid remedy with candidate, independently refuted from clone/options semantics.",
+  "observed_local_tradeoff": "Before etcd PREVKV-PUBLISH detected with 2/2, without0/2; RESUME-CREATED-OFFBYONE detected without2/2, with0/2. Both independently supported. Other repeated runs/versions vary; no general model incapability claim.",
+  "interpretation": "The 205-token composite loop changes attention but fails the predeclared no-material-regression gate. Isolated usefulness of one clause has not been demonstrated; do not promote an active universal review skill.",
+  "retained": "Exact candidate as plain experimental text, protocols, original source identities, human upstream evidence and all original outputs/logs. No global installation or existing runtime-skill edit.",
+  "limits": [
+    "Small retrospectively selected historical sample",
+    "Public-source memorization not excluded",
+    "Additional judge hypotheses not a complete audit of either repository",
+    "Independent verifier saw several additional pinned files not supplied to target models; distinguish this from original context",
+    "No fresh execution of upstream distributed regressions; static source review and human accepted evidence only",
+    "Recovered transport warnings retain original raw states and CLI totals; no model-run replay or billing claim"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "etcd": {
+    "original_report_sha256": "8c3c424d0bedb4bf450ea486d871470cc48e062856141c7b6044ab3112cafd5c",
+    "claims": {
+      "PREVKV-PUBLISH": {
+        "verdict": "supported",
+        "reason": "The MVCC watcher can publish events to the shared channel before recvLoop publishes prevKV[id]. sendLoop may consume and permanently prepare a response without PrevKv during that interval. pending postpones transmission, not enrichment.",
+        "limits": [
+          "Exact scheduling probability is not measured. Ordinary store updates are represented by the supplied notify contract and code; the caller of notify is not part of the supplied file set. This does not create a lock bridging MVCC publication and sws.prevKV."
+        ]
+      },
+      "RESUME-CREATED-OFFBYONE": {
+        "verdict": "supported",
+        "reason": "For an initially zero-start watch, a processed Created at header R stores resume revision R, whereas the original server lower bound was R+1. Recoverable reconnect before any event/progress causes an inclusive replay of a matching historical change at R, which predates the initial watch request.",
+        "limits": [
+          "No dynamic reproduction. Historical batching helper implementation is not in this packet, but the supplied inclusive protocol contract, startRev/minRev assignment, and backend range beginning at minRev establish that R is eligible; nothing in supplied client source filters it out."
+        ]
+      },
+      "WATCH-ID-GENERATION": {
+        "verdict": "supported",
+        "reason": "Within the supplied protocol contract, an ID no longer in use after an acknowledged cancellation can be reused. A queued response from the old registration can then be flushed for a new range under the same numeric ID. There is no generation tag. The mechanism is supported and the supplied files do not impose lifetime-wide caller uniqueness.",
+        "limits": [
+          "No runtime scheduling test. Supplied source is sufficient for the channel and gate interleaving. A lifetime-wide uniqueness obligation in an unsupplied external API contract would change the contract verdict; it is explicitly not inferred either way from server acceptance alone."
+        ]
+      }
+    }
+  },
+  "celery": {
+    "original_report_sha256": "87677fd034d5d9d5f4d491149d93ceda0d435c00f8f235852143eefa73484622",
+    "claims": {
+      "ERRBACK-IMMUTABLE-OPTION": {
+        "verdict": "refuted",
+        "reason": "clone(immutable=True) merges immutable=True into execution options, while separately preserving self.immutable in the top-level signature field. For an ordinary .s(), the top-level field remains False. _merge in __call__ prepends request/exc/traceback; options are discarded by direct invocation. group.link uses the distinct clone().set(immutable=True), but group.link_error does not.",
+        "limits": "Does not certify all errback forms, unregistered handlers or old one-argument errbacks."
+      },
+      "STAMP-RESULT-METADATA-COLLISION": {
+        "verdict": "supported",
+        "reason": "The public stamp API accepts result without reservation. Protocol 2 publishes it inside stamps, protecting protocol fields but not result metadata. Worker Request copies the message headers to _request_dict; pool execution and trace retain the stamps map. _get_result_meta first sets the actual result/status, then merges all request.stamps into request_meta and meta.update(request_meta). _store_result overwrites task_id only, so first successful write persists the stamp value as result.",
+        "limits": "Static proof at pinned versions. No broker/runtime integration run. Not every result backend is asserted. result and status collisions are one unfiltered-metadata-merge mechanism, not two counted defects."
+      },
+      "TERMINAL-GROUP-FAILURE-COUNT": {
+        "verdict": "supported",
+        "reason": "Outer native Redis chord counts terminal group leaves via _descend. Failure propagation iterates chain elements but does not recursively descend a terminal group. It constructs exactly one synthetic Context for that group and sends exactly one on_chord_part_return, even though the terminal group contributes two required leaf completions.",
+        "limits": "Source-level counter proof, not executed integration evidence. Existing before/after code has this same mechanism. No independent defect count is assigned for storing a synthetic group failure versus emitting one notification: both arise from failure propagation treating a compound chain element as one completion. No comparison to other unseen claimed mechanisms."
+      },
+      "GROUP-FREEZE-ORDER": {
+        "verdict": "supported",
+        "reason": "The exact ordinary example has two positional arguments to the outer group constructor, so len(tasks)==1 is false: outer tasks stays a tuple, and no regen call is made at all. The inner group likewise has two positional args. Freeze therefore takes the non-_regen branch, and deque.extendleft([b,c]) places c before b. Normal clone/from_dict reconstruction passes the inner tuple through regen; the exact pinned helper preserves tuples and lists, so the nested group still supplies b,c. No internal-field mutation is needed.",
+        "limits": "The exact source proves freeze results and signature task order reversal. Public guide promises result order as called; freeze docstring promises finalization by assigning ids. Result.py is outside allowed scope, so no independent claim about every GroupResult.join implementation. This is a single extendleft ordering mechanism, including its group_index consequence."
+      }
+    }
+  }
+}

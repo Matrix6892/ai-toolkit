@@ -1,0 +1,127 @@
+{
+  "family": "c",
+  "status": "pass",
+  "blockers": [],
+  "reaudit_scope": "Updated family-c and complete diff from family-c-before-audit; no candidate, skill or model answers read, no network/models/subagents. Original edition hashes verified against initial independent audit before archiving it.",
+  "previous_blocker": {
+    "id": "C-AUDIT-1",
+    "status": "resolved",
+    "reason": "Both product documents now explicitly require effective finding states as of the captured cutoff and explicitly exclude change-history export (01 lines 7-9). This matches the existing effective-state reader (05 lines 4-6). Neither labelled-good implementation nor seeded maximum-vs-prefix difference was changed.",
+    "initial_audit": "audit-family-c-initial.json",
+    "initial_audit_sha256": "f9c97848ab0eed7d6df629d5f8183b9a49ab72afba5c88ed8e7dd4cd5f6397ec"
+  },
+  "diff_review": {
+    "packet_changes": [
+      "packet-p/01-product.md:7-9",
+      "packet-q/01-product.md:7-9"
+    ],
+    "assessment": "Only product requirement clarification changed in reviewer packets, identically in p/q. Other packet source bytes match original edition. Oracle references and false-alarm explanation updated consistently. Witness additionally checks effective dispositions, all three cutoffs, and open-then-close behavior."
+  },
+  "intended_defect_verified": {
+    "id": "C1",
+    "packet": "packet-q",
+    "reason": "Ordered callbacks may commit out of order. Event 2 commits before blocking/open event 1; max position 2 admits cutoff 2 while the snapshot lacks F1 and preview-A is not marked blocked. Clarified state-snapshot requirement still requires that missing open finding. No failures, data loss or undocumented timeout assumed.",
+    "sources": [
+      "packet-q/01-product.md:7-11",
+      "packet-q/02-source-services.md:9-11",
+      "packet-q/04-position-and-admission.md:4-13"
+    ]
+  },
+  "valid_packet_verified": {
+    "packet": "packet-p",
+    "argument": "The control-row lock and fresh statement snapshot advance position only across visible contiguous immutable versions. Row insertion and position commit together, so position>=B proves all source versions 1..B are durable. The primary repeatable-read snapshot rechecks readiness and filters event<=B; choosing the largest eligible event per finding therefore yields exactly the required effective states. Later closes cannot hide a blocker at an earlier cutoff. Digest-pinned immutable previews, fetch verification and conditional whole-result publication satisfy the object and failure behavior. No proven independent side violation or new contradiction found.",
+    "sources": [
+      "packet-p/03-projection.md:3-18",
+      "packet-p/04-position-and-admission.md:4-13",
+      "packet-p/05-reader-and-operations.md:2-13"
+    ],
+    "limits": "This is documentary contract/model correctness, not a claim that an unprovided production implementation was tested. Unspecified SLOs, privacy, capacity and disaster recovery remain questions, not proven defects."
+  },
+  "witness_run": {
+    "command": "python3 -B family-c/hidden/witness.py",
+    "exit_code": 0,
+    "result": {
+      "assertions": "passed",
+      "cutoffs_checked": [
+        1,
+        2,
+        3
+      ],
+      "packet_p_admitted_snapshots": 26,
+      "packet_p_orders_checked": 6,
+      "packet_q_counterexample": {
+        "blocked": [],
+        "findings": [
+          "F2"
+        ],
+        "states": {
+          "F2": "open"
+        }
+      },
+      "required": {
+        "blocked": [
+          "preview-A"
+        ],
+        "findings": [
+          "F1",
+          "F2"
+        ],
+        "states": {
+          "F1": "open",
+          "F2": "open"
+        }
+      },
+      "snapshot_close_case": {
+        "blocked": [],
+        "findings": [
+          "F1",
+          "F2"
+        ],
+        "states": {
+          "F1": "closed",
+          "F2": "open"
+        }
+      }
+    },
+    "scope": "Six legal callback completion orders; all intermediate admitted snapshots at cutoffs 1,2,3, plus duplicate delivery and historical cutoff exclusion. Bounded corroboration accompanied by prefix/state proof."
+  },
+  "source_check": {
+    "exact_oracle_references_verified": 11,
+    "author_sha256_entries_verified": 12,
+    "current_input_sha256": {
+      "packet-p/01-product.md": "94f0d343b2c8607fca9f92d427c6755cf9d2879bfcd95b25455ff952018792f5",
+      "packet-p/02-source-services.md": "3198bc303d8806ca3080592f795ba80fb31b936488baab4cef951900d6a07767",
+      "packet-p/03-projection.md": "9cc35e4489dc1123b3be7353bf0d600da5ab6d0603e989f5cf487216379bdbeb",
+      "packet-p/04-position-and-admission.md": "bff07938a63c4eec80f7a20e921640fb3d684c23c689eeda6fbd72bd14f3e10a",
+      "packet-p/05-reader-and-operations.md": "c8f8101f730e28ec015999e814de7041de27d80bd2c54352daf8cad18fda5806",
+      "packet-q/01-product.md": "94f0d343b2c8607fca9f92d427c6755cf9d2879bfcd95b25455ff952018792f5",
+      "packet-q/02-source-services.md": "3198bc303d8806ca3080592f795ba80fb31b936488baab4cef951900d6a07767",
+      "packet-q/03-projection.md": "9cc35e4489dc1123b3be7353bf0d600da5ab6d0603e989f5cf487216379bdbeb",
+      "packet-q/04-position-and-admission.md": "d3ae3556b8cb8108284c88a4f422236444e63896607e775da191eac4f1223617",
+      "packet-q/05-reader-and-operations.md": "c8f8101f730e28ec015999e814de7041de27d80bd2c54352daf8cad18fda5806",
+      "hidden/oracle.json": "c5d79e1ec1811ef762d83b62aea62f13dc60e8b3cf2349a0664b12438b586516",
+      "hidden/witness.py": "adeab181a8a3f5e43d40fbd48545d1656d9059cd70b21c385152427d0a20eabc"
+    }
+  },
+  "capacity": {
+    "disk_available_before_bytes": 10082652160,
+    "system_memory_free_percent": 45,
+    "expected_total_output_bytes_less_than": 100000,
+    "disk_available_after_bytes": 10079592448
+  },
+  "closeout": {
+    "inputs_modified": false,
+    "input_reading_closed": true,
+    "removed_paths": [],
+    "removed_allocated_bytes": 0,
+    "own_processes_remaining": 0,
+    "disposable_intermediates_created": false,
+    "retained_paths": [
+      "LOCAL_TASK_EVIDENCE/audit-family-c.json",
+      "LOCAL_TASK_EVIDENCE/audit-family-c-initial.json"
+    ],
+    "owner": "Root",
+    "reason": "Initial blocker custody and accepted re-audit evidence.",
+    "release_condition": "Root verifies durable copies/acceptance, then removes shared task tree."
+  }
+}

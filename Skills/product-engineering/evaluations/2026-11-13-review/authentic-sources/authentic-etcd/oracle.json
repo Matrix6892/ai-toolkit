@@ -1,0 +1,45 @@
+{
+  "provenance": "Human upstream issue, accepted fix and regression tests; these labels normalize existing evidence, not generated conditions.",
+  "mapping": {
+    "packet-review-before": "known defect present",
+    "packet-review-after": "known defect corrected; other defects may remain"
+  },
+  "identity": {
+    "repository": "etcd-io/etcd",
+    "before": "b504ac184057498885b87798b5ffb98cf55fe917",
+    "after": "f6bb874298e9861300df7fa772d80addec413fe4",
+    "issue": "https://github.com/etcd-io/etcd/issues/15220",
+    "pr": "https://github.com/etcd-io/etcd/pull/15237",
+    "author": "scpmw",
+    "merged_at": "2023-04-05T11:49:41Z"
+  },
+  "defects": [
+    {
+      "id": "ETCD-WATCH-ORDER",
+      "packet": "packet-review-before",
+      "contract": "api/etcdserverpb/rpc.proto:398-403 promises future events after a progress response have revisions strictly above header.revision. client/v3/watch.go:760-764 broadcasts global progress and :881-890 advances resume revision to progress+1. No issue text or new test is required to know the violated contract.",
+      "component_boundary": "RPC receive/control stream, ordered MVCC watch stream and client resume cursor. A public ordering promise must survive merging independent response paths; this is a cross-component state/order contract, not a syntax mistake.",
+      "detection": {
+        "required": "Identify explicit ProgressRequest -> ctrlStream with current store revision R, independent selection against watchStream, and the possible older queued/unsynced event e with e.revision <= R delivered after that progress. Tie this to rpc.proto ordering promise and optionally client resume+1 loss on reconnect. A bare channel-race warning is insufficient.",
+        "causality": "The store revision is ahead of a catching-up watcher; the control response can overtake its events, so a client is told that <=R is complete before receiving those events.",
+        "human_oracle": [
+          "TestV3WatchProgressWaitsForSync: 1001 historical writes, watch from revision 1, immediate explicit progress; all 1001 events must precede progress, then progress revision 1002. Proxy explicitly skipped.",
+          "TestWatcherRequestProgressAll: unsynced watcher receives no progress; after sync it receives global WatchID -1 progress at revision 2."
+        ],
+        "partial_signal": [
+          "Says progress may race or resume may lose data without naming explicit request bypass and violated revision order.",
+          "Treats normal timed progress as broken without explaining its existing synced-stream protection."
+        ],
+        "unknown": [
+          "Exact runtime frequency, disconnect loss reproduction and full regression execution remain unmeasured.",
+          "Do not require every request to produce a distinct response: accepted design permits coalescing with eventual progress."
+        ]
+      },
+      "after_nonapplicability": "Inspect the same explicit request path now calling RequestProgressAll, all-watchers synced guard under store lock, progress queued through the watch stream, InvalidWatchID handling, and deferred retry after event delivery. The original independent ctrlStream bypass is gone. For behavioral confirmation use the two existing human regressions in the complete pinned upstream checkout; no new reproducer is necessary. This does not certify unrelated behavior."
+    }
+  ],
+  "limits": [
+    "The selected input omits full watcher_test.go symmetrically because the accepted version contains a revealing new test; it also omits unrelated implementation dependencies. This reduces context but does not remove the direct production protection paths needed for this defect."
+  ],
+  "adjudication": "Do not score mere generic delivery/race warnings as full. One causal instance of known fault is enough; multiple branches/manifestations do not inflate counts. Additional source-provable findings allowed, including after; no blanket clean label."
+}

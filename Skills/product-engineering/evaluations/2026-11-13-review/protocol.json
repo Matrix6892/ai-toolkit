@@ -1,0 +1,21 @@
+{
+  "objective": "Find source-provable architectural defects missed without the compact skill; avoid false findings on correct architectures.",
+  "model": "gpt-6.1-sol",
+  "effort": "high",
+  "candidate": "candidate/architecture-review",
+  "conditions": ["without", "with"],
+  "replicates": 2,
+  "development_families": ["family-a", "family-b", "family-c"],
+  "holdout_family": "family-d",
+  "packets_per_family": 2,
+  "primary_runs": 24,
+  "holdout_runs": 8,
+  "controls": "Same neutral review request and output limits. Only treatment adds explicit invocation and own skill copy. Fresh CLI instance for every review; no prior reviews, paired packet, oracle, witness, personal engineering instructions or history.",
+  "oracle": "Independent authors freeze correct/defective labels and executable counterexamples before model outputs. Independent pre-run audit checks assumptions, alternative valid designs, witness fidelity and source anchors. Cases are synthetic; witnesses demonstrate defects in the stated architecture, not production bugs.",
+  "metrics": ["confirmed defects found with sufficient causal explanation", "material false positives", "grounded unknowns versus claims", "CLI observed cached/uncached input and output tokens", "actual skill retrieval"],
+  "grading": "Fresh label-blind reviewer per family sees anonymous reviews, original packet and hidden oracle. Require exact evidence, distinguish full detection from vague suspicion and verify claimed extra defects. Root adjudicates every apparent treatment benefit and false-positive difference. Mask skill self-reports; residual style inference remains possible.",
+  "adoption": "No added rule merely for higher wording scores. Keep a technique only if paired runs show independently confirmed useful detections beyond baseline, correct-packet false positives do not increase, and fixed unseen holdout corroborates utility. Attribute combined skill effects cautiously; if needed run minimal ablation before retaining separable clauses. If no utility is observed, preserve a clearly experimental draft outside active skill discovery and report lack of evidence, rather than publish an unproven active skill.",
+  "context_budget": "Single self-contained skill, target at most 350 operational tokens; no mandatory course references, checklists or technology recipes. Final operational hash must be the version tested.",
+  "limits": ["Small synthetic sample, not statistical or production reliability proof", "Model authors and graders need executable/source audits, not only opinions", "Detection may already saturate without skill", "Provider effective model ID may be unavailable; record exact requested invocation", "No money or total evaluation-cost claims without billing"],
+  "cleanup": "Root owns exact temporary tree; retain original outputs and hashes in the user's project subfolder before no-reader checked removal. Preserve credentials, global config and shared caches."
+}

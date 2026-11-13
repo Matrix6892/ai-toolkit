@@ -1,0 +1,53 @@
+{
+  "provenance": "Human upstream issue, accepted fix and regression tests; these labels normalize existing evidence, not generated conditions.",
+  "mapping": {
+    "packet-review-before": "known defect present",
+    "packet-review-after": "known defect corrected; other defects may remain"
+  },
+  "identity": {
+    "repository": "celery/celery",
+    "before": "ac16f239985cf9248155b95788c4b6227f7f1b94",
+    "after": "f8c952d8e2a6746cd7410b1b662d7b7045b347ef",
+    "issue": "https://github.com/celery/celery/issues/8662",
+    "pr": "https://github.com/celery/celery/pull/8663",
+    "author": "hann-wang",
+    "merged_at": "2024-02-27T15:29:51Z"
+  },
+  "defects": [
+    {
+      "id": "CELERY-CONTINUATION",
+      "packet": "packet-review-before",
+      "contract": "Native canvas guide promises group parallelism, chain sequencing and chord continuation after all headers. Whole canvas.py plus successful-task trace, native Redis/base backend, Task.apply_async, app.send_task and AMQP message creation expose the complete relevant continuation handoff. This proves the bounded structural scheduling cause from source without hypothesizing broker redelivery or missing publication semantics.",
+      "component_boundary": "The public chain/group/chord algebra is converted to serialized continuation topology consumed by workers and chord backend registration. Even though the accepted production edit lies in one Python file, the defect concerns ownership of the workflow continuation across composition and execution, not local syntax.",
+      "detection": {
+        "required": "A causal explanation of ONE accepted manifestation is enough: for example, normal-terminal-task group chain leaves adjacent top-level chords; the downstream chain is propagated into the preceding chord body group, published in each member message, and each normal successful member completion independently schedules that same downstream continuation. Identify the affected composition and continuation-ownership failure. Equivalent concise causal traces count; exact symbol/test names, every file hop and both fix branches are not mandatory. Generic broker redelivery or a bare observation of adjacent chords is insufficient.",
+        "causality": "Normal-terminal-task promotion leaves the new chord beside the preceding chord instead of in its body. The leftover outer chain reaches that body group, whose members each carry and execute the downstream continuation. Nesting the chord into the preceding chord body removes the leftover outer continuation. The publication and consumption of chain are now both visible in the input.",
+        "human_oracle": [
+          "test_chain_of_chord_upgrade_on_chaining__protocol_2 (group_last_task false/true): the three groups and terminal task must normalize to one top-level chord in _chain.tasks.",
+          "test_chain_of_chord_upgrade_on_chaining__protocol_3: mixed chain/group/chord/group retains six top-level steps and its last step is a chord. These names are test names; they should not be reinterpreted as a blanket message-protocol guarantee.",
+          "test_chaining_upgraded_chords_mixed_canvas_protocol_2 (both final-task variants): supported Redis backend; first groups publish echoes 1..9, wait for Done, and compare the sorted Redis list exactly to 1..9. This tests missing/extra effects in that workflow, without broker-redelivery assumptions."
+        ],
+        "partial_signal": [
+          "Names adjacent top-level chords or the singleton re-dispatch problem without connecting them to downstream continuation ownership or a concrete affected workflow.",
+          "Generic broker duplicate delivery, retries, shared mutable options or races without the known structural path do not detect this defect.",
+          "A concise causal normal-terminal-task explanation is full known-bug detection even if it omits the singleton variant or detailed symbol-by-symbol publication trace."
+        ],
+        "unknown": [
+          "Exact runtime multiplicity, django-celery-results-specific failures and execution of the human integration regressions were not measured in this audit.",
+          "The accepted integration test observes effects after Done in its Redis workflow; it does not prove all future deliveries or all nested canvases safe.",
+          "Source-closed here means the relevant Celery continuation producer/consumer handoff is visible. It is not a verification of the entire application, external broker/serializer internals or arbitrary custom hooks."
+        ],
+        "variant_policy": "Finding the normal-terminal-task cause is a real known-bug detection by itself. The singleton-final-group re-dispatch is additional coverage of a manifestation/branch of this same known issue; do not require both branches, award two independent bugs, or turn a shorter correct finding into a miss. Different after-only or independent errors require separate evidence and must not be scored as known-bug detection."
+      },
+      "after_nonapplicability": "For a normal terminal task, show that promotion now absorbs the newly formed downstream chord into the preceding chord body and removes its extra top-level slot, so the identified residual chain is no longer fanned out to every body-group member. That alone addresses the corresponding known manifestation. Separately, singleton final groups re-enter __or__ after unrolling to reach the corrected promotion. Existing hidden unit/integration tests provide both variants for external verification; they are not candidate hints or mandatory response vocabulary. Do not assume the unchanged trace/backend modules fix composition, or declare unrelated errors absent."
+    }
+  ],
+  "limits": [
+    "Whole input is a bounded repository slice, not a runnable complete application; no services, build, new reproducer or regression execution occurred.",
+    "One causal normal-terminal-task case is a real detection. Singleton-final-group is optional coverage of a manifestation/branch of this same known issue, not a second independent error.",
+    "Human regression tests and PR/issue text remain outside candidate inputs; their function names, exact cardinalities and fix vocabulary are not mandatory reviewer output.",
+    "Do not derive review superiority from response length, covering both fix branches, or reporting unrelated bugs. No model output was inspected.",
+    "The accepted fix addresses this known path; upstream comments mention another nested singleton-group concern. No claim is made that after is globally correct."
+  ],
+  "adjudication": "Do not score mere generic delivery/race warnings as full. One causal instance of known fault is enough; multiple branches/manifestations do not inflate counts. Additional source-provable findings allowed, including after; no blanket clean label."
+}

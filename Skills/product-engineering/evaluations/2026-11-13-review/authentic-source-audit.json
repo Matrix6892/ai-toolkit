@@ -1,0 +1,173 @@
+{
+  "audit": "Independent authentic-source suitability audit; no skill, synthetic cases, model outputs or evaluation results inspected",
+  "date": "2026-11-13",
+  "scope": [
+    "authentic-etcd",
+    "authentic-celery"
+  ],
+  "method": "Read manifests, original issues, upstream PR evidence, accepted regression tests and whole-file source excerpts; compare every candidate file byte-for-byte against raw.githubusercontent.com at its specified commit; recompute Git blob SHA1, SHA256 and byte length; inspect accepted fix. No model, service, build, test execution or new reproducer.",
+  "global_verdict": "pass_for_both_known_bounded_cross_component_cases; no claim of global correctness",
+  "global_limits": [
+    "Two retrospectively selected historical fixes establish neither general review quality nor prevalence. Selection bias remains.",
+    "Public 2023/2024 sources may have appeared in training. Matching a known answer cannot distinguish reasoning from memorization.",
+    "Review inputs are selected whole-file slices, not runnable complete repositories. Repository-wide absence of another protection is not proven; retained direct paths and accepted fix support the bounded cases.",
+    "Before/after labels, manifests, hidden evidence and sibling snapshots must remain outside candidate content. The candidate must receive one packet only with the same neutral prompt.",
+    "Native after-source comments describe corrected behavior; these are authentic source, not injected answer text, but can make the after classification easier.",
+    "No accepted regression was executed in this audit. Static absence of the known cause does not imply absence of other errors."
+  ],
+  "cases": {
+    "authentic-etcd": {
+      "pass": true,
+      "blockers": [],
+      "identity": {
+        "repository": "etcd-io/etcd",
+        "before": "b504ac184057498885b87798b5ffb98cf55fe917",
+        "after": "f6bb874298e9861300df7fa772d80addec413fe4",
+        "issue": "https://github.com/etcd-io/etcd/issues/15220",
+        "pr": "https://github.com/etcd-io/etcd/pull/15237",
+        "author": "scpmw",
+        "merged_at": "2023-04-05T11:49:41Z"
+      },
+      "integrity": {
+        "same_natural_paths": true,
+        "files_per_packet": 7,
+        "local_blob_sha256_length_checks": "14/14 pass",
+        "raw_pinned_upstream_byte_comparisons": "14/14 pass",
+        "new_tests_issue_diff_in_candidate": false,
+        "accepted_regression_hashes_and_fixed_tree_blobs": "2/2 pass; both also match raw pinned upstream",
+        "public_pr_html": "retrieved; title, author, accepted merge SHA present",
+        "final_local_input_recheck": "pass"
+      },
+      "contract_before": "api/etcdserverpb/rpc.proto:398-403 promises future events after a progress response have revisions strictly above header.revision. client/v3/watch.go:760-764 broadcasts global progress and :881-890 advances resume revision to progress+1. No issue text or new test is required to know the violated contract.",
+      "component_boundary": "RPC receive/control stream, ordered MVCC watch stream and client resume cursor. A public ordering promise must survive merging independent response paths; this is a cross-component state/order contract, not a syntax mistake.",
+      "preserved_defenses": "Whole watch.go, watcher.go and watchable_store.go retain ordinary timed RequestProgress, synced/unsynced watcher handling, buffering by creation ID, mutexes, cancellation and event paths. Existing periodic progress checks do not protect explicit ProgressRequest: it reads current Rev and writes ctrlStream directly, independently of backlog on watchStream. No protection was line-trimmed.",
+      "strict_detection": {
+        "required": "Identify explicit ProgressRequest -> ctrlStream with current store revision R, independent selection against watchStream, and the possible older queued/unsynced event e with e.revision <= R delivered after that progress. Tie this to rpc.proto ordering promise and optionally client resume+1 loss on reconnect. A bare channel-race warning is insufficient.",
+        "causality": "The store revision is ahead of a catching-up watcher; the control response can overtake its events, so a client is told that <=R is complete before receiving those events.",
+        "human_oracle": [
+          "TestV3WatchProgressWaitsForSync: 1001 historical writes, watch from revision 1, immediate explicit progress; all 1001 events must precede progress, then progress revision 1002. Proxy explicitly skipped.",
+          "TestWatcherRequestProgressAll: unsynced watcher receives no progress; after sync it receives global WatchID -1 progress at revision 2."
+        ],
+        "partial_signal": [
+          "Says progress may race or resume may lose data without naming explicit request bypass and violated revision order.",
+          "Treats normal timed progress as broken without explaining its existing synced-stream protection."
+        ],
+        "unknown": [
+          "Exact runtime frequency, disconnect loss reproduction and full regression execution remain unmeasured.",
+          "Do not require every request to produce a distinct response: accepted design permits coalescing with eventual progress."
+        ]
+      },
+      "after_nonapplicability": "Inspect the same explicit request path now calling RequestProgressAll, all-watchers synced guard under store lock, progress queued through the watch stream, InvalidWatchID handling, and deferred retry after event delivery. The original independent ctrlStream bypass is gone. For behavioral confirmation use the two existing human regressions in the complete pinned upstream checkout; no new reproducer is necessary. This does not certify unrelated behavior.",
+      "limitations": [
+        "The selected input omits full watcher_test.go symmetrically because the accepted version contains a revealing new test; it also omits unrelated implementation dependencies. This reduces context but does not remove the direct production protection paths needed for this defect."
+      ]
+    },
+    "authentic-celery": {
+      "pass": true,
+      "blockers": [],
+      "pass_scope": "Known structural duplicate continuation under ordinary non-eager task-protocol-2 delivery and Redis native completion. Source-closed at the relevant Celery producer/consumer API boundary; no broker-redelivery or universal exactly-once claim.",
+      "identity": {
+        "repository": "celery/celery",
+        "before": "ac16f239985cf9248155b95788c4b6227f7f1b94",
+        "after": "f8c952d8e2a6746cd7410b1b662d7b7045b347ef",
+        "issue": "https://github.com/celery/celery/issues/8662",
+        "pr": "https://github.com/celery/celery/pull/8663",
+        "author": "hann-wang",
+        "merged_at": "2024-02-27T15:29:51Z"
+      },
+      "integrity": {
+        "same_natural_paths": true,
+        "files_per_packet": 10,
+        "local_blob_sha256_length_checks": "20/20 pass on final re-audit",
+        "raw_pinned_upstream_byte_comparisons": "20/20 pass across sequential re-audits; newest 6/6 re-fetched on final audit",
+        "new_tests_issue_diff_in_candidate": false,
+        "accepted_regression_hashes_and_fixed_tree_blobs": "2/2 pass; both also match raw pinned upstream",
+        "public_pr_html": "retrieved; title, author, accepted merge SHA present; GitHub API rate limited, HTML/raw fallback succeeded",
+        "final_local_input_recheck": "pass",
+        "new_consumers": "Six added consumer/publication modules are whole genuine upstream files at each pinned commit; all six are unchanged between before/after. No tests, issue text or injected fix descriptions added."
+      },
+      "contract_before": "Native canvas guide promises group parallelism, chain sequencing and chord continuation after all headers. Whole canvas.py plus successful-task trace, native Redis/base backend, Task.apply_async, app.send_task and AMQP message creation expose the complete relevant continuation handoff. This proves the bounded structural scheduling cause from source without hypothesizing broker redelivery or missing publication semantics.",
+      "component_boundary": "The public chain/group/chord algebra is converted to serialized continuation topology consumed by workers and chord backend registration. Even though the accepted production edit lies in one Python file, the defect concerns ownership of the workflow continuation across composition and execution, not local syntax.",
+      "preserved_defenses": "All included production modules are literal whole files. ChainMap prevents mutation of shared source options, but intentionally preserves the same continuation value for group members; publishing embeds it in each message. _chord.run removes chain/chord from header options, but first propagates those options into its body, so this protects header tasks rather than a body group. Redis result-count gating synchronizes the first chord body; it does not gate each body-member request.chain continuation. trace.py:340-342,411-428 deduplicates only configured successful redeliveries, not the normal successful completion of different body-member tasks. Eager execution is a distinct branch; ordinary non-eager publication is present and sufficient. Argument checks, routing, ordinary serialization and Context custom-header filtering do not remove chain from this path. No custom monkeypatch/signal behavior is assumed, and none is required to establish this default-code execution possibility.",
+      "strict_detection": {
+        "required": "A causal explanation of ONE accepted manifestation is enough: for example, normal-terminal-task group chain leaves adjacent top-level chords; the downstream chain is propagated into the preceding chord body group, published in each member message, and each normal successful member completion independently schedules that same downstream continuation. Identify the affected composition and continuation-ownership failure. Equivalent concise causal traces count; exact symbol/test names, every file hop and both fix branches are not mandatory. Generic broker redelivery or a bare observation of adjacent chords is insufficient.",
+        "causality": "Normal-terminal-task promotion leaves the new chord beside the preceding chord instead of in its body. The leftover outer chain reaches that body group, whose members each carry and execute the downstream continuation. Nesting the chord into the preceding chord body removes the leftover outer continuation. The publication and consumption of chain are now both visible in the input.",
+        "human_oracle": [
+          "test_chain_of_chord_upgrade_on_chaining__protocol_2 (group_last_task false/true): the three groups and terminal task must normalize to one top-level chord in _chain.tasks.",
+          "test_chain_of_chord_upgrade_on_chaining__protocol_3: mixed chain/group/chord/group retains six top-level steps and its last step is a chord. These names are test names; they should not be reinterpreted as a blanket message-protocol guarantee.",
+          "test_chaining_upgraded_chords_mixed_canvas_protocol_2 (both final-task variants): supported Redis backend; first groups publish echoes 1..9, wait for Done, and compare the sorted Redis list exactly to 1..9. This tests missing/extra effects in that workflow, without broker-redelivery assumptions."
+        ],
+        "partial_signal": [
+          "Names adjacent top-level chords or the singleton re-dispatch problem without connecting them to downstream continuation ownership or a concrete affected workflow.",
+          "Generic broker duplicate delivery, retries, shared mutable options or races without the known structural path do not detect this defect.",
+          "A concise causal normal-terminal-task explanation is full known-bug detection even if it omits the singleton variant or detailed symbol-by-symbol publication trace."
+        ],
+        "unknown": [
+          "Exact runtime multiplicity, django-celery-results-specific failures and execution of the human integration regressions were not measured in this audit.",
+          "The accepted integration test observes effects after Done in its Redis workflow; it does not prove all future deliveries or all nested canvases safe.",
+          "Source-closed here means the relevant Celery continuation producer/consumer handoff is visible. It is not a verification of the entire application, external broker/serializer internals or arbitrary custom hooks."
+        ],
+        "variant_policy": "Finding the normal-terminal-task cause is a real known-bug detection by itself. The singleton-final-group re-dispatch is additional coverage of a manifestation/branch of this same known issue; do not require both branches, award two independent bugs, or turn a shorter correct finding into a miss. Different after-only or independent errors require separate evidence and must not be scored as known-bug detection."
+      },
+      "after_nonapplicability": "For a normal terminal task, show that promotion now absorbs the newly formed downstream chord into the preceding chord body and removes its extra top-level slot, so the identified residual chain is no longer fanned out to every body-group member. That alone addresses the corresponding known manifestation. Separately, singleton final groups re-enter __or__ after unrolling to reach the corrected promotion. Existing hidden unit/integration tests provide both variants for external verification; they are not candidate hints or mandatory response vocabulary. Do not assume the unchanged trace/backend modules fix composition, or declare unrelated errors absent.",
+      "limitations": [
+        "Whole input is a bounded repository slice, not a runnable complete application; no services, build, new reproducer or regression execution occurred.",
+        "One causal normal-terminal-task case is a real detection. Singleton-final-group is optional coverage of a manifestation/branch of this same known issue, not a second independent error.",
+        "Human regression tests and PR/issue text remain outside candidate inputs; their function names, exact cardinalities and fix vocabulary are not mandatory reviewer output.",
+        "Do not derive review superiority from response length, covering both fix branches, or reporting unrelated bugs. No model output was inspected.",
+        "The accepted fix addresses this known path; upstream comments mention another nested singleton-group concern. No claim is made that after is globally correct."
+      ],
+      "eligibility": {
+        "integrity": "pass",
+        "bounded_structural_contract_review": "pass",
+        "known_duplicate_continuation_under_normal_delivery": "pass_source_closed_relevant_Celery_handoff",
+        "blocker": null,
+        "needed_additional_source": [],
+        "reason": "The explicit chain parameter is preserved by Task.apply_async and app.send_task, embedded by as_task_v2, decoded into Context and consumed by successful-task trace. Existing included protections do not coordinate the leaked continuation among distinct members of the body group."
+      },
+      "execution_trace": [
+        "canvas.py:957-984: with three multi-task groups and a normal terminal task, pairwise promotion can leave adjacent top-level chords; the known accepted fix nests the downstream chord into the previous chord body.",
+        "canvas.py:1038-1073: _chain.run prepares the reverse list, pops the first chord, and passes the rest as chain via _prepare_chain_from_options.",
+        "canvas.py:2119-2143, 2217-2242: _chord.apply_async/run puts supplied options into its cloned body, then removes chain/chord from header options; this protects headers but leaves chain on the body group.",
+        "canvas.py:1582-1600, 1754-1780: body group applies each child with shared options, so each child receives the residual downstream chain option at the publication API.",
+        "canvas.py:369-400,855-860 -> app/task.py:566-598: Signature merges and forwards its options to Task.apply_async, which forwards them to app.send_task on the non-eager path. app/base.py:709-717,779-788 receives chain as a named argument and passes it directly to create_task_message.",
+        "app/amqp.py:225-235 selects protocol 2 as_task_v2; :280-288 accepts chain; :353-360 embeds chain unchanged alongside callbacks/errbacks/chord; :468,518-527 publishes that body with the selected serializer. app/trace.py:615-631,635-653 decodes embedded fields into request; app/task.py:99-115 Context retains them; trace.py:512-522 schedules the next request.chain signature on each normal successful completion before mark_as_done.",
+        "backends/base.py:153-159 and backends/redis.py:460-544: successful chord header tasks call chord completion; once all results are counted Redis invokes the body with callback.delay. This is a distinct synchronization path and does not itself coordinate chain continuations leaked to every body-group member.",
+        "The same downstream chord is thus published as residual continuation for multiple distinct members of the preceding body group. Each member can receive its own normal message once and on successful completion schedule that downstream chord. This is duplicated workflow scheduling caused by continuation ownership, not redelivery of an original message. The source closes the chain-option bridge; no assertion of universal exactly-once execution follows."
+      ]
+    }
+  },
+  "cleanup": {
+    "owner": "Root",
+    "retained": [
+      "LOCAL_TASK_EVIDENCE/audit-authentic-sources.json",
+      "LOCAL_TASK_EVIDENCE/audit-authentic-sources-initial.json",
+      "LOCAL_TASK_EVIDENCE/audit-authentic-sources-wire-pending.json"
+    ],
+    "reason": "reviewable audit deliverable; parent owns source/evidence tree",
+    "release_condition": "Root acceptance and verified durable copy, then Root retires tree",
+    "temporary_files_created": [],
+    "task_processes": "All source reads and network verification commands terminal; no task servers, models, builds, services or disposable scratch files.",
+    "removed_allocated_bytes": 0,
+    "resource_admission": "Before work root filesystem df reported ~9.5 GiB available; vm_stat free 8928 pages plus speculative 1177 pages, 16 KiB/page. Expected retained growth below 32 KiB, no build/services; no shared resources removed.",
+    "final_filesystem_free_bytes": 9173557248
+  },
+  "reaudit": {
+    "reason": "Symmetric addition of whole trace.py, backends/redis.py and backends/base.py; refine criterion to accept one causal manifestation of known defect",
+    "initial_report": "audit-authentic-sources-initial.json",
+    "initial_report_sha256": "ed738fd5f530cd607845d062413a9195f99da661703c08448000b75072328885",
+    "checks": "All 28 candidate files rehashed and compared against raw upstream pinned commits, all pass; same natural path sets, no extra files",
+    "new_models_services_tests": "none",
+    "resource_admission": "Data filesystem 9.1 GiB available; vm_stat free 5098 pages plus 43 speculative pages, 16 KiB/page; retained report growth below 32 KiB."
+  },
+  "final_wire_reaudit": {
+    "previous_report": "audit-authentic-sources-wire-pending.json",
+    "previous_sha256": "e9717fdc20634f0848dbfdfdef366f7220f1d4d0aacbe15778144a759b8446cd",
+    "scope": "Only chain publication -> embedded message -> request.chain -> normal successful continuation, native Redis completion and relevant existing protections",
+    "verified_new_raw_files": "6/6 byte-identical to pinned raw upstream; SHA256/Git blob SHA1/length pass",
+    "all_celery_local_files": "20/20 hash and length pass; ten same natural paths per packet, no extras",
+    "new_consumers": "task.py, app/base.py and app/amqp.py identical in before and after",
+    "resource_admission": "free_bytes=9713958912; vm_stat free=7855 and speculative=164 16KiB pages; expected report growth <32KiB; no builds or services",
+    "excluded_reads": "No model outputs, candidate results, skill or synthetic cases read."
+  }
+}

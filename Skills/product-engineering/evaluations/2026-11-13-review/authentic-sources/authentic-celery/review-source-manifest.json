@@ -1,0 +1,204 @@
+{
+  "repository": "celery/celery",
+  "versions": [
+    {
+      "packet": "packet-review-before",
+      "commit_sha": "ac16f239985cf9248155b95788c4b6227f7f1b94",
+      "files": [
+        {
+          "path": "LICENSE",
+          "commit_sha": "ac16f239985cf9248155b95788c4b6227f7f1b94",
+          "source_url": "https://github.com/celery/celery/blob/ac16f239985cf9248155b95788c4b6227f7f1b94/LICENSE",
+          "git_blob_sha1": "93411068ab7db9401ec4d5c9d52ca14f77e794fc",
+          "sha256": "c358cdf77f28bbab50d4a754e123118339c15230349e82bf66489cece3ac093a",
+          "bytes": 2717
+        },
+        {
+          "path": "README.rst",
+          "commit_sha": "ac16f239985cf9248155b95788c4b6227f7f1b94",
+          "source_url": "https://github.com/celery/celery/blob/ac16f239985cf9248155b95788c4b6227f7f1b94/README.rst",
+          "git_blob_sha1": "e206ec301400c568999e239fdc43a31122f88d37",
+          "sha256": "d212b7404f5e116537c48ba9bd51183110d5669a292c49d7b0842df454e2db8a",
+          "bytes": 16107
+        },
+        {
+          "path": "celery/canvas.py",
+          "commit_sha": "ac16f239985cf9248155b95788c4b6227f7f1b94",
+          "source_url": "https://github.com/celery/celery/blob/ac16f239985cf9248155b95788c4b6227f7f1b94/celery/canvas.py",
+          "git_blob_sha1": "909962c1639e4213666f296d207b4c3111e0e38d",
+          "sha256": "138c9a1861660698e66c0e1830f5ee6aa466c13ed4903b2bc8cd7547809c5ca2",
+          "bytes": 95919
+        },
+        {
+          "path": "docs/userguide/canvas.rst",
+          "commit_sha": "ac16f239985cf9248155b95788c4b6227f7f1b94",
+          "source_url": "https://github.com/celery/celery/blob/ac16f239985cf9248155b95788c4b6227f7f1b94/docs/userguide/canvas.rst",
+          "git_blob_sha1": "f9c8c1d323ee334372f8e426dc320586e88e68c4",
+          "sha256": "340d6aab5deae86513270c3fad3de8d75a3170f41f44c360a7005da39b17ff1f",
+          "bytes": 38136
+        },
+        {
+          "path": "celery/app/trace.py",
+          "commit_sha": "ac16f239985cf9248155b95788c4b6227f7f1b94",
+          "source_url": "https://github.com/celery/celery/blob/ac16f239985cf9248155b95788c4b6227f7f1b94/celery/app/trace.py",
+          "git_blob_sha1": "2e8cf8a3181064839de63c377ed0b4bc2bbcd592",
+          "sha256": "c34a8cf4c187789cce149444ab99b8a1b3c9e83e6108c1c0270986741ea7f0f3",
+          "bytes": 27551
+        },
+        {
+          "path": "celery/backends/redis.py",
+          "commit_sha": "ac16f239985cf9248155b95788c4b6227f7f1b94",
+          "source_url": "https://github.com/celery/celery/blob/ac16f239985cf9248155b95788c4b6227f7f1b94/celery/backends/redis.py",
+          "git_blob_sha1": "8acc60831bf6aabe4288836a6baa99abbca582bf",
+          "sha256": "c27978e5a30b7f8492997d890c48852259cd68a63723a3c18c978beda744b820",
+          "bytes": 26389
+        },
+        {
+          "path": "celery/backends/base.py",
+          "commit_sha": "ac16f239985cf9248155b95788c4b6227f7f1b94",
+          "source_url": "https://github.com/celery/celery/blob/ac16f239985cf9248155b95788c4b6227f7f1b94/celery/backends/base.py",
+          "git_blob_sha1": "22cdc2ebff60d75e244cb54f4051db96d947d75d",
+          "sha256": "0dd6034b7f9cb4d75bdd42ec4f5f71bb009afbc8364717d875bf0383aec2ba78",
+          "bytes": 43982
+        },
+        {
+          "path": "celery/app/task.py",
+          "commit_sha": "ac16f239985cf9248155b95788c4b6227f7f1b94",
+          "source_url": "https://github.com/celery/celery/blob/ac16f239985cf9248155b95788c4b6227f7f1b94/celery/app/task.py",
+          "git_blob_sha1": "5d55a747b8ca5739102d311bd016f01b583c4a73",
+          "sha256": "cce75691880190aafcab069a132ddfef75d497cb1fb940f2b0ad2afcba3c1094",
+          "bytes": 43794
+        },
+        {
+          "path": "celery/app/base.py",
+          "commit_sha": "ac16f239985cf9248155b95788c4b6227f7f1b94",
+          "source_url": "https://github.com/celery/celery/blob/ac16f239985cf9248155b95788c4b6227f7f1b94/celery/app/base.py",
+          "git_blob_sha1": "863f264f854c98eac9a4ad2985f051adcbedb667",
+          "sha256": "4f39bf24e0437e4d82a0e9d0450777c14289253609ac554c255b15147bb583b7",
+          "bytes": 50584
+        },
+        {
+          "path": "celery/app/amqp.py",
+          "commit_sha": "ac16f239985cf9248155b95788c4b6227f7f1b94",
+          "source_url": "https://github.com/celery/celery/blob/ac16f239985cf9248155b95788c4b6227f7f1b94/celery/app/amqp.py",
+          "git_blob_sha1": "e6aae3f8b3ccf5342a96522bc53e5536057c4eb1",
+          "sha256": "0987903e90c20a7037f012ce429197d0d09266ad066344ecb198d6d21acc632c",
+          "bytes": 23236
+        }
+      ]
+    },
+    {
+      "packet": "packet-review-after",
+      "commit_sha": "f8c952d8e2a6746cd7410b1b662d7b7045b347ef",
+      "files": [
+        {
+          "path": "LICENSE",
+          "commit_sha": "f8c952d8e2a6746cd7410b1b662d7b7045b347ef",
+          "source_url": "https://github.com/celery/celery/blob/f8c952d8e2a6746cd7410b1b662d7b7045b347ef/LICENSE",
+          "git_blob_sha1": "93411068ab7db9401ec4d5c9d52ca14f77e794fc",
+          "sha256": "c358cdf77f28bbab50d4a754e123118339c15230349e82bf66489cece3ac093a",
+          "bytes": 2717
+        },
+        {
+          "path": "README.rst",
+          "commit_sha": "f8c952d8e2a6746cd7410b1b662d7b7045b347ef",
+          "source_url": "https://github.com/celery/celery/blob/f8c952d8e2a6746cd7410b1b662d7b7045b347ef/README.rst",
+          "git_blob_sha1": "e206ec301400c568999e239fdc43a31122f88d37",
+          "sha256": "d212b7404f5e116537c48ba9bd51183110d5669a292c49d7b0842df454e2db8a",
+          "bytes": 16107
+        },
+        {
+          "path": "celery/canvas.py",
+          "commit_sha": "f8c952d8e2a6746cd7410b1b662d7b7045b347ef",
+          "source_url": "https://github.com/celery/celery/blob/f8c952d8e2a6746cd7410b1b662d7b7045b347ef/celery/canvas.py",
+          "git_blob_sha1": "70c7b1392122edd00042a5fa7e872062b04d3cbb",
+          "sha256": "b256e464adea82e61c03c3cbae52939f1fe8bbfa2738418c9681467e2edbc254",
+          "bytes": 96550
+        },
+        {
+          "path": "docs/userguide/canvas.rst",
+          "commit_sha": "f8c952d8e2a6746cd7410b1b662d7b7045b347ef",
+          "source_url": "https://github.com/celery/celery/blob/f8c952d8e2a6746cd7410b1b662d7b7045b347ef/docs/userguide/canvas.rst",
+          "git_blob_sha1": "f9c8c1d323ee334372f8e426dc320586e88e68c4",
+          "sha256": "340d6aab5deae86513270c3fad3de8d75a3170f41f44c360a7005da39b17ff1f",
+          "bytes": 38136
+        },
+        {
+          "path": "celery/app/trace.py",
+          "commit_sha": "f8c952d8e2a6746cd7410b1b662d7b7045b347ef",
+          "source_url": "https://github.com/celery/celery/blob/f8c952d8e2a6746cd7410b1b662d7b7045b347ef/celery/app/trace.py",
+          "git_blob_sha1": "2e8cf8a3181064839de63c377ed0b4bc2bbcd592",
+          "sha256": "c34a8cf4c187789cce149444ab99b8a1b3c9e83e6108c1c0270986741ea7f0f3",
+          "bytes": 27551
+        },
+        {
+          "path": "celery/backends/redis.py",
+          "commit_sha": "f8c952d8e2a6746cd7410b1b662d7b7045b347ef",
+          "source_url": "https://github.com/celery/celery/blob/f8c952d8e2a6746cd7410b1b662d7b7045b347ef/celery/backends/redis.py",
+          "git_blob_sha1": "8acc60831bf6aabe4288836a6baa99abbca582bf",
+          "sha256": "c27978e5a30b7f8492997d890c48852259cd68a63723a3c18c978beda744b820",
+          "bytes": 26389
+        },
+        {
+          "path": "celery/backends/base.py",
+          "commit_sha": "f8c952d8e2a6746cd7410b1b662d7b7045b347ef",
+          "source_url": "https://github.com/celery/celery/blob/f8c952d8e2a6746cd7410b1b662d7b7045b347ef/celery/backends/base.py",
+          "git_blob_sha1": "22cdc2ebff60d75e244cb54f4051db96d947d75d",
+          "sha256": "0dd6034b7f9cb4d75bdd42ec4f5f71bb009afbc8364717d875bf0383aec2ba78",
+          "bytes": 43982
+        },
+        {
+          "path": "celery/app/task.py",
+          "commit_sha": "f8c952d8e2a6746cd7410b1b662d7b7045b347ef",
+          "source_url": "https://github.com/celery/celery/blob/f8c952d8e2a6746cd7410b1b662d7b7045b347ef/celery/app/task.py",
+          "git_blob_sha1": "5d55a747b8ca5739102d311bd016f01b583c4a73",
+          "sha256": "cce75691880190aafcab069a132ddfef75d497cb1fb940f2b0ad2afcba3c1094",
+          "bytes": 43794
+        },
+        {
+          "path": "celery/app/base.py",
+          "commit_sha": "f8c952d8e2a6746cd7410b1b662d7b7045b347ef",
+          "source_url": "https://github.com/celery/celery/blob/f8c952d8e2a6746cd7410b1b662d7b7045b347ef/celery/app/base.py",
+          "git_blob_sha1": "863f264f854c98eac9a4ad2985f051adcbedb667",
+          "sha256": "4f39bf24e0437e4d82a0e9d0450777c14289253609ac554c255b15147bb583b7",
+          "bytes": 50584
+        },
+        {
+          "path": "celery/app/amqp.py",
+          "commit_sha": "f8c952d8e2a6746cd7410b1b662d7b7045b347ef",
+          "source_url": "https://github.com/celery/celery/blob/f8c952d8e2a6746cd7410b1b662d7b7045b347ef/celery/app/amqp.py",
+          "git_blob_sha1": "e6aae3f8b3ccf5342a96522bc53e5536057c4eb1",
+          "sha256": "0987903e90c20a7037f012ce429197d0d09266ad066344ecb198d6d21acc632c",
+          "bytes": 23236
+        }
+      ]
+    }
+  ],
+  "excluded_paths": [
+    {
+      "path": "t/unit/tasks/test_canvas.py",
+      "reason": "Accepted fix adds revealing regression tests to this file. Entire path omitted from both review inputs, no line editing. Full original versions retained in packet-source, packet-fixed and hidden."
+    }
+  ],
+  "selection_policy": "Same path set in both inputs. Each whole original file comes from its own one genuine version. No rewritten lines, hybrid snapshots, new tests, issue or PR text. Excluded whole paths contain new revealing regression tests.",
+  "remaining_public_contract": "Native canvas guide describes chain order, group parallelism, chord continuation after all headers and automatic group|task upgrade. It does not promise universal broker exactly-once delivery. A finding must trace an extra workflow continuation/registration under a single normal delivery, or explicitly limit the claim if backend execution internals are needed. Expanded with whole trace.py and Redis/base backends. Audit status is not automatically upgraded: consumers are now available for a fresh bounded source audit; no runtime was executed. Final bounded publication addition: task.py, app/base.py and amqp.py are present at each respective commit. This removes the previously documented missing-publication-source condition; proving the one causal chain remains a source-audit obligation, not an executed runtime claim.",
+  "license": "Code BSD-3-Clause; docs CC-BY-SA-4.0 per LICENSE; preserve attribution, disclaimer and applicable sharealike.",
+  "provenance": "Public historical upstream source, retrospectively selected with knowledge of accepted remediation. etcd fix published 2023; Celery fix 2024. Not a claim of training-set novelty or global correctness.",
+  "candidate_policy": "Give exactly one packet-review-before or packet-review-after plus the same neutral review prompt. Do not give directory labels/manifests/sibling packet/hidden/report as content.",
+  "execution_expansion": {
+    "files": {
+      "celery/app/trace.py": "Whole successful-task trace, including request.chain continuation scheduling and result completion path.",
+      "celery/backends/redis.py": "Whole native Redis result backend, chord part aggregation, completion and body scheduling.",
+      "celery/backends/base.py": "Whole result backend base contract, mark_as_done/on_chord_part_return hooks and chord registration."
+    },
+    "purpose": "Trace repeated continuation scheduling/registration under normal Redis delivery; no universal exactly-once claim.",
+    "remaining_conditional_dependency": "Previously identified task.py/amqp.py publication boundary is now present, together with app/base.py send_task. No claim of library-wide dependency closure; source scope is frozen unless a concrete blocker is identified.",
+    "scope": "No builtin fallback backend path is claimed; Redis native completion is the bounded target.",
+    "publication_files": {
+      "celery/app/task.py": "Whole task apply_async/signature path and publication options.",
+      "celery/app/base.py": "Whole application send_task path and transfer of workflow continuation options.",
+      "celery/app/amqp.py": "Whole AMQP task message construction and embedding of chain continuation."
+    }
+  },
+  "source_scope": "Frozen after six execution/publication consumer additions. Do not expand to certify the whole library; require a concrete blocker for any further source."
+}

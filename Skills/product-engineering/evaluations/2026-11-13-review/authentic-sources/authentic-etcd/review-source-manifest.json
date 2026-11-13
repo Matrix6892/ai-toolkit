@@ -1,0 +1,140 @@
+{
+  "repository": "etcd-io/etcd",
+  "versions": [
+    {
+      "packet": "packet-review-before",
+      "commit_sha": "b504ac184057498885b87798b5ffb98cf55fe917",
+      "files": [
+        {
+          "path": "LICENSE",
+          "commit_sha": "b504ac184057498885b87798b5ffb98cf55fe917",
+          "source_url": "https://github.com/etcd-io/etcd/blob/b504ac184057498885b87798b5ffb98cf55fe917/LICENSE",
+          "git_blob_sha1": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "bytes": 11358
+        },
+        {
+          "path": "README.md",
+          "commit_sha": "b504ac184057498885b87798b5ffb98cf55fe917",
+          "source_url": "https://github.com/etcd-io/etcd/blob/b504ac184057498885b87798b5ffb98cf55fe917/README.md",
+          "git_blob_sha1": "a868ea18ae3dcbd15bfbf37dd6f019ba440df719",
+          "sha256": "dd73ff8bff91989a94d51731f94808aeabc3b251c19999ee56b99683af70db40",
+          "bytes": 8431
+        },
+        {
+          "path": "server/etcdserver/api/v3rpc/watch.go",
+          "commit_sha": "b504ac184057498885b87798b5ffb98cf55fe917",
+          "source_url": "https://github.com/etcd-io/etcd/blob/b504ac184057498885b87798b5ffb98cf55fe917/server/etcdserver/api/v3rpc/watch.go",
+          "git_blob_sha1": "5153007258d3e583f5fca24dbe4cad5f40807939",
+          "sha256": "964d9e71bcee786fe94b7d1aa894d497cb557fddc4b8a32a45ff46401d5591ef",
+          "bytes": 16981
+        },
+        {
+          "path": "server/storage/mvcc/watcher.go",
+          "commit_sha": "b504ac184057498885b87798b5ffb98cf55fe917",
+          "source_url": "https://github.com/etcd-io/etcd/blob/b504ac184057498885b87798b5ffb98cf55fe917/server/storage/mvcc/watcher.go",
+          "git_blob_sha1": "7d2490b1d6e940ecf9b605a0c3218d89c1821e66",
+          "sha256": "abd4253825e615d45e0b2e8717891bc52ab4084341f4ddef65cbec1e83f9b2ba",
+          "bytes": 5487
+        },
+        {
+          "path": "server/storage/mvcc/watchable_store.go",
+          "commit_sha": "b504ac184057498885b87798b5ffb98cf55fe917",
+          "source_url": "https://github.com/etcd-io/etcd/blob/b504ac184057498885b87798b5ffb98cf55fe917/server/storage/mvcc/watchable_store.go",
+          "git_blob_sha1": "f0d056f286d445ada337d1eae1339bf2a28a9661",
+          "sha256": "19881b0c688e88fe10294da14dd3be97ec98985d14770025136d69041357a8df",
+          "bytes": 13669
+        },
+        {
+          "path": "client/v3/watch.go",
+          "commit_sha": "b504ac184057498885b87798b5ffb98cf55fe917",
+          "source_url": "https://github.com/etcd-io/etcd/blob/b504ac184057498885b87798b5ffb98cf55fe917/client/v3/watch.go",
+          "git_blob_sha1": "c5e83cd4eaf1ad44367ddae198fd70e54c2e3905",
+          "sha256": "b02643c1c57ade9cd6fc3a13a8338c002691aae2f3bb7666562b9107947b5334",
+          "bytes": 28890
+        },
+        {
+          "path": "api/etcdserverpb/rpc.proto",
+          "commit_sha": "b504ac184057498885b87798b5ffb98cf55fe917",
+          "source_url": "https://github.com/etcd-io/etcd/blob/b504ac184057498885b87798b5ffb98cf55fe917/api/etcdserverpb/rpc.proto",
+          "git_blob_sha1": "9cdc0b37f6e499eabf0a3fa88b0ceb9a53674ff5",
+          "sha256": "6ba5a332b3b3dc88cbde88fb3a8d43ee33d72ee6157ee8eeda442132a080fd76",
+          "bytes": 44288
+        }
+      ]
+    },
+    {
+      "packet": "packet-review-after",
+      "commit_sha": "f6bb874298e9861300df7fa772d80addec413fe4",
+      "files": [
+        {
+          "path": "LICENSE",
+          "commit_sha": "f6bb874298e9861300df7fa772d80addec413fe4",
+          "source_url": "https://github.com/etcd-io/etcd/blob/f6bb874298e9861300df7fa772d80addec413fe4/LICENSE",
+          "git_blob_sha1": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "bytes": 11358
+        },
+        {
+          "path": "README.md",
+          "commit_sha": "f6bb874298e9861300df7fa772d80addec413fe4",
+          "source_url": "https://github.com/etcd-io/etcd/blob/f6bb874298e9861300df7fa772d80addec413fe4/README.md",
+          "git_blob_sha1": "a868ea18ae3dcbd15bfbf37dd6f019ba440df719",
+          "sha256": "dd73ff8bff91989a94d51731f94808aeabc3b251c19999ee56b99683af70db40",
+          "bytes": 8431
+        },
+        {
+          "path": "server/etcdserver/api/v3rpc/watch.go",
+          "commit_sha": "f6bb874298e9861300df7fa772d80addec413fe4",
+          "source_url": "https://github.com/etcd-io/etcd/blob/f6bb874298e9861300df7fa772d80addec413fe4/server/etcdserver/api/v3rpc/watch.go",
+          "git_blob_sha1": "a8d37efa098cdca80937dc6b1130e7d20128ef34",
+          "sha256": "0927b6ac9b9a9ef9b52dd99bbfc95aea153cab4e88fffe1dadab4fefae099997",
+          "bytes": 17482
+        },
+        {
+          "path": "server/storage/mvcc/watcher.go",
+          "commit_sha": "f6bb874298e9861300df7fa772d80addec413fe4",
+          "source_url": "https://github.com/etcd-io/etcd/blob/f6bb874298e9861300df7fa772d80addec413fe4/server/storage/mvcc/watcher.go",
+          "git_blob_sha1": "c67c21d613970e06479549f8e2d2edfd235f05de",
+          "sha256": "ac765c520845a224866f68a004079296175dd06a3f409fabb30da973b1faf313",
+          "bytes": 5914
+        },
+        {
+          "path": "server/storage/mvcc/watchable_store.go",
+          "commit_sha": "f6bb874298e9861300df7fa772d80addec413fe4",
+          "source_url": "https://github.com/etcd-io/etcd/blob/f6bb874298e9861300df7fa772d80addec413fe4/server/storage/mvcc/watchable_store.go",
+          "git_blob_sha1": "4e7b5a71407cc46b0bb5f44d0805ddfa7e44c112",
+          "sha256": "beef72361e83e146190506fb63c88e9f691530c37d8413b3cafe4612a4ad366a",
+          "bytes": 14384
+        },
+        {
+          "path": "client/v3/watch.go",
+          "commit_sha": "f6bb874298e9861300df7fa772d80addec413fe4",
+          "source_url": "https://github.com/etcd-io/etcd/blob/f6bb874298e9861300df7fa772d80addec413fe4/client/v3/watch.go",
+          "git_blob_sha1": "c5e83cd4eaf1ad44367ddae198fd70e54c2e3905",
+          "sha256": "b02643c1c57ade9cd6fc3a13a8338c002691aae2f3bb7666562b9107947b5334",
+          "bytes": 28890
+        },
+        {
+          "path": "api/etcdserverpb/rpc.proto",
+          "commit_sha": "f6bb874298e9861300df7fa772d80addec413fe4",
+          "source_url": "https://github.com/etcd-io/etcd/blob/f6bb874298e9861300df7fa772d80addec413fe4/api/etcdserverpb/rpc.proto",
+          "git_blob_sha1": "9cdc0b37f6e499eabf0a3fa88b0ceb9a53674ff5",
+          "sha256": "6ba5a332b3b3dc88cbde88fb3a8d43ee33d72ee6157ee8eeda442132a080fd76",
+          "bytes": 44288
+        }
+      ]
+    }
+  ],
+  "excluded_paths": [
+    {
+      "path": "server/storage/mvcc/watcher_test.go",
+      "reason": "Accepted fix adds revealing regression tests to this file. Entire path omitted from both review inputs, no line editing. Full original versions retained in packet-source, packet-fixed and hidden."
+    }
+  ],
+  "selection_policy": "Same path set in both inputs. Each whole original file comes from its own one genuine version. No rewritten lines, hybrid snapshots, new tests, issue or PR text. Excluded whole paths contain new revealing regression tests.",
+  "remaining_public_contract": "Existing baseline rpc.proto ResponseHeader.revision explicitly promises all future watch events have a revision above progress header revision; client watch code advances resume nextRev from progress. No hidden issue needed for the violated ordering contract.",
+  "license": "Apache-2.0; preserve license and source notices.",
+  "provenance": "Public historical upstream source, retrospectively selected with knowledge of accepted remediation. etcd fix published 2023; Celery fix 2024. Not a claim of training-set novelty or global correctness.",
+  "candidate_policy": "Give exactly one packet-review-before or packet-review-after plus the same neutral review prompt. Do not give directory labels/manifests/sibling packet/hidden/report as content."
+}

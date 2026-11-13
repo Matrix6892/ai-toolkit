@@ -1,0 +1,172 @@
+{
+  "family": "D",
+  "synthetic": true,
+  "verdict": "pass",
+  "blockers": [],
+  "scope": "Independent preliminary audit of packet-p/q, hidden/oracle.json, hidden/witness.py and author-report.json only. No candidate/skill, other family/results, network, model call or subagent used. Review documents treated as data.",
+  "defects": [
+    {
+      "id": "D1",
+      "verdict": "supported",
+      "reason": "Operations 27-32 requires exact sampled jar generation; Registry 7-10 distinguishes accession from jar. Gateway p 26-31 discards jar and generation in authorization state; Dispatch p 34-38 authorizes any selected jar sharing that accession. The J-A negative -> J-B ticket trace requires no extra premise; both NB-71 jars are explicit in Operations 68-71."
+    },
+    {
+      "id": "D2",
+      "verdict": "supported",
+      "reason": "Operations 29 and 72-74 forbid old-generation authorization. Registry 30-33 commits increment under the shared lease, while p Gateway 44-48 handles reset/receipt in arrival order without sampled-generation matching and p Dispatch 43-46 does not wait for its asynchronous reset. Thus both stale local RELEASED before reset and late generation-1 receipt after reset permit generation-2 tickets. A valid lease preserves the wrong generation-2 decision rather than repairing evidence scope."
+    }
+  ],
+  "correct_variant": {
+    "verdict": "supported_within_documented_pilot",
+    "reason": "q Gateway 26-32 and 44-54 keeps immutable exact-coordinate evidence and no fallback. q Dispatch 15-23, 26-39 holds the same Registry lease through read, lookup, commit and draw and rejects absent/mismatched/unavailable evidence. One assay sample per generation (Registry 52), no revocation/expiry (Dispatch 37-38; Gateway 93), and explicit handling assumptions prevent a hidden invalidation race. No substantive collateral defect established in the bounded contract.",
+    "questions_not_defects": [
+      "Future expiry",
+      "Multiple assay kinds",
+      "Manual exceptions",
+      "Destination certificates",
+      "Seed quantity accounting and recipient permits, explicitly separate workflows"
+    ]
+  },
+  "executable_model": {
+    "verdict": "faithful_bounded_abstraction",
+    "command": "python3 -B family-d/hidden/witness.py",
+    "exit_code": 0,
+    "result": {
+      "p_unauthorized_traces": 3,
+      "q_reservation_and_unavailable_checks": "passed",
+      "q_schedules_checked": 60,
+      "q_valid_tickets_observed": 5,
+      "source_hashes_verified": 8,
+      "status": "passed"
+    },
+    "reason": "p consumer uses the highest gateway revision and the accession state; q requires exact coordinates. Reseal increments while excluding active leases. Independent event/receipt ordering and arbitrary delivery delay are documented, not invented. Initial S-A sample and two jars are explicit admissible fixtures. Coarse atomic ticket steps are supplemented by the explicit held-lease reseal check.",
+    "limits": [
+      "Finite schedules cover one immutable negative, two jars and one reseal; this is not a proof of all production behavior.",
+      "Gateway-unavailable assertion uses J-B without matching evidence, so that particular case does not independently isolate outage behavior. Fail-closed lookup is nevertheless implemented in decide and explicitly required by q Dispatch 30,46,50.",
+      "Model abstracts signatures, duplicate handling, physical actions and lease expiry to supplied contracts; no defect conclusion relies on those omissions."
+    ]
+  },
+  "references": {
+    "verdict": "exact",
+    "oracle_citations_checked": 14,
+    "checks": [
+      {
+        "id": "D1",
+        "path": "packet-p/01-operations.md",
+        "start_line": 28,
+        "end_line": 28,
+        "exact": true
+      },
+      {
+        "id": "D1",
+        "path": "packet-p/02-registry.md",
+        "start_line": 7,
+        "end_line": 8,
+        "exact": true
+      },
+      {
+        "id": "D1",
+        "path": "packet-p/03-assay-exchange.md",
+        "start_line": 26,
+        "end_line": 27,
+        "exact": true
+      },
+      {
+        "id": "D1",
+        "path": "packet-p/04-dispatch.md",
+        "start_line": 34,
+        "end_line": 35,
+        "exact": true
+      },
+      {
+        "id": "D2",
+        "path": "packet-p/01-operations.md",
+        "start_line": 29,
+        "end_line": 29,
+        "exact": true
+      },
+      {
+        "id": "D2",
+        "path": "packet-p/02-registry.md",
+        "start_line": 31,
+        "end_line": 32,
+        "exact": true
+      },
+      {
+        "id": "D2",
+        "path": "packet-p/03-assay-exchange.md",
+        "start_line": 46,
+        "end_line": 48,
+        "exact": true
+      },
+      {
+        "id": "D2",
+        "path": "packet-p/04-dispatch.md",
+        "start_line": 30,
+        "end_line": 31,
+        "exact": true
+      },
+      {
+        "id": "D2",
+        "path": "packet-p/04-dispatch.md",
+        "start_line": 45,
+        "end_line": 46,
+        "exact": true
+      },
+      {
+        "id": "q-guarantee",
+        "path": "packet-q/03-assay-exchange.md",
+        "start_line": 26,
+        "end_line": 26,
+        "exact": true
+      },
+      {
+        "id": "q-guarantee",
+        "path": "packet-q/03-assay-exchange.md",
+        "start_line": 31,
+        "end_line": 31,
+        "exact": true
+      },
+      {
+        "id": "q-guarantee",
+        "path": "packet-q/04-dispatch.md",
+        "start_line": 34,
+        "end_line": 35,
+        "exact": true
+      },
+      {
+        "id": "q-guarantee",
+        "path": "packet-q/04-dispatch.md",
+        "start_line": 37,
+        "end_line": 39,
+        "exact": true
+      },
+      {
+        "id": "q-guarantee",
+        "path": "packet-q/02-registry.md",
+        "start_line": 52,
+        "end_line": 52,
+        "exact": true
+      }
+    ],
+    "all_source_hashes_verified": true
+  },
+  "unsupported_assumptions_found": [],
+  "resource_admission": {
+    "expected_output_growth_bytes_max": 100000,
+    "disk_available_before_1k_blocks": 8611988,
+    "memory_available_observation": "memory_pressure system-wide memory free 37%; 24 GiB physical RAM. vm_stat free/inactive/speculative measured before work.",
+    "applicable_reserve": "No build/model runtime; a sub-second Python witness and a small JSON output, well below measured available disk/RAM."
+  },
+  "custody": {
+    "retained_path": "LOCAL_TASK_EVIDENCE/audit-family-d.json",
+    "owner": "Root",
+    "reason": "Independent review evidence awaiting acceptance and durable hash-copy",
+    "release_condition": "Root accepts and preserves a hash-matching durable copy, then removes exact task tree after confirming no readers",
+    "sources_modified": false,
+    "temporary_files_created": [],
+    "removed_paths": [],
+    "allocated_bytes_removed": 0,
+    "processes": "All command processes exited; no persistent jobs, locks, servers or __pycache__ created."
+  }
+}

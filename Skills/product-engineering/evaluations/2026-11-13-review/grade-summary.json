@@ -1,0 +1,733 @@
+{
+  "rows": [
+    {
+      "id": "R03",
+      "family": "family-a",
+      "packet": "packet-p",
+      "condition": "with",
+      "replicate": 2,
+      "study_phase": "primary",
+      "known_expected": 1,
+      "full": 1,
+      "partial": 0,
+      "miss": 0,
+      "false_positives": 0,
+      "invalid_fixes": 0,
+      "valid_unknowns": 1,
+      "reported_true_findings": 1,
+      "known_defects": [
+        {
+          "id": "A1",
+          "status": "full"
+        }
+      ]
+    },
+    {
+      "id": "R06",
+      "family": "family-a",
+      "packet": "packet-q",
+      "condition": "without",
+      "replicate": 1,
+      "study_phase": "primary",
+      "known_expected": 0,
+      "full": 0,
+      "partial": 0,
+      "miss": 0,
+      "false_positives": 0,
+      "invalid_fixes": 0,
+      "valid_unknowns": 2,
+      "reported_true_findings": 0,
+      "known_defects": []
+    },
+    {
+      "id": "R08",
+      "family": "family-a",
+      "packet": "packet-q",
+      "condition": "with",
+      "replicate": 2,
+      "study_phase": "primary",
+      "known_expected": 0,
+      "full": 0,
+      "partial": 0,
+      "miss": 0,
+      "false_positives": 0,
+      "invalid_fixes": 0,
+      "valid_unknowns": 2,
+      "reported_true_findings": 0,
+      "known_defects": []
+    },
+    {
+      "id": "R02",
+      "family": "family-a",
+      "packet": "packet-p",
+      "condition": "with",
+      "replicate": 1,
+      "study_phase": "primary",
+      "known_expected": 1,
+      "full": 1,
+      "partial": 0,
+      "miss": 0,
+      "false_positives": 0,
+      "invalid_fixes": 0,
+      "valid_unknowns": 2,
+      "reported_true_findings": 1,
+      "known_defects": [
+        {
+          "id": "A1",
+          "status": "full"
+        }
+      ]
+    },
+    {
+      "id": "R05",
+      "family": "family-a",
+      "packet": "packet-q",
+      "condition": "with",
+      "replicate": 1,
+      "study_phase": "primary",
+      "known_expected": 0,
+      "full": 0,
+      "partial": 0,
+      "miss": 0,
+      "false_positives": 0,
+      "invalid_fixes": 0,
+      "valid_unknowns": 2,
+      "reported_true_findings": 0,
+      "known_defects": []
+    },
+    {
+      "id": "R07",
+      "family": "family-a",
+      "packet": "packet-q",
+      "condition": "without",
+      "replicate": 2,
+      "study_phase": "primary",
+      "known_expected": 0,
+      "full": 0,
+      "partial": 0,
+      "miss": 0,
+      "false_positives": 0,
+      "invalid_fixes": 0,
+      "valid_unknowns": 2,
+      "reported_true_findings": 0,
+      "known_defects": []
+    },
+    {
+      "id": "R01",
+      "family": "family-a",
+      "packet": "packet-p",
+      "condition": "without",
+      "replicate": 1,
+      "study_phase": "primary",
+      "known_expected": 1,
+      "full": 1,
+      "partial": 0,
+      "miss": 0,
+      "false_positives": 0,
+      "invalid_fixes": 0,
+      "valid_unknowns": 2,
+      "reported_true_findings": 1,
+      "known_defects": [
+        {
+          "id": "A1",
+          "status": "full"
+        }
+      ]
+    },
+    {
+      "id": "R04",
+      "family": "family-a",
+      "packet": "packet-p",
+      "condition": "without",
+      "replicate": 2,
+      "study_phase": "primary",
+      "known_expected": 1,
+      "full": 1,
+      "partial": 0,
+      "miss": 0,
+      "false_positives": 0,
+      "invalid_fixes": 0,
+      "valid_unknowns": 2,
+      "reported_true_findings": 1,
+      "known_defects": [
+        {
+          "id": "A1",
+          "status": "full"
+        }
+      ]
+    },
+    {
+      "id": "R13",
+      "family": "family-b",
+      "packet": "packet-q",
+      "condition": "with",
+      "replicate": 1,
+      "study_phase": "primary",
+      "known_expected": 0,
+      "full": 0,
+      "partial": 0,
+      "miss": 0,
+      "false_positives": 0,
+      "invalid_fixes": 0,
+      "valid_unknowns": 0,
+      "reported_true_findings": 0,
+      "known_defects": []
+    },
+    {
+      "id": "R09",
+      "family": "family-b",
+      "packet": "packet-p",
+      "condition": "without",
+      "replicate": 1,
+      "study_phase": "primary",
+      "known_expected": 1,
+      "full": 1,
+      "partial": 0,
+      "miss": 0,
+      "false_positives": 0,
+      "invalid_fixes": 0,
+      "valid_unknowns": 1,
+      "reported_true_findings": 1,
+      "known_defects": [
+        {
+          "id": "B-1",
+          "status": "full"
+        }
+      ]
+    },
+    {
+      "id": "R14",
+      "family": "family-b",
+      "packet": "packet-q",
+      "condition": "without",
+      "replicate": 1,
+      "study_phase": "primary",
+      "known_expected": 0,
+      "full": 0,
+      "partial": 0,
+      "miss": 0,
+      "false_positives": 0,
+      "invalid_fixes": 0,
+      "valid_unknowns": 1,
+      "reported_true_findings": 0,
+      "known_defects": []
+    },
+    {
+      "id": "R15",
+      "family": "family-b",
+      "packet": "packet-q",
+      "condition": "without",
+      "replicate": 2,
+      "study_phase": "primary",
+      "known_expected": 0,
+      "full": 0,
+      "partial": 0,
+      "miss": 0,
+      "false_positives": 0,
+      "invalid_fixes": 0,
+      "valid_unknowns": 2,
+      "reported_true_findings": 0,
+      "known_defects": []
+    },
+    {
+      "id": "R10",
+      "family": "family-b",
+      "packet": "packet-p",
+      "condition": "with",
+      "replicate": 1,
+      "study_phase": "primary",
+      "known_expected": 1,
+      "full": 1,
+      "partial": 0,
+      "miss": 0,
+      "false_positives": 0,
+      "invalid_fixes": 0,
+      "valid_unknowns": 0,
+      "reported_true_findings": 1,
+      "known_defects": [
+        {
+          "id": "B-1",
+          "status": "full"
+        }
+      ]
+    },
+    {
+      "id": "R16",
+      "family": "family-b",
+      "packet": "packet-q",
+      "condition": "with",
+      "replicate": 2,
+      "study_phase": "primary",
+      "known_expected": 0,
+      "full": 0,
+      "partial": 0,
+      "miss": 0,
+      "false_positives": 0,
+      "invalid_fixes": 0,
+      "valid_unknowns": 0,
+      "reported_true_findings": 0,
+      "known_defects": []
+    },
+    {
+      "id": "R11",
+      "family": "family-b",
+      "packet": "packet-p",
+      "condition": "with",
+      "replicate": 2,
+      "study_phase": "primary",
+      "known_expected": 1,
+      "full": 1,
+      "partial": 0,
+      "miss": 0,
+      "false_positives": 0,
+      "invalid_fixes": 0,
+      "valid_unknowns": 0,
+      "reported_true_findings": 1,
+      "known_defects": [
+        {
+          "id": "B-1",
+          "status": "full"
+        }
+      ]
+    },
+    {
+      "id": "R12",
+      "family": "family-b",
+      "packet": "packet-p",
+      "condition": "without",
+      "replicate": 2,
+      "study_phase": "primary",
+      "known_expected": 1,
+      "full": 1,
+      "partial": 0,
+      "miss": 0,
+      "false_positives": 0,
+      "invalid_fixes": 0,
+      "valid_unknowns": 0,
+      "reported_true_findings": 1,
+      "known_defects": [
+        {
+          "id": "B-1",
+          "status": "full"
+        }
+      ]
+    },
+    {
+      "id": "R22",
+      "family": "family-c",
+      "packet": "packet-q",
+      "condition": "without",
+      "replicate": 1,
+      "study_phase": "primary",
+      "known_expected": 1,
+      "full": 1,
+      "partial": 0,
+      "miss": 0,
+      "false_positives": 0,
+      "invalid_fixes": 0,
+      "valid_unknowns": 1,
+      "reported_true_findings": 1,
+      "known_defects": [
+        {
+          "id": "C1",
+          "status": "full"
+        }
+      ]
+    },
+    {
+      "id": "R17",
+      "family": "family-c",
+      "packet": "packet-p",
+      "condition": "without",
+      "replicate": 1,
+      "study_phase": "primary",
+      "known_expected": 0,
+      "full": 0,
+      "partial": 0,
+      "miss": 0,
+      "false_positives": 0,
+      "invalid_fixes": 0,
+      "valid_unknowns": 2,
+      "reported_true_findings": 0,
+      "known_defects": []
+    },
+    {
+      "id": "R24",
+      "family": "family-c",
+      "packet": "packet-q",
+      "condition": "with",
+      "replicate": 2,
+      "study_phase": "primary",
+      "known_expected": 1,
+      "full": 1,
+      "partial": 0,
+      "miss": 0,
+      "false_positives": 0,
+      "invalid_fixes": 0,
+      "valid_unknowns": 0,
+      "reported_true_findings": 1,
+      "known_defects": [
+        {
+          "id": "C1",
+          "status": "full"
+        }
+      ]
+    },
+    {
+      "id": "R23",
+      "family": "family-c",
+      "packet": "packet-q",
+      "condition": "without",
+      "replicate": 2,
+      "study_phase": "primary",
+      "known_expected": 1,
+      "full": 1,
+      "partial": 0,
+      "miss": 0,
+      "false_positives": 0,
+      "invalid_fixes": 0,
+      "valid_unknowns": 0,
+      "reported_true_findings": 1,
+      "known_defects": [
+        {
+          "id": "C1",
+          "status": "full"
+        }
+      ]
+    },
+    {
+      "id": "R18",
+      "family": "family-c",
+      "packet": "packet-p",
+      "condition": "with",
+      "replicate": 1,
+      "study_phase": "primary",
+      "known_expected": 0,
+      "full": 0,
+      "partial": 0,
+      "miss": 0,
+      "false_positives": 0,
+      "invalid_fixes": 0,
+      "valid_unknowns": 0,
+      "reported_true_findings": 0,
+      "known_defects": []
+    },
+    {
+      "id": "R20",
+      "family": "family-c",
+      "packet": "packet-p",
+      "condition": "without",
+      "replicate": 2,
+      "study_phase": "primary",
+      "known_expected": 0,
+      "full": 0,
+      "partial": 0,
+      "miss": 0,
+      "false_positives": 0,
+      "invalid_fixes": 0,
+      "valid_unknowns": 1,
+      "reported_true_findings": 0,
+      "known_defects": []
+    },
+    {
+      "id": "R21",
+      "family": "family-c",
+      "packet": "packet-q",
+      "condition": "with",
+      "replicate": 1,
+      "study_phase": "primary",
+      "known_expected": 1,
+      "full": 1,
+      "partial": 0,
+      "miss": 0,
+      "false_positives": 0,
+      "invalid_fixes": 0,
+      "valid_unknowns": 0,
+      "reported_true_findings": 1,
+      "known_defects": [
+        {
+          "id": "C1",
+          "status": "full"
+        }
+      ]
+    },
+    {
+      "id": "R19",
+      "family": "family-c",
+      "packet": "packet-p",
+      "condition": "with",
+      "replicate": 2,
+      "study_phase": "primary",
+      "known_expected": 0,
+      "full": 0,
+      "partial": 0,
+      "miss": 0,
+      "false_positives": 0,
+      "invalid_fixes": 0,
+      "valid_unknowns": 2,
+      "reported_true_findings": 0,
+      "known_defects": []
+    },
+    {
+      "id": "H02",
+      "family": "family-d",
+      "packet": "packet-p",
+      "condition": "with",
+      "replicate": 1,
+      "study_phase": "holdout",
+      "known_expected": 2,
+      "full": 2,
+      "partial": 0,
+      "miss": 0,
+      "false_positives": 0,
+      "invalid_fixes": 0,
+      "valid_unknowns": 1,
+      "reported_true_findings": 4,
+      "known_defects": [
+        {
+          "id": "D1",
+          "status": "full"
+        },
+        {
+          "id": "D2",
+          "status": "full"
+        }
+      ]
+    },
+    {
+      "id": "H05",
+      "family": "family-d",
+      "packet": "packet-q",
+      "condition": "with",
+      "replicate": 1,
+      "study_phase": "holdout",
+      "known_expected": 0,
+      "full": 0,
+      "partial": 0,
+      "miss": 0,
+      "false_positives": 0,
+      "invalid_fixes": 0,
+      "valid_unknowns": 1,
+      "reported_true_findings": 0,
+      "known_defects": []
+    },
+    {
+      "id": "H07",
+      "family": "family-d",
+      "packet": "packet-q",
+      "condition": "without",
+      "replicate": 2,
+      "study_phase": "holdout",
+      "known_expected": 0,
+      "full": 0,
+      "partial": 0,
+      "miss": 0,
+      "false_positives": 0,
+      "invalid_fixes": 0,
+      "valid_unknowns": 1,
+      "reported_true_findings": 0,
+      "known_defects": []
+    },
+    {
+      "id": "H06",
+      "family": "family-d",
+      "packet": "packet-q",
+      "condition": "without",
+      "replicate": 1,
+      "study_phase": "holdout",
+      "known_expected": 0,
+      "full": 0,
+      "partial": 0,
+      "miss": 0,
+      "false_positives": 0,
+      "invalid_fixes": 0,
+      "valid_unknowns": 2,
+      "reported_true_findings": 0,
+      "known_defects": []
+    },
+    {
+      "id": "H04",
+      "family": "family-d",
+      "packet": "packet-p",
+      "condition": "without",
+      "replicate": 2,
+      "study_phase": "holdout",
+      "known_expected": 2,
+      "full": 2,
+      "partial": 0,
+      "miss": 0,
+      "false_positives": 0,
+      "invalid_fixes": 0,
+      "valid_unknowns": 1,
+      "reported_true_findings": 4,
+      "known_defects": [
+        {
+          "id": "D1",
+          "status": "full"
+        },
+        {
+          "id": "D2",
+          "status": "full"
+        }
+      ]
+    },
+    {
+      "id": "H01",
+      "family": "family-d",
+      "packet": "packet-p",
+      "condition": "without",
+      "replicate": 1,
+      "study_phase": "holdout",
+      "known_expected": 2,
+      "full": 2,
+      "partial": 0,
+      "miss": 0,
+      "false_positives": 0,
+      "invalid_fixes": 0,
+      "valid_unknowns": 1,
+      "reported_true_findings": 5,
+      "known_defects": [
+        {
+          "id": "D1",
+          "status": "full"
+        },
+        {
+          "id": "D2",
+          "status": "full"
+        }
+      ]
+    },
+    {
+      "id": "H08",
+      "family": "family-d",
+      "packet": "packet-q",
+      "condition": "with",
+      "replicate": 2,
+      "study_phase": "holdout",
+      "known_expected": 0,
+      "full": 0,
+      "partial": 0,
+      "miss": 0,
+      "false_positives": 0,
+      "invalid_fixes": 0,
+      "valid_unknowns": 1,
+      "reported_true_findings": 0,
+      "known_defects": []
+    },
+    {
+      "id": "H03",
+      "family": "family-d",
+      "packet": "packet-p",
+      "condition": "with",
+      "replicate": 2,
+      "study_phase": "holdout",
+      "known_expected": 2,
+      "full": 2,
+      "partial": 0,
+      "miss": 0,
+      "false_positives": 0,
+      "invalid_fixes": 0,
+      "valid_unknowns": 0,
+      "reported_true_findings": 4,
+      "known_defects": [
+        {
+          "id": "D1",
+          "status": "full"
+        },
+        {
+          "id": "D2",
+          "status": "full"
+        }
+      ]
+    }
+  ],
+  "totals": {
+    "primary": {
+      "with": {
+        "graded_runs": 12,
+        "known_expected": 6,
+        "full": 6,
+        "partial": 0,
+        "miss": 0,
+        "false_positives": 0,
+        "invalid_fixes": 0,
+        "valid_unknowns": 9,
+        "reported_true_findings": 6
+      },
+      "without": {
+        "graded_runs": 12,
+        "known_expected": 6,
+        "full": 6,
+        "partial": 0,
+        "miss": 0,
+        "false_positives": 0,
+        "invalid_fixes": 0,
+        "valid_unknowns": 16,
+        "reported_true_findings": 6
+      }
+    },
+    "holdout": {
+      "with": {
+        "graded_runs": 4,
+        "known_expected": 4,
+        "full": 4,
+        "partial": 0,
+        "miss": 0,
+        "false_positives": 0,
+        "invalid_fixes": 0,
+        "valid_unknowns": 3,
+        "reported_true_findings": 8
+      },
+      "without": {
+        "graded_runs": 4,
+        "known_expected": 4,
+        "full": 4,
+        "partial": 0,
+        "miss": 0,
+        "false_positives": 0,
+        "invalid_fixes": 0,
+        "valid_unknowns": 5,
+        "reported_true_findings": 9
+      }
+    },
+    "all": {
+      "with": {
+        "graded_runs": 16,
+        "known_expected": 10,
+        "full": 10,
+        "partial": 0,
+        "miss": 0,
+        "false_positives": 0,
+        "invalid_fixes": 0,
+        "valid_unknowns": 12,
+        "reported_true_findings": 14
+      },
+      "without": {
+        "graded_runs": 16,
+        "known_expected": 10,
+        "full": 10,
+        "partial": 0,
+        "miss": 0,
+        "false_positives": 0,
+        "invalid_fixes": 0,
+        "valid_unknowns": 21,
+        "reported_true_findings": 15
+      }
+    }
+  },
+  "review_sha256": {
+    "family-a": "eaffc3aed1af7f23f4a1c2374cfe9b9cad169f62626d55efd8cae1b341dfe82b",
+    "family-b": "af88b811a02768a20714f863462ab7d39922823b88fe37670a2c847f7733b90e",
+    "family-c": "5146e897071fce34cfb1b455d3d84c825b84c1a6a5db40980259176843d860e0",
+    "family-d": "04d31c04d59648ab21d8850859bf1ec481236a0000b424df21b79f0e5559021f"
+  },
+  "exact_quotes_checked": 261,
+  "validation_errors": [],
+  "pending": [],
+  "limits": [
+    "Seeded defects, not production incidents.",
+    "Valid unknowns and duplicate descriptions do not count as false positives.",
+    "Exact quote checks verify evidence identity, not all semantic judgements.",
+    "Any extra true defect or claimed treatment benefit requires independent Root adjudication."
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "scope": "Synthetic pilot, supplementary consequences only",
+  "original_review_preserved": true,
+  "decisions": [
+    {
+      "claim_id": "delayed-reset-false-hold",
+      "accepted_as_source_backed_consequence": true,
+      "independent_defect_credit": false,
+      "reason": "Same scope/generation defect and same correction as D1/D2; no separate seeded detection credit. Source explicitly permits cross-source reordering and defines per-jar-generation assay authority.",
+      "candidates": [
+        "C1",
+        "C6",
+        "C8"
+      ]
+    },
+    {
+      "claim_id": "sibling-false-hold",
+      "accepted_as_source_backed_consequence": true,
+      "independent_defect_credit": false,
+      "reason": "Same scope/generation defect and same correction as D1/D2; no separate seeded detection credit. Source explicitly permits cross-source reordering and defines per-jar-generation assay authority.",
+      "candidates": [
+        "C5",
+        "C6"
+      ]
+    }
+  ]
+}

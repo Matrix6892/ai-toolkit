@@ -1,0 +1,77 @@
+{
+  "concurrency": 3,
+  "runs": [
+    {
+      "id": "H01",
+      "family": "family-d",
+      "packet": "packet-p",
+      "condition": "without",
+      "replicate": 1,
+      "study_phase": "holdout",
+      "skill_path": "candidate/architecture-review"
+    },
+    {
+      "id": "H02",
+      "family": "family-d",
+      "packet": "packet-p",
+      "condition": "with",
+      "replicate": 1,
+      "study_phase": "holdout",
+      "skill_path": "candidate/architecture-review"
+    },
+    {
+      "id": "H03",
+      "family": "family-d",
+      "packet": "packet-p",
+      "condition": "with",
+      "replicate": 2,
+      "study_phase": "holdout",
+      "skill_path": "candidate/architecture-review"
+    },
+    {
+      "id": "H04",
+      "family": "family-d",
+      "packet": "packet-p",
+      "condition": "without",
+      "replicate": 2,
+      "study_phase": "holdout",
+      "skill_path": "candidate/architecture-review"
+    },
+    {
+      "id": "H05",
+      "family": "family-d",
+      "packet": "packet-q",
+      "condition": "with",
+      "replicate": 1,
+      "study_phase": "holdout",
+      "skill_path": "candidate/architecture-review"
+    },
+    {
+      "id": "H06",
+      "family": "family-d",
+      "packet": "packet-q",
+      "condition": "without",
+      "replicate": 1,
+      "study_phase": "holdout",
+      "skill_path": "candidate/architecture-review"
+    },
+    {
+      "id": "H07",
+      "family": "family-d",
+      "packet": "packet-q",
+      "condition": "without",
+      "replicate": 2,
+      "study_phase": "holdout",
+      "skill_path": "candidate/architecture-review"
+    },
+    {
+      "id": "H08",
+      "family": "family-d",
+      "packet": "packet-q",
+      "condition": "with",
+      "replicate": 2,
+      "study_phase": "holdout",
+      "skill_path": "candidate/architecture-review"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "family": "a",
+  "status": "pass",
+  "blockers": [],
+  "scope": "Read packet-p/q, hidden/oracle.json, hidden/witness.py and author-report.json only; no candidate, skill, other case results, network or models.",
+  "defect_verified": {
+    "id": "A1",
+    "reason": "Programme 11-18 fixes the issued award, permits actual-cost growth and excludes automatic award increase. packet-p/03 lines 5-15 replaces the estimate and recomputes support; packet-p/04 lines 5-6 therefore pays 80000 against the issued 50000 for estimate=100000 and completion=160000. No extra premise is needed.",
+    "sources": [
+      "packet-p/01-programme.md:9-18",
+      "packet-p/03-data-design.md:5-15",
+      "packet-p/04-payment-contract.md:4-6"
+    ]
+  },
+  "valid_variant_verified": {
+    "reason": "The same programme and participant requirements apply. packet-q/03 lines 5-13 retains immutable typed estimate and completion facts; lines 9,12,16 derive the original award from that estimate. packet-q/04 lines 4-6 pays min(actual half, original award). No requirement for a separate award column or service is justified.",
+    "proof": "For every permitted nonnegative integer estimate e and completion c, q pays min(floor(c/2), min(floor(e/2),100000)), exactly the programme formula with contract rounding."
+  },
+  "witness_run": {
+    "command": "python3 -B family-a/hidden/witness.py",
+    "exit_code": 0,
+    "counterexample": {
+      "estimate": 100000,
+      "completion": 160000,
+      "issued": 50000,
+      "packet_p_paid": 80000,
+      "packet_q_paid": 50000
+    },
+    "checked_scenarios": 64,
+    "packet_p_violations": 26,
+    "packet_q_violations": 0,
+    "assessment": "Executable model faithfully implements the documented arithmetic; bounded sweep corroborates, algebra establishes q equivalence beyond the sweep. This does not claim implementation testing."
+  },
+  "assumptions_and_unknowns": "No unstated intervention, commission approval, payment correction or reserve cap is assumed. Concurrency/idempotency and operational reliability are treated according to the stated guarantees; unspecified implementation details are not charged as errors. No independent substantive side defect is established by these documents.",
+  "citation_check": {
+    "assessment": "Cited source files and lines support the substantive oracle. Minor optional citation tightening only; no oracle-label impact.",
+    "optional_improvement": "The p payment source range 4-12 does not include the explicit no-adapter-check sentence at line 13; extend to 13. The q derived_support formula is at 03 line 16, while cited range ends at 15; line 12 already supplies the equivalent invariant, but extending to 16 improves precision."
+  },
+  "capacity": {
+    "disk_available_before_bytes": 8829779968,
+    "memory_free_percent_before": 40,
+    "expected_growth_bytes_less_than": 100000,
+    "reserve_policy": "Tiny read-only local audit plus one JSON deliverable; no builds, downloads, background services or models."
+  },
+  "closeout": {
+    "removed_paths": [],
+    "removed_allocated_bytes": 0,
+    "own_processes": "All synchronous witness/read/write processes exited; no background processes or extra temporary files created.",
+    "retained_path": "LOCAL_TASK_EVIDENCE/audit-family-a.json",
+    "owner": "Root",
+    "reason": "Independent audit evidence pending acceptance and verified durable copy.",
+    "release_condition": "Root removes the shared task tree after acceptance and evidence copy.",
+    "inputs_modified": false
+  }
+}

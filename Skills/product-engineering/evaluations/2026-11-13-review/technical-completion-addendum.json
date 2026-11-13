@@ -1,0 +1,9 @@
+{
+  "reason": "The original runner rejected any top-level error event. Native CLI can emit reconnect/HTTP transport warnings and then finish the same turn successfully.",
+  "discovered_before_authentic_grading": true,
+  "raw_records": "Original state.json and event logs remain unmodified, including raw failed labels and all transport warnings.",
+  "valid_terminal_result": "Process exit0, nonempty completed-turn usage, saved review.md, final JSON event turn.completed, no turn.failed. Running or unknown outcomes are never scored or replayed.",
+  "initial_examples": ["E01", "E02", "E03"],
+  "handling": "Observe original native IDs. No additional model runs or response selection. terminal.py checks every job consistently; run-metrics exposes raw state and recovered warnings.",
+  "cost_limit": "CLI-reported token aggregates may omit unreported failed transport requests; no billing or causal latency claims. Transport recovery is not a model substitution."
+}
